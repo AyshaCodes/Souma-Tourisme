@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourisme Culturel au Maroc | Souma Tourisme</title>
+    <meta name="description" content="Circuits privés, visites de médinas, palais secrets et rencontres avec les artisans. Plongez dans l'authenticité marocaine avec Souma Tourisme.">
+    <meta name="keywords" content="tourisme culturel maroc, circuit maroc, médina fès, artisanat maroc, gastronomie marocaine, désert agafay">
+    <meta name="author" content="Souma Tourisme">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tourisme Culturel au Maroc | Souma Tourisme">
+    <meta property="og:description" content="Circuits privés, médinas, palais secrets et rencontres avec les artisans du Maroc.">
+    <meta property="og:image" content="images/og-culturel.jpg">
+    <meta property="og:url" content="https://www.soumatourisme.com/culturel.html">
+
+    <link rel="canonical" href="https://www.soumatourisme.com/culturel.html">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+    <!-- Icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS partagé -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ── HERO CULTUREL ── */
+        .hero-culturel {
+            position: relative;
+            height: 88vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            overflow: hidden;
+        }
+
+        .hero-culturel__bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.pexels.com/photos/2694325/pexels-photo-2694325.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            transition: transform 0.1s linear;
+        }
+
+        .hero-culturel__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                160deg,
+                rgba(26, 77, 46, 0.75) 0%,
+                rgba(26, 77, 46, 0.5) 40%,
+                rgba(100, 20, 20, 0.55) 100%
+            );
+            z-index: -1;
+        }
+
+        .hero-culturel__content {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+            padding: 0 20px;
+        }
+
+        .hero-culturel__tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(8px);
+            padding: 7px 18px;
+            border-radius: 50px;
+            margin-bottom: 28px;
+            animation: fadeUp 0.8s ease-out both;
+        }
+
+        .hero-culturel__title {
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 6vw, 5rem);
+            color: var(--light);
+            margin-bottom: 22px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+            animation: fadeUp 0.8s ease-out 0.15s both;
+        }
+
+        .hero-culturel__title em {
+            font-style: italic;
+            color: rgba(255,255,255,0.82);
+        }
+
+        .hero-culturel__text {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            opacity: 0.9;
+            max-width: 580px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+            animation: fadeUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-culturel__actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeUp 0.8s ease-out 0.45s both;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 16px 0;
+            font-size: 0.83rem;
+            color: var(--gray-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .breadcrumb a {
+            text-decoration: none;
+            color: var(--gray);
+            transition: color 0.2s;
+        }
+        .breadcrumb a:hover { color: var(--secondary); }
+        .breadcrumb i { font-size: 0.65rem; color: var(--gray-light); }
+        .breadcrumb span { color: var(--secondary); font-weight: 500; }
+
+        /* ── INTRO ── */
+        .intro-section {
+            background: var(--accent);
+            padding: clamp(50px, 6vw, 90px) 0;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .intro-grid__text .section__tag { margin-bottom: 14px; }
+
+        .intro-grid__text h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .intro-grid__text p {
+            color: var(--gray);
+            font-size: 0.97rem;
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+
+        .intro-grid__image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .intro-grid__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .intro-grid__image:hover img { transform: scale(1.04); }
+
+        .intro-grid__image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: var(--radius-lg);
+            pointer-events: none;
+        }
+
+        /* ── CIRCUITS ── */
+        .circuits {
+            padding: clamp(60px, 8vw, 110px) 0;
+            background: var(--light);
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+        }
+
+        .exp-card {
+            background: var(--light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .exp-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .exp-card__img {
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+        }
+
+        .exp-card__img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .exp-card:hover .exp-card__img img { transform: scale(1.05); }
+
+        .exp-card__number {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            background: var(--secondary);
+            color: var(--light);
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .exp-card__body {
+            padding: 28px 30px 32px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .exp-card__body h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .exp-card__body > p {
+            color: var(--gray);
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .exp-card__list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .exp-card__list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.87rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .exp-card__list li i {
+            color: var(--secondary);
+            font-size: 0.72rem;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        /* ── CHIFFRES CLÉS ── */
+        .stats-section {
+            padding: clamp(50px, 6vw, 80px) 0;
+            background: var(--primary);
+            color: var(--light);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2px;
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .stat-item {
+            padding: 40px 30px;
+            text-align: center;
+            background: rgba(255,255,255,0.04);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover { background: rgba(255,255,255,0.08); }
+
+        .stat-item strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--light);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-item span {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.75;
+        }
+
+        /* ── EXPÉRIENCES IMMERSIVES ── */
+        .immersives-section {
+            background: var(--accent);
+            padding: clamp(60px, 8vw, 110px) 0;
+        }
+
+        .immersives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2px;
+            background: var(--accent-dark);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .immersive-item {
+            background: var(--accent);
+            padding: 44px 32px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .immersive-item:hover { background: var(--light); }
+
+        .immersive-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(181,39,42,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 22px;
+            transition: var(--transition);
+        }
+
+        .immersive-item:hover .immersive-icon { background: var(--secondary); }
+
+        .immersive-icon i {
+            font-size: 1.6rem;
+            color: var(--secondary);
+            transition: var(--transition-fast);
+        }
+
+        .immersive-item:hover .immersive-icon i { color: var(--light); }
+
+        .immersive-item h4 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .immersive-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        /* ── ITINÉRAIRE ── */
+        .itineraire {
+            background: var(--light);
+            padding: clamp(60px, 8vw, 110px) 0;
+        }
+
+        .timeline {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0;
+            margin-top: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            z-index: 0;
+        }
+
+        .timeline-step {
+            background: var(--accent);
+            border-radius: var(--radius);
+            padding: 28px 18px;
+            margin: 0 8px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            z-index: 1;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .timeline-step:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+            border-color: transparent;
+            background: var(--light);
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--light);
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            box-shadow: 0 4px 14px rgba(26,77,46,0.3);
+            transition: var(--transition);
+        }
+
+        .timeline-step:hover .step-number {
+            background: var(--secondary);
+            box-shadow: 0 4px 14px rgba(181,39,42,0.3);
+        }
+
+        .timeline-step h4 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .timeline-step p {
+            font-size: 0.83rem;
+            color: var(--gray);
+            line-height: 1.55;
+        }
+
+        /* ── TÉMOIGNAGES ── */
+        .testimonials-page {
+            padding: clamp(60px, 8vw, 110px) 0;
+            background: var(--light-gray);
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        /* ── FAQ ── */
+        .faq-section {
+            background: var(--accent);
+            padding: clamp(60px, 8vw, 110px) 0;
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--light);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: var(--transition-fast);
+        }
+
+        .faq-item.open {
+            box-shadow: var(--shadow-sm);
+            border-color: rgba(26,77,46,0.15);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--dark);
+            gap: 16px;
+            user-select: none;
+        }
+
+        .faq-question i {
+            color: var(--secondary);
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-question i { transform: rotate(180deg); }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 24px;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 20px;
+        }
+
+        .faq-answer p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* ── FORMULAIRE DEVIS ── */
+        .devis-section {
+            padding: clamp(60px, 8vw, 110px) 0;
+            background: var(--light-gray);
+        }
+
+        .devis-inner {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .devis-info {
+            position: sticky;
+            top: 110px;
+        }
+
+        .devis-info h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+            color: var(--primary);
+            margin-bottom: 18px;
+            line-height: 1.25;
+        }
+
+        .devis-info > p {
+            color: var(--gray);
+            font-size: 0.93rem;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .devis-features {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .devis-feature {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            background: var(--light);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--dark-soft);
+        }
+
+        .devis-feature i {
+            color: var(--primary);
+            font-size: 1rem;
+            width: 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .intro-grid { grid-template-columns: 1fr; }
+            .intro-grid__image { order: -1; }
+            .devis-inner { grid-template-columns: 1fr; }
+            .devis-info { position: static; }
+            .timeline::before { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .timeline { grid-template-columns: 1fr; gap: 16px; }
+            .timeline-step { margin: 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristTrip",
+      "name": "Tourisme Culturel au Maroc",
+      "description": "Circuits privés, médinas, artisanat et gastronomie avec Souma Tourisme.",
+      "provider": {
+        "@type": "TravelAgency",
+        "name": "Souma Tourisme",
+        "url": "https://www.soumatourisme.com"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header" role="banner">
+        <div class="container header__inner">
+            <a href="index.html" class="logo" aria-label="Souma Tourisme — Retour à l'accueil">
+                <img src="images/logo-removebg-preview.png" alt="Souma Tourisme" class="logo-img">
+            </a>
+            <nav class="nav" id="nav" aria-label="Navigation principale">
+                <ul class="nav__list" role="list">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#destinations">Destinations</a></li>
+                    <li><a href="index.html#services">Nos services</a></li>
+                    <li><a href="index.html#voyages">Sur mesure</a></li>
+                    <li><a href="index.html#temoignages">Avis clients</a></li>
+                    <li><a href="index.html#contact" class="nav__cta">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero-culturel" aria-label="Tourisme culturel au Maroc">
+        <div class="hero-culturel__bg" id="heroBg" aria-hidden="true"></div>
+        <div class="hero-culturel__overlay" aria-hidden="true"></div>
+        <div class="hero-culturel__content container">
+            <span class="hero-culturel__tag">Authenticité &amp; Découverte</span>
+            <h1 class="hero-culturel__title">
+                Tourisme culturel<br><em>au cœur du Maroc vivant</em>
+            </h1>
+            <p class="hero-culturel__text">
+                Médinas classées UNESCO, palais secrets, ateliers d'artisans et gastronomie d'exception —
+                le Maroc authentique à votre rythme.
+            </p>
+            <div class="hero-culturel__actions">
+                <a href="#demande" class="btn btn-primary">Demander un devis</a>
+                <a href="#circuits" class="btn btn-ghost">Nos circuits</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BREADCRUMB ========== -->
+    <nav aria-label="Fil d'Ariane">
+        <div class="container">
+            <ol class="breadcrumb" role="list">
+                <li><a href="index.html">Accueil</a></li>
+                <li><i class="fas fa-chevron-right" aria-hidden="true"></i></li>
+                <li><a href="index.html#services">Nos services</a></li>
+                <li><i class="fas fa-chevron-right" aria-hidden="true"></i></li>
+                <li><span aria-current="page">Tourisme culturel</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- ========== INTRO ========== -->
+    <section class="intro-section" aria-labelledby="intro-title">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-grid__text">
+                    <span class="section__tag">Notre philosophie</span>
+                    <h2 id="intro-title">Un voyage qui éveille<br><em>les sens et l'esprit</em></h2>
+                    <p>Le Maroc est un pays-monde : chaque ville, chaque souk, chaque plat raconte des siècles d'histoire, de brassage et de créativité. Fès la médiévale, Marrakech l'envoûtante, Essaouira la bohème — autant d'univers à explorer à votre rythme.</p>
+                    <p>Souma Tourisme vous ouvre les portes des demeures privées, des ateliers de maîtres artisans et des tables qui ne se trouvent dans aucun guide. Un voyage au-delà des apparences.</p>
+                    <a href="#circuits" class="link-arrow" style="margin-top:8px; display:inline-flex;">
+                        Découvrir nos circuits <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="intro-grid__image">
+                    <img src="https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=900"
+                         alt="Ruelle colorée d'une médina marocaine"
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CHIFFRES CLÉS ========== -->
+    <section class="stats-section" aria-label="Chiffres clés du tourisme culturel">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <strong class="counter" data-target="580">0</strong>
+                    <span>Voyageurs accompagnés</span>
+                </div>
+                <div class="stat-item">
+                    <strong class="counter" data-target="8">0</strong>
+                    <span>Villes incontournables</span>
+                </div>
+                <div class="stat-item">
+                    <strong class="counter" data-target="99">0</strong>
+                    <span>% de satisfaction</span>
+                </div>
+                <div class="stat-item">
+                    <strong class="counter" data-target="15">0</strong>
+                    <span>Années d'expertise</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CIRCUITS ========== -->
+    <section class="circuits section" id="circuits" aria-labelledby="circuits-title">
+        <div class="container">
+            <div class="section__header text-center">
+                <span class="section__tag">Nos circuits culturels</span>
+                <h2 class="section__title" id="circuits-title">Voyagez autrement,<br><em>vivez l'authenticité</em></h2>
+                <p class="section__subtitle">Des expériences uniques pour découvrir le Maroc profond, loin des sentiers battus.</p>
+            </div>
+            <div class="exp-grid">
+                <!-- Carte 1 -->
+                <article class="exp-card">
+                    <div class="exp-card__img">
+                        <img src="https://images.pexels.com/photos/2349165/pexels-photo-2349165.jpeg?auto=compress&cs=tinysrgb&w=700"
+                             alt="Médina de Fès et ses ruelles historiques"
+                             loading="lazy">
+                        <div class="exp-card__number" aria-hidden="true">01</div>
+                    </div>
+                    <div class="exp-card__body">
+                        <h3>Médinas &amp; Palais historiques</h3>
+                        <p>Fès, Marrakech, Meknès : visites privées des palais royaux, jardins secrets et médinas classées au patrimoine mondial de l'UNESCO.</p>
+                        <ul class="exp-card__list" aria-label="Services inclus">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Guide historien francophone certifié</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Accès exclusif aux riads et demeures privées</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Découverte des fondouks et souks emblématiques</li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- Carte 2 -->
+                <article class="exp-card">
+                    <div class="exp-card__img">
+                        <img src="https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg?auto=compress&cs=tinysrgb&w=700"
+                             alt="Atelier d'artisanat marocain, poterie et zellige"
+                             loading="lazy">
+                        <div class="exp-card__number" aria-hidden="true">02</div>
+                    </div>
+                    <div class="exp-card__body">
+                        <h3>Artisanat &amp; Ateliers créatifs</h3>
+                        <p>Rencontrez les maîtres artisans dans leurs ateliers : poterie, tapis berbères, maroquinerie, zellige — et repartez avec votre propre création.</p>
+                        <ul class="exp-card__list" aria-label="Services inclus">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Cours de poterie à Safi et mosaïque à Fès</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Atelier tissage de tapis à Azrou</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Visite des coopératives d'artisans certifiées</li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- Carte 3 -->
+                <article class="exp-card">
+                    <div class="exp-card__img">
+                        <img src="https://images.pexels.com/photos/6210733/pexels-photo-6210733.jpeg?auto=compress&cs=tinysrgb&w=700"
+                             alt="Gastronomie marocaine et cours de cuisine"
+                             loading="lazy">
+                        <div class="exp-card__number" aria-hidden="true">03</div>
+                    </div>
+                    <div class="exp-card__body">
+                        <h3>Gastronomie &amp; Saveurs</h3>
+                        <p>Cours de cuisine dans des demeures privées, marchés d'épices, producteurs d'huile d'argan et dîners de gala dans des palais historiques.</p>
+                        <ul class="exp-card__list" aria-label="Services inclus">
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Cours de cuisine traditionnelle en famille</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Visite de producteurs locaux (argan, safran, épices)</li>
+                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Dîners dans des riad et palais d'exception</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== EXPÉRIENCES IMMERSIVES ========== -->
+    <section class="immersives-section" aria-labelledby="imm-title">
+        <div class="container">
+            <div class="section__header text-center">
+                <span class="section__tag">Aller plus loin</span>
+                <h2 class="section__title" id="imm-title">Expériences immersives<br><em>inoubliables</em></h2>
+                <p class="section__subtitle">Des moments privilégiés au plus près des traditions vivantes du Maroc.</p>
+            </div>
+            <div class="immersives-grid">
+                <div class="immersive-item">
+                    <div class="immersive-icon" aria-hidden="true"><i class="fas fa-music"></i></div>
+                    <h4>Musique &amp; Arts</h4>
+                    <p>Soirées de musique gnawa, malhoun ou andalouse dans des lieux intimistes à Fès ou Marrakech.</p>
+                </div>
+                <div class="immersive-item">
+                    <div class="immersive-icon" aria-hidden="true"><i class="fas fa-spa"></i></div>
+                    <h4>Hammam &amp; Rituels</h4>
+                    <p>Expérience de hammam traditionnel, gommage au savon beldi et soin à l'huile d'argan pure.</p>
+                </div>
+                <div class="immersive-item">
+                    <div class="immersive-icon" aria-hidden="true"><i class="fas fa-person-hiking"></i></div>
+                    <h4>Randonnées culturelles</h4>
+                    <p>Treks dans le Haut Atlas, villages berbères et partage du thé à la menthe autour d'un foyer.</p>
+                </div>
+                <div class="immersive-item">
+                    <div class="immersive-icon" aria-hidden="true"><i class="fas fa-moon"></i></div>
+                    <h4>Nuits désertiques</h4>
+                    <p>Bivouac dans le désert d'Agafay ou à Merzouga, contes berbères sous les étoiles et musique de sable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ITINÉRAIRE TYPE ========== -->
+    <section class="itineraire" aria-labelledby="itin-title">
+        <div class="container">
+            <div class="section__header text-center">
+                <span class="section__tag">Circuit recommandé — 8 jours</span>
+                <h2 class="section__title" id="itin-title">Les trésors du Maroc<br><em>en une semaine</em></h2>
+                <p class="section__subtitle">Un parcours entre villes impériales, artisanat et grands espaces.</p>
+            </div>
+            <div class="timeline" role="list">
+                <div class="timeline-step" role="listitem">
+                    <div class="step-number" aria-hidden="true">J1</div>
+                    <h4>Casablanca</h4>
+                    <p>Mosquée Hassan II, Art Déco du centre-ville, corniche et arrivée à Rabat.</p>
+                </div>
+                <div class="timeline-step" role="listitem">
+                    <div class="step-number" aria-hidden="true">J2-3</div>
+                    <h4>Fès</h4>
+                    <p>Médina, tanneries Chouara, université Al Quaraouiyine et atelier de poterie.</p>
+                </div>
+                <div class="timeline-step" role="listitem">
+                    <div class="step-number" aria-hidden="true">J4</div>
+                    <h4>Meknès &amp; Volubilis</h4>
+                    <p>Sites romains, mausolée Moulay Ismaïl et vignobles des environs.</p>
+                </div>
+                <div class="timeline-step" role="listitem">
+                    <div class="step-number" aria-hidden="true">J5-6</div>
+                    <h4>Marrakech</h4>
+                    <p>Jemaa el-Fna, palais Bahia, jardins Majorelle, souk et cours de cuisine.</p>
+                </div>
+                <div class="timeline-step" role="listitem">
+                    <div class="step-number" aria-hidden="true">J7-8</div>
+                    <h4>Désert d'Agafay</h4>
+                    <p>Nuit sous tente berbère, dîner aux étoiles, lever de soleil sur les dunes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TÉMOIGNAGES ========== -->
+    <section class="testimonials-page" aria-labelledby="testi-title">
+        <div class="container">
+            <div class="section__header text-center">
+                <span class="section__tag">Ils ont vécu l'expérience</span>
+                <h2 class="section__title" id="testi-title">Ce que disent<br><em>nos voyageurs</em></h2>
+            </div>
+            <div class="testi-grid">
+                <blockquote class="testi-card">
+                    <div class="testi-card__stars" aria-label="5 étoiles sur 5">
+                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p>« Une immersion exceptionnelle dans l'artisanat de Fès. L'atelier de zellige était magique — ces rencontres humaines sont inestimables. »</p>
+                    <footer class="testi-card__author">
+                        <div class="testi-card__avatar" aria-hidden="true">CR</div>
+                        <div><strong>Claire R.</strong><span>Circuit artisanat, Fès 2024</span></div>
+                    </footer>
+                </blockquote>
+                <blockquote class="testi-card">
+                    <div class="testi-card__stars" aria-label="5 étoiles sur 5">
+                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p>« Le circuit sur mesure a dépassé toutes nos attentes. Guide passionné, logistique parfaite et des adresses confidentielles introuvables ailleurs. »</p>
+                    <footer class="testi-card__author">
+                        <div class="testi-card__avatar" aria-hidden="true">PN</div>
+                        <div><strong>Philippe &amp; Nathalie</strong><span>Circuit villes impériales, 2024</span></div>
+                    </footer>
+                </blockquote>
+                <blockquote class="testi-card">
+                    <div class="testi-card__stars" aria-label="5 étoiles sur 5">
+                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p>« L'atelier cuisine et la nuit dans le désert d'Agafay resteront gravés à jamais. Souma Tourisme crée de vraies émotions. »</p>
+                    <footer class="testi-card__author">
+                        <div class="testi-card__avatar" aria-hidden="true">LM</div>
+                        <div><strong>Laura M.</strong><span>Circuit gastronomie &amp; désert, 2023</span></div>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="faq-section" aria-labelledby="faq-title">
+        <div class="container">
+            <div class="section__header text-center">
+                <span class="section__tag">Questions fréquentes</span>
+                <h2 class="section__title" id="faq-title">Tout ce que vous<br><em>devez savoir</em></h2>
+            </div>
+            <ul class="faq-list" role="list">
+                <li class="faq-item">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                        Les circuits sont-ils adaptés aux enfants et aux seniors ?
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui. Nous adaptons systématiquement le rythme, les distances et les activités à la composition du groupe. Des visites en voiture avec peu de marche sont possibles pour les seniors, et des ateliers créatifs spéciaux sont prévus pour les enfants.</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                        Peut-on personnaliser l'itinéraire proposé ?
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolument, c'est même notre spécialité. L'itinéraire type est une base d'inspiration : chaque étape, chaque activité et chaque hébergement peut être modifié selon vos envies, votre budget et la durée de votre séjour.</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                        Les guides parlent-ils d'autres langues que le français ?
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nos guides parlent couramment français, arabe et la plupart maîtrisent également l'anglais et l'espagnol. Pour d'autres langues, nous consultons notre réseau de partenaires afin de vous trouver le guide le mieux adapté.</p>
+                    </div>
+                </li>
+                <li class="faq-item">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                        Quelle est la meilleure saison pour un circuit culturel au Maroc ?
+                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Le printemps (mars–mai) et l'automne (septembre–novembre) offrent les meilleures conditions. Les étés peuvent être très chauds dans les villes intérieures, mais restent agréables sur la côte. L'hiver est idéal pour le désert et le Sud marocain.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ========== FORMULAIRE DE DEVIS ========== -->
+    <section class="devis-section" id="demande" aria-labelledby="devis-title">
+        <div class="container">
+            <div class="devis-inner">
+                <div class="devis-info">
+                    <span class="section__tag">Votre voyage sur mesure</span>
+                    <h2 id="devis-title">Créons votre<br><em>circuit culturel</em></h2>
+                    <p>Racontez-nous vos envies, notre équipe vous répond sous 24h pour dessiner l'itinéraire parfait.</p>
+                    <div class="devis-features">
+                        <div class="devis-feature">
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            <span>Réponse garantie sous 24h</span>
+                        </div>
+                        <div class="devis-feature">
+                            <i class="fas fa-hand-sparkles" aria-hidden="true"></i>
+                            <span>Conseiller dédié 24h/7j</span>
+                        </div>
+                        <div class="devis-feature">
+                            <i class="fas fa-tags" aria-hidden="true"></i>
+                            <span>Devis gratuit et sans engagement</span>
+                        </div>
+                        <div class="devis-feature">
+                            <i class="fas fa-route" aria-hidden="true"></i>
+                            <span>Itinéraire 100% personnalisé</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact__form" id="culturelForm" novalidate aria-label="Formulaire de devis tourisme culturel">
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="c-nom">Nom complet <span aria-hidden="true">*</span></label>
+                            <input type="text" id="c-nom" name="nom" placeholder="Jean Dupont" required autocomplete="name">
+                            <span class="form__error" role="alert" aria-live="polite"></span>
+                        </div>
+                        <div class="form__group">
+                            <label for="c-email">Email <span aria-hidden="true">*</span></label>
+                            <input type="email" id="c-email" name="email" placeholder="jean@exemple.com" required autocomplete="email">
+                            <span class="form__error" role="alert" aria-live="polite"></span>
+                        </div>
+                    </div>
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="c-tel">Téléphone</label>
+                            <input type="tel" id="c-tel" name="telephone" placeholder="+33 6 00 00 00 00" autocomplete="tel">
+                        </div>
+                        <div class="form__group">
+                            <label for="c-interet">Centre d'intérêt principal <span aria-hidden="true">*</span></label>
+                            <select id="c-interet" name="interet" required>
+                                <option value="">Choisissez un thème</option>
+                                <option value="patrimoine">Visites historiques &amp; patrimoine</option>
+                                <option value="artisanat">Artisanat &amp; ateliers créatifs</option>
+                                <option value="gastronomie">Gastronomie &amp; cours de cuisine</option>
+                                <option value="nature">Randonnées &amp; nature</option>
+                                <option value="combine">Circuit culturel combiné</option>
+                            </select>
+                            <span class="form__error" role="alert" aria-live="polite"></span>
+                        </div>
+                    </div>
+                    <div class="form__row">
+                        <div class="form__group">
+                            <label for="c-voyageurs">Nombre de voyageurs</label>
+                            <select id="c-voyageurs" name="voyageurs">
+                                <option value="">Sélectionner</option>
+                                <option>1 personne</option>
+                                <option>2 personnes</option>
+                                <option>3–5 personnes</option>
+                                <option>Famille (enfants inclus)</option>
+                                <option>Groupe (6+)</option>
+                            </select>
+                        </div>
+                        <div class="form__group">
+                            <label for="c-dates">Dates souhaitées</label>
+                            <input type="text" id="c-dates" name="dates" placeholder="ex : Octobre 2025, 8 jours">
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label for="c-message">Vos souhaits particuliers <span aria-hidden="true">*</span></label>
+                        <textarea id="c-message" name="message" rows="5" placeholder="Décrivez vos envies, destinations rêvées, activités incontournables pour vous…" required></textarea>
+                        <span class="form__error" role="alert" aria-live="polite"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn--full">
+                        <span class="btn__text">Envoyer ma demande</span>
+                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                    </button>
+                    <div class="form__success" id="culturelFormSuccess" role="status" aria-live="polite" hidden>
+                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                        <p>Merci ! Votre demande a été envoyée. Nous vous contacterons sous 24h.</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <div class="footer__col footer__col--brand">
+                <a href="index.html" aria-label="Souma Tourisme — Retour à l'accueil">
+                    <img src="images/logo-white.png" alt="Souma Tourisme" class="footer__logo">
+                </a>
+                <p>L'excellence du voyage sur mesure au Maroc, depuis Casablanca.</p>
+                <div class="social" aria-label="Réseaux sociaux">
+                    <a href="https://www.instagram.com/soumatourisme" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/soumatourisme" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="https://wa.me/212612345678" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h4>Nos services</h4>
+                <ul>
+                    <li><a href="religieux.html">Tourisme religieux</a></li>
+                    <li><a href="medical.html">Tourisme médical</a></li>
+                    <li><a href="culturel.html" aria-current="page">Tourisme culturel</a></li>
+                    <li><a href="index.html#voyages">Voyages sur mesure</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Contact</h4>
+                <address>
+                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+212 650-405798">+212 650-405798</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:masoumare72@gmail.com">masoumare72@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Casablanca, Maroc</p>
+                </address>
+            </div>
+            <div class="footer__col">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions générales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© <span id="currentYear">2025</span> Souma Tourisme — Tous droits réservés</p>
+            <p>Conçu avec <i class="fas fa-heart" aria-hidden="true" style="color:var(--secondary);"></i> au Maroc</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp flottant -->
+    <a href="https://wa.me/212612345678?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20un%20circuit%20culturel%20sur%20mesure"
+       class="whatsapp-float"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Nous contacter sur WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span>Discuter</span>
+    </a>
+
+    <!-- Bouton retour en haut -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut de page" hidden>
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+    <script>
+        /* Parallaxe hero */
+        const heroBg = document.getElementById('heroBg');
+        if (heroBg) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY < window.innerHeight) {
+                    heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+                }
+            }, { passive: true });
+        }
+
+        /* FAQ accordion */
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item.open').forEach(el => {
+                    el.classList.remove('open');
+                    el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+            btn.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    btn.click();
+                }
+            });
+        });
+
+        /* Formulaire culturel */
+        const culturelForm = document.getElementById('culturelForm');
+        if (culturelForm) {
+            const successMsg = document.getElementById('culturelFormSuccess');
+
+            function validateField(field) {
+                const errorEl = field.parentElement.querySelector('.form__error');
+                let msg = '';
+                if (field.required && !field.value.trim()) msg = 'Ce champ est requis.';
+                else if (field.type === 'email' && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) msg = 'Email invalide.';
+                if (errorEl) errorEl.textContent = msg;
+                field.classList.toggle('error', !!msg);
+                return !msg;
+            }
+
+            culturelForm.querySelectorAll('input[required], select[required], textarea[required]').forEach(f => {
+                f.addEventListener('blur', () => validateField(f));
+                f.addEventListener('input', () => { if (f.classList.contains('error')) validateField(f); });
+            });
+
+            culturelForm.addEventListener('submit', async e => {
+                e.preventDefault();
+                const fields = culturelForm.querySelectorAll('[required]');
+                let valid = true;
+                fields.forEach(f => { if (!validateField(f)) valid = false; });
+                if (!valid) return;
+
+                const btn = culturelForm.querySelector('[type="submit"]');
+                const text = btn.querySelector('.btn__text');
+                btn.disabled = true;
+                if (text) text.textContent = 'Envoi en cours…';
+
+                await new Promise(r => setTimeout(r, 1500));
+
+                culturelForm.style.display = 'none';
+                if (successMsg) successMsg.removeAttribute('hidden');
+
+                setTimeout(() => {
+                    culturelForm.reset();
+                    culturelForm.style.display = '';
+                    if (successMsg) successMsg.setAttribute('hidden', '');
+                    btn.disabled = false;
+                    if (text) text.textContent = 'Envoyer ma demande';
+                }, 6000);
+            });
+        }
+
+        /* Année footer */
+        const yr = document.getElementById('currentYear');
+        if (yr) yr.textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

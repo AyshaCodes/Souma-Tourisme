@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Destinations au Maroc | Souma Tourisme</title>
+    <meta name="description" content="Marrakech, Fès, Chefchaouen, Essaouira, Merzouga… Découvrez toutes nos destinations d'exception au Maroc avec Souma Tourisme.">
+    <meta name="keywords" content="destinations maroc, marrakech, fès, chefchaouen, essaouira, merzouga, désert, agafay, rabat, ouarzazate">
+    <meta name="author" content="Souma Tourisme">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nos Destinations au Maroc | Souma Tourisme">
+    <meta property="og:description" content="Découvrez toutes nos destinations d'exception au Maroc.">
+    <meta property="og:url" content="https://www.soumatourisme.com/destinations.html">
+
+    <link rel="canonical" href="https://www.soumatourisme.com/destinations.html">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+    <!-- Icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS partagé -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ── HERO DESTINATIONS ── */
+        .hero-dest {
+            position: relative;
+            height: 70vh;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            overflow: hidden;
+        }
+
+        .hero-dest__bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            transition: transform 0.1s linear;
+        }
+
+        .hero-dest__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                160deg,
+                rgba(26, 77, 46, 0.78) 0%,
+                rgba(26, 77, 46, 0.52) 45%,
+                rgba(100, 20, 20, 0.58) 100%
+            );
+            z-index: -1;
+        }
+
+        .hero-dest__content {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+            padding: 0 20px;
+        }
+
+        .hero-dest__tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(8px);
+            padding: 7px 18px;
+            border-radius: 50px;
+            margin-bottom: 28px;
+            animation: fadeUp 0.8s ease-out both;
+        }
+
+        .hero-dest__title {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+            color: var(--light);
+            margin-bottom: 20px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+            animation: fadeUp 0.8s ease-out 0.15s both;
+            line-height: 1.15;
+        }
+
+        .hero-dest__title em {
+            font-style: italic;
+            color: rgba(255,255,255,0.82);
+        }
+
+        .hero-dest__text {
+            font-size: clamp(1rem, 1.4vw, 1.15rem);
+            opacity: 0.9;
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.7;
+            animation: fadeUp 0.8s ease-out 0.3s both;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 16px 0;
+            font-size: 0.83rem;
+            color: var(--gray-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .breadcrumb a { text-decoration: none; color: var(--gray); transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--secondary); }
+        .breadcrumb i { font-size: 0.65rem; color: var(--gray-light); }
+        .breadcrumb span { color: var(--secondary); font-weight: 500; }
+
+        /* ── FILTRES ── */
+        .filters-bar {
+            background: var(--light);
+            padding: 28px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 70px;
+            z-index: 100;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .filters-bar.shadowed {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+        }
+
+        .filters-inner {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray-light);
+            margin-right: 6px;
+            white-space: nowrap;
+        }
+
+        .filter-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 20px;
+            border-radius: 50px;
+            border: 1.5px solid var(--border);
+            background: transparent;
+            font-family: var(--font-body);
+            font-size: 0.86rem;
+            font-weight: 500;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+
+        .filter-btn i { font-size: 0.78rem; }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--light);
+        }
+
+        /* ── GRILLE DESTINATIONS ── */
+        .destinations-page {
+            padding: clamp(50px, 7vw, 90px) 0;
+            background: var(--light-gray);
+        }
+
+        .dest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 28px;
+        }
+
+        /* Carte featured (grande) */
+        .dest-card {
+            background: var(--light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .dest-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .dest-card.hidden {
+            display: none;
+        }
+
+        .dest-card__img {
+            position: relative;
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .dest-card.featured .dest-card__img {
+            height: 360px;
+        }
+
+        .dest-card__img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .dest-card:hover .dest-card__img img {
+            transform: scale(1.06);
+        }
+
+        .dest-card__badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--secondary);
+            color: var(--light);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 5px 14px;
+            border-radius: 50px;
+        }
+
+        .dest-card__badge--gold {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .dest-card__badge--green {
+            background: var(--primary);
+        }
+
+        /* Overlay au survol */
+        .dest-card__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26,77,46,0.7) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        .dest-card:hover .dest-card__overlay {
+            opacity: 1;
+        }
+
+        .dest-card__cta-hover {
+            color: var(--light);
+            font-size: 0.88rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .dest-card__cta-hover i { transition: transform 0.25s ease; }
+        .dest-card:hover .dest-card__cta-hover i { transform: translateX(5px); }
+
+        .dest-card__body {
+            padding: 26px 28px 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dest-card__meta {
+            font-size: 0.75rem;
+            color: var(--gray-light);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dest-card__meta i { color: var(--secondary); font-size: 0.68rem; }
+
+        .dest-card__body h3 {
+            font-family: var(--font-display);
+            font-size: 1.65rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .dest-card.featured .dest-card__body h3 {
+            font-size: 2rem;
+        }
+
+        .dest-card__body p {
+            color: var(--gray);
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .dest-card__tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .dest-tag {
+            font-size: 0.73rem;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: var(--accent);
+            color: var(--gray);
+            border: 1px solid var(--accent-dark);
+            font-weight: 500;
+        }
+
+        .dest-card__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
+        }
+
+        .dest-card__duration {
+            font-size: 0.8rem;
+            color: var(--gray-light);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dest-card__duration i { color: var(--primary); font-size: 0.75rem; }
+
+        /* ── CARTE FEATURED (colonne large) ── */
+        .dest-grid--featured {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 28px;
+        }
+
+        .dest-grid--featured .dest-card:first-child {
+            grid-row: span 2;
+        }
+
+        /* ── SECTION CTA MILIEU ── */
+        .mid-cta {
+            background: var(--primary);
+            border-radius: var(--radius-lg);
+            padding: 48px 44px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            margin: 0 0 28px;
+            flex-wrap: wrap;
+        }
+
+        .mid-cta__text h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            color: var(--light);
+            margin-bottom: 10px;
+        }
+
+        .mid-cta__text h3 em {
+            color: rgba(255,255,255,0.75);
+        }
+
+        .mid-cta__text p {
+            font-size: 0.93rem;
+            color: rgba(255,255,255,0.72);
+            max-width: 440px;
+            line-height: 1.65;
+        }
+
+        .mid-cta__actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+
+        /* ── COMPTEUR RÉSULTATS ── */
+        .results-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .results-count {
+            font-size: 0.88rem;
+            color: var(--gray);
+        }
+
+        .results-count strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ── NO RESULTS ── */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--gray);
+            display: none;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            color: var(--accent-dark);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .no-results p {
+            font-size: 1rem;
+        }
+
+        /* ── SECTION POURQUOI SOUMA ── */
+        .why-section {
+            background: var(--accent);
+            padding: clamp(60px, 8vw, 100px) 0;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .why-item {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .why-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: transparent;
+        }
+
+        .why-item__icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(181,39,42,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            transition: var(--transition);
+        }
+
+        .why-item:hover .why-item__icon { background: var(--secondary); }
+
+        .why-item__icon i {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            transition: var(--transition-fast);
+        }
+
+        .why-item:hover .why-item__icon i { color: var(--light); }
+
+        .why-item h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .why-item p {
+            font-size: 0.88rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        .dest-card { animation: fadeIn 0.4s ease both; }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .dest-grid--featured {
+                grid-template-columns: 1fr 1fr;
+            }
+            .dest-grid--featured .dest-card:first-child {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+            .dest-grid--featured .dest-card:first-child .dest-card__img {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dest-grid--featured {
+                grid-template-columns: 1fr;
+            }
+            .dest-grid--featured .dest-card:first-child {
+                grid-column: span 1;
+            }
+            .dest-grid { grid-template-columns: 1fr; }
+            .mid-cta { flex-direction: column; text-align: center; }
+            .mid-cta__text p { margin: 0 auto; }
+            .filters-bar { top: 60px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header" role="banner">
+        <div class="container header__inner">
+            <a href="index.html" class="logo" aria-label="Souma Tourisme — Retour à l'accueil">
+                <img src="images/logo-removebg-preview.png" alt="Souma Tourisme" class="logo-img">
+            </a>
+            <nav class="nav" id="nav" aria-label="Navigation principale">
+                <ul class="nav__list" role="list">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="destinations.html" class="nav__active">Destinations</a></li>
+                    <li><a href="index.html#services">Nos services</a></li>
+                    <li><a href="index.html#voyages">Sur mesure</a></li>
+                    <li><a href="index.html#temoignages">Avis clients</a></li>
+                    <li><a href="index.html#contact" class="nav__cta">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero-dest" aria-label="Nos destinations au Maroc">
+        <div class="hero-dest__bg" id="heroBg" aria-hidden="true"></div>
+        <div class="hero-dest__overlay" aria-hidden="true"></div>
+        <div class="hero-dest__content container">
+            <span class="hero-dest__tag">Voyager autrement</span>
+            <h1 class="hero-dest__title">
+                Nos destinations<br><em>d'exception</em>
+            </h1>
+            <p class="hero-dest__text">
+                Du bleu de Chefchaouen aux dunes de Merzouga, chaque lieu du Maroc
+                raconte une histoire. Laquelle vous appelle ?
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== BREADCRUMB ========== -->
+    <nav aria-label="Fil d'Ariane">
+        <div class="container">
+            <ol class="breadcrumb" role="list">
+                <li><a href="index.html">Accueil</a></li>
+                <li><i class="fas fa-chevron-right" aria-hidden="true"></i></li>
+                <li><span aria-current="page">Destinations</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <!-- ========== FILTRES ========== -->
+    <div class="filters-bar" id="filtersBar" role="navigation" aria-label="Filtrer par région">
+        <div class="container filters-inner">
+            <span class="filter-label">Filtrer :</span>
+            <button class="filter-btn active" data-filter="all">
+                <i class="fas fa-globe-africa"></i> Tout le Maroc
+            </button>
+            <button class="filter-btn" data-filter="nord">
+                <i class="fas fa-mountain"></i> Maroc du Nord
+            </button>
+            <button class="filter-btn" data-filter="centre">
+                <i class="fas fa-city"></i> Villes impériales
+            </button>
+            <button class="filter-btn" data-filter="sud">
+                <i class="fas fa-sun"></i> Maroc du Sud
+            </button>
+            <button class="filter-btn" data-filter="desert">
+                <i class="fas fa-wind"></i> Désert &amp; Oasis
+            </button>
+            <button class="filter-btn" data-filter="cote">
+                <i class="fas fa-water"></i> Côte Atlantique
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== DESTINATIONS ========== -->
+    <section class="destinations-page" aria-labelledby="dest-page-title">
+        <div class="container">
+
+            <div class="results-header">
+                <h2 class="section__title" id="dest-page-title" style="font-size:1.6rem; margin:0;">
+                    Toutes nos destinations
+                </h2>
+                <p class="results-count"><strong id="resultCount">8</strong> destinations trouvées</p>
+            </div>
+
+            <!-- GRILLE FEATURED (ligne 1 : Marrakech grande + 2 petites) -->
+            <div class="dest-grid--featured" id="featuredGrid">
+
+                <!-- Marrakech — FEATURED -->
+                <article class="dest-card featured" data-region="sud" data-name="marrakech">
+                    <div class="dest-card__img">
+                        <img src="https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=900"
+                             alt="Marrakech, la ville ocre" loading="lazy">
+                        <div class="dest-card__badge">Populaire</div>
+                        <div class="dest-card__overlay">
+                            <a href="index.html#contact" class="dest-card__cta-hover">
+                                Planifier ce voyage <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dest-card__body">
+                        <div class="dest-card__meta">
+                            <i class="fas fa-map-marker-alt"></i> Maroc du Sud
+                        </div>
+                        <h3>Marrakech ocre</h3>
+                        <p>La ville rouge envoûte au premier regard. Palais Bahia, jardins Majorelle, Jemaa el-Fna animée jusqu'à l'aube — Marrakech est une fête permanente des sens.</p>
+                        <div class="dest-card__tags">
+                            <span class="dest-tag">Culture</span>
+                            <span class="dest-tag">Gastronomie</span>
+                            <span class="dest-tag">Shopping</span>
+                            <span class="dest-tag">Nuit festive</span>
+                        </div>
+                        <div class="dest-card__footer">
+                            <span class="dest-card__duration">
+                                <i class="fas fa-clock"></i> Idéal : 3–5 jours
+                            </span>
+                            <a href="index.html#contact" class="link-arrow">
+                                Découvrir <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Fès -->
+                <article class="dest-card" data-region="centre" data-name="fes">
+                    <div class="dest-card__img">
+                        <img src="https://images.pexels.com/photos/2349165/pexels-photo-2349165.jpeg?auto=compress&cs=tinysrgb&w=700"
+                             alt="Tanneries de Fès" loading="lazy">
+                        <div class="dest-card__badge dest-card__badge--green">UNESCO</div>
+                        <div class="dest-card__overlay">
+                            <a href="index.html#contact" class="dest-card__cta-hover">
+                                Planifier ce voyage <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dest-card__body">
+                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt"></i> Maroc du Nord</div>
+                        <h3>Fès l'intemporelle</h3>
+                        <p>La plus ancienne ville universitaire du monde. Tanneries Chouara, médersas en zellige et artisanat millénaire.</p>
+                        <div class="dest-card__tags">
+                            <span class="dest-tag">Histoire</span>
+                            <span class="dest-tag">Artisanat</span>
+                            <span class="dest-tag">Spiritualité</span>
+                        </div>
+                        <div class="dest-card__footer">
+                            <span class="dest-card__duration"><i class="fas fa-clock"></i> Idéal : 2–4 jours</span>
+                            <a href="index.html#contact" class="link-arrow">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Chefchaouen -->
+                <article class="dest-card" data-region="nord" data-name="chefchaouen">
+                    <div class="dest-card__img">
+                        <img src="https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=700"
+                             alt="Ruelles bleues de Chefchaouen" loading="lazy">
+                        <div class="dest-card__badge dest-card__badge--gold">Coup de cœur</div>
+                        <div class="dest-card__overlay">
+                            <a href="index.html#contact" class="dest-card__cta-hover">
+                                Planifier ce voyage <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dest-card__body">
+                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt"></i> Rif — Maroc du Nord</div>
+                        <h3>Chefchaouen la bleue</h3>
+                        <p>Ruelles peintes en bleu et blanc, air de montagne et ambiance hors du temps dans le massif du Rif.</p>
+                        <div class="dest-card__tags">
+                            <span class="dest-tag">Photo</span>
+                            <span class="dest-tag">Montagne</span>
+                            <span class="dest-tag">Détente</span>
+                        </div>
+                        <div class="dest-card__footer">
+                            <span class="dest-card__duration"><i class="fas fa-clock"></i> Idéal : 2–3 jours</span>
+                            <a href="index.html#contact" class="link-arrow">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+            </div><!-- /featured grid -->
+
+            <!-- CTA MILIEU -->
+            <div class="mid-cta">
+                <div class="mid-cta__text">
+                    <h3>Vous ne savez pas<br><em>par où commencer ?</em></h3>
+                    <p>Nos conseillers conçoivent votre itinéraire sur mesure en moins de 24h, selon vos envies et votre budget.</p>
+                </div>
+                <div class="mid-cta__actions">
+                    <a href="index.html#contact" class="btn btn-light">Demander un devis</a>
+                    <a href="https://wa.me/212612345678" class="btn btn-ghost-light" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- GRILLE PRINCIPALE (5 destinations restantes) -->
+            <div class="dest-grid" id="mainGrid">
+
+                <!-- Désert d'Agafay -->
+                <article class="dest-card" data-region="desert" data-name="agafay">
+                    <div class="dest-card__img">
+                        <img src="https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg?auto=compress&cs=tinysrgb&w=700"
+                             alt="Désert d'Agafay au coucher du soleil" loading="lazy">
+                        <div class="dest-card__badge">Exclusif</div>
+                        <div class="dest-card__overlay">
+                            <a href="index.html#contact" class="dest-card__cta-hover">
+                                Planifier ce voyage <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dest-card__body">
+                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt"></i> Région de Marrakech</div>
+                        <h3>Désert d'Agafay</h3>
+                        <p>À 40 km de Marrakech, un désert de pierres aux allures lunaires. Nuits étoilées, dîner sous tente et silence absolu.</p>
+                        <div class="dest-card__tags">
+                            <span class="dest-tag">Désert</span>
+                            <span class="dest-tag">Bivouac</span>
+                            <span class="dest-tag">Étoiles</span>
+                        </div>
+                        <div class="dest-card__footer">
+                            <span class="dest-card__duration"><i class="fas fa-clock"></i> Idéal : 1–2 nuits</span>
+                            <a href="index.html#contact" class="link-arrow">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Essaouira -->
+                <article class="dest-card" data-region="cote" data-name="essaouira">
+                    <div class="dest-card__img">
+                        <img src="https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg?auto=compress&cs=tinysrgb&w=700"
+                             alt="Remparts d'Essaouira face à l'Atlantique" loading="lazy">
+                        <div class="dest-card__badge dest-card__badge--green">UNESCO</div>
+                        <div class="dest-card__overlay">
+                            <a href="index.html#contact" class="dest-card__cta-hover">
+                                Planifier ce voyage <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dest-card__body">
+                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt"></i> Côte Atlantique</div>
+                        <h3>Essaouira la bohème</h3>
+                        <p>La cité des alizés conjugue architecture portugaise, musique gnawa et fruits de mer sur les remparts. Une ville-tableau.</p>
+                        <div class="dest-card__tags">
+                            <span class="dest-tag">Côte</span>
+                            <span class="dest-tag">Musique</span>
+                            <span class="dest-tag">Gastronomie</span>
+                        </div>
+                        <div class="dest-card__footer">
+                            <span class="dest-card__duration"><i class="fas fa-clock"></i> Idéal : 2–3 jours</span>
+                            <a href="index.html#contact" class="link-arrow">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Merzouga -->
+                <article class="dest-card" data-region="desert" data-name="merzouga">
+                    <div class="dest-card__img">
+                        <img src="https://images.pexels.com/photos/4577793/pexels-photo-4577793.jpeg?auto=compress&cs=tinysrgb&w=700"
+                             alt="Dunes de l'Erg Chebbi à Merzouga" loading="lazy">
+                        <div class="dest-card__badge">Incontournable</div>
+                        <div class="dest-card__overlay">
+                            <a href="index.html#contact" class="dest-card__cta-hover">
+                                Planifier ce voyage <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dest-card__body">
+                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt"></i> Sahara — Maroc du Sud-Est</div>
+                        <h3>Merzouga &amp; l'Erg Chebbi</h3>
+                        <p>Les grandes dunes de sable doré du Sahara. Balade en dromadaire, lever de soleil flamboyant et campements de luxe.</p>
+                        <div class="dest-card__tags">
+                            <span class="dest-tag">Sahara</span>
+                            <span class="dest-tag">Dromadaire</span>
+                            <span class="dest-tag">Aventure</span>
+                        </div>
+                        <div class="dest-card__footer">
+                            <span class="dest-card__duration"><i class="fas fa-clock"></i> Idéal : 2–3 nuits</span>
+                            <a href="index.html#contact" class="link-arrow">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Rabat -->
+                <article class="dest-card" data-region="centre" data-name="rabat">
+                    <div class="dest-card__img">
+                        <img src="images/rabat.jpg"
+                             alt="Tour Hassan et mausolée Mohammed V à Rabat" loading="lazy">
+                        <div class="dest-card__badge dest-card__badge--green">Capitale</div>
+                        <div class="dest-card__overlay">
+                            <a href="index.html#contact" class="dest-card__cta-hover">
+                                Planifier ce voyage <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dest-card__body">
+                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt"></i> Côte Atlantique Nord</div>
+                        <h3>Rabat la royale</h3>
+                        <p>La capitale cultive l'élégance discrète : kasbah des Oudaïas, Tour Hassan, mausolée Mohammed V et une médina apaisée.</p>
+                        <div class="dest-card__tags">
+                            <span class="dest-tag">Histoire</span>
+                            <span class="dest-tag">Patrimoine</span>
+                            <span class="dest-tag">Art</span>
+                        </div>
+                        <div class="dest-card__footer">
+                            <span class="dest-card__duration"><i class="fas fa-clock"></i> Idéal : 2–3 jours</span>
+                            <a href="index.html#contact" class="link-arrow">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Aït Benhaddou -->
+                <article class="dest-card" data-region="sud" data-name="aitbenhaddou">
+                    <div class="dest-card__img">
+                        <img src="images/pexels-salah-eddine-tafakourt-1985977-15419074.jpg"
+                             alt="Ksar d'Aït Benhaddou au coucher du soleil" loading="lazy">
+                        <div class="dest-card__badge dest-card__badge--gold">Cinéma &amp; UNESCO</div>
+                        <div class="dest-card__overlay">
+                            <a href="index.html#contact" class="dest-card__cta-hover">
+                                Planifier ce voyage <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="dest-card__body">
+                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt"></i> Route des Kasbahs</div>
+                        <h3>Aït Benhaddou</h3>
+                        <p>Ksar fortifié classé UNESCO, décor de Gladiator, Game of Thrones et Lawrence d'Arabie. Un village hors du temps.</p>
+                        <div class="dest-card__tags">
+                            <span class="dest-tag">UNESCO</span>
+                            <span class="dest-tag">Cinéma</span>
+                            <span class="dest-tag">Architecture</span>
+                        </div>
+                        <div class="dest-card__footer">
+                            <span class="dest-card__duration"><i class="fas fa-clock"></i> Idéal : 1 journée</span>
+                            <a href="index.html#contact" class="link-arrow">Découvrir <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+            </div><!-- /main grid -->
+
+            <!-- Message aucun résultat -->
+            <div class="no-results" id="noResults" aria-live="polite">
+                <i class="fas fa-map-marked-alt"></i>
+                <p>Aucune destination trouvée pour ce filtre.<br>Essayez une autre région.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== POURQUOI SOUMA ========== -->
+    <section class="why-section" aria-labelledby="why-title">
+        <div class="container">
+            <div class="section__header text-center">
+                <span class="section__tag">Notre engagement</span>
+                <h2 class="section__title" id="why-title">Pourquoi choisir<br><em>Souma Tourisme ?</em></h2>
+                <p class="section__subtitle">Chaque destination mérite un accompagnement à la hauteur de ses trésors.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-item__icon"><i class="fas fa-route"></i></div>
+                    <h4>Itinéraires sur mesure</h4>
+                    <p>Chaque voyage est conçu uniquement pour vous, selon vos envies, votre rythme et votre budget.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-item__icon"><i class="fas fa-user-tie"></i></div>
+                    <h4>Guides certifiés</h4>
+                    <p>Nos guides locaux sont passionnés, bilingues et experts de leur région.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-item__icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Zéro stress</h4>
+                    <p>Transports, hébergements, réservations — nous gérons tout, vous profitez.</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-item__icon"><i class="fas fa-headset"></i></div>
+                    <h4>Support 24h/7j</h4>
+                    <p>Un conseiller dédié disponible avant, pendant et après votre voyage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <div class="footer__col footer__col--brand">
+                <a href="index.html" aria-label="Souma Tourisme — Retour à l'accueil">
+                    <img src="images/logo-white.png" alt="Souma Tourisme" class="footer__logo">
+                </a>
+                <p>L'excellence du voyage sur mesure au Maroc, depuis Casablanca.</p>
+                <div class="social" aria-label="Réseaux sociaux">
+                    <a href="https://www.instagram.com/soumatourisme" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/soumatourisme" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="https://wa.me/212612345678" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="footer__col">
+                <h4>Nos services</h4>
+                <ul>
+                    <li><a href="religieux.html">Tourisme religieux</a></li>
+                    <li><a href="medical.html">Tourisme médical</a></li>
+                    <li><a href="culturel.html">Tourisme culturel</a></li>
+                    <li><a href="index.html#voyages">Voyages sur mesure</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Contact</h4>
+                <address>
+                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+212 650-405798">+212 650-405798</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:masoumare72@gmail.com">masoumare72@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Casablanca, Maroc</p>
+                </address>
+            </div>
+            <div class="footer__col">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions générales</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <p>© <span id="currentYear">2025</span> Souma Tourisme — Tous droits réservés</p>
+            <p>Conçu avec <i class="fas fa-heart" aria-hidden="true" style="color:var(--secondary);"></i> au Maroc</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp flottant -->
+    <a href="https://wa.me/212612345678?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20découvrir%20vos%20destinations"
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+       aria-label="Nous contacter sur WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span>Discuter</span>
+    </a>
+
+    <!-- Retour en haut -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut de page" hidden>
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+    <script>
+        /* ── Parallaxe hero ── */
+        const heroBg = document.getElementById('heroBg');
+        if (heroBg) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY < window.innerHeight) {
+                    heroBg.style.transform = `translateY(${window.scrollY * 0.28}px)`;
+                }
+            }, { passive: true });
+        }
+
+        /* ── Filtre ombre barre sticky ── */
+        const filtersBar = document.getElementById('filtersBar');
+        window.addEventListener('scroll', () => {
+            if (filtersBar) filtersBar.classList.toggle('shadowed', window.scrollY > 200);
+        }, { passive: true });
+
+        /* ── Système de filtres ── */
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const allCards   = document.querySelectorAll('.dest-card');
+        const noResults  = document.getElementById('noResults');
+        const countEl    = document.getElementById('resultCount');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Activer le bouton
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+                let visible = 0;
+
+                allCards.forEach((card, i) => {
+                    const region = card.dataset.region;
+                    const show = filter === 'all' || region === filter;
+                    card.classList.toggle('hidden', !show);
+                    if (show) {
+                        visible++;
+                        // Petite animation de réapparition
+                        card.style.animationDelay = `${(visible - 1) * 0.06}s`;
+                        card.style.animation = 'none';
+                        void card.offsetHeight; // reflow
+                        card.style.animation = '';
+                    }
+                });
+
+                // Afficher/masquer la grille featured selon filtre
+                const featuredGrid = document.getElementById('featuredGrid');
+                if (filter !== 'all') {
+                    featuredGrid.style.display = 'none';
+                    // Remettre toutes les cartes dans la grille principale visuellement
+                } else {
+                    featuredGrid.style.display = '';
+                }
+
+                if (countEl) countEl.textContent = visible;
+                if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+            });
+        });
+
+        /* ── Année footer ── */
+        const yr = document.getElementById('currentYear');
+        if (yr) yr.textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

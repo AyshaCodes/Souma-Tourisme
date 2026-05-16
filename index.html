@@ -3,2379 +3,528 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Souma Tourisme | CAN 2025 Maroc - Billets, Logements & Transport | Services Premium</title>
-    
-    <!-- SEO amélioré -->
-    <meta name="description" content="Souma Tourisme - Spécialiste CAN 2025 au Maroc. Billets de match, hébergement premium, transport VIP. Services religieux, médicaux et culturels disponibles.">
-    <meta name="keywords" content="CAN 2025 Maroc, billets CAN, logement CAN, transport CAN, Souma Tourisme, tourisme religieux Maroc, tourisme médical Maroc">
+    <title>Souma Tourisme | Voyages d'exception au Maroc</title>
+    <meta name="description" content="Souma Tourisme : circuits sur mesure, tourisme religieux, médical et culturel au Maroc. Accompagnement premium et expériences uniques.">
+    <meta name="keywords" content="tourisme maroc, voyage maroc, tourisme religieux, tourisme médical, circuits sur mesure, marrakech, fes, agafay">
     <meta name="author" content="Souma Tourisme">
-    
-    <!-- Open Graph / Facebook -->
+
+    <!-- Open Graph / Réseaux sociaux -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.soumatourisme.com/">
-    <meta property="og:title" content="Souma Tourisme | CAN 2025 Maroc - Billets, Logements & Transport Premium">
-    <meta property="og:description" content="Spécialiste CAN 2025 au Maroc. Billets de match, hébergement premium, transport VIP. Services religieux, médicaux et culturels.">
-    <meta property="og:image" content="https://www.soumatourisme.com/images/can-2025-og.jpg">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.soumatourisme.com/">
-    <meta property="twitter:title" content="Souma Tourisme | CAN 2025 Maroc - Billets, Logements & Transport Premium">
-    <meta property="twitter:description" content="Spécialiste CAN 2025 au Maroc. Billets de match, hébergement premium, transport VIP. Services religieux, médicaux et culturels.">
-    <meta property="twitter:image" content="https://www.soumatourisme.com/images/can-2025-og.jpg">
-    
+    <meta property="og:title" content="Souma Tourisme | Voyages d'exception au Maroc">
+    <meta property="og:description" content="Circuits sur mesure, tourisme religieux, médical et culturel au Maroc.">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta property="og:url" content="https://www.soumatourisme.com">
+    <meta name="twitter:card" content="summary_large_image">
+
     <!-- Canonical -->
-    <link rel="canonical" href="https://www.soumatourisme.com/">
-    
-    <!-- Préconnexion aux ressources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="canonical" href="https://www.soumatourisme.com">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    
-    <!-- Préchargement des ressources critiques -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="images/pexels-halil-cihat-daricioglu-229755410-32880197.jpg" as="image">
-    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Polices : Cormorant Garamond (display luxe) + DM Sans (corps élégant) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+    <!-- Icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <!-- CSS -->
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    </noscript>
-    
-    <!-- Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Souma Tourisme",
+      "description": "Agence de voyages premium au Maroc spécialisée en circuits sur mesure, tourisme religieux, médical et culturel.",
+      "url": "https://souma-tourisme.vercel.app/",
+      "telephone": "+212 650-405798",
+      "email": "masoumare72@gmail.com,
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Casablanca",
+        "addressCountry": "MA"
+      },
+      "sameAs": [
+        "https://www.instagram.com/soumatourisme",
+        "https://www.facebook.com/soumatourisme"
+      ]
+    }
     </script>
-    
-    <style>
-        /* Variables CSS modernes */
-        :root {
-            --primary: #1E5631; /* Vert principal */
-            --secondary: #A71D31; /* Rouge secondaire */
-            --accent: #F4F0E6; /* Beige d'accent */
-            --light: #FFFFFF; /* Blanc */
-            --dark: #222222; /* Noir */
-            --gray: #555555; /* Gris */
-            --light-gray: #DDDDDD; /* Gris clair */
-            
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
-            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15);
-            
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --radius: 10px;
-            --radius-lg: 30px;
-        }
-
-        /* Reset moderne */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Raleway', sans-serif;
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-color: var(--light);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        button {
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-family: inherit;
-        }
-
-        /* Layout */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .section {
-            padding: 6rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 1rem;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--secondary);
-        }
-
-        .section-title p {
-            max-width: 700px;
-            margin: 1.5rem auto 0;
-            color: var(--gray);
-            font-size: 1.1rem;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--secondary);
-            color: var(--light);
-            padding: 0.8rem 2rem;
-            border-radius: var(--radius-lg);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            cursor: pointer;
-            font-size: 0.9rem;
-            gap: 0.5rem;
-        }
-
-        .btn:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn:active {
-            transform: translateY(1px);
-        }
-
-        .btn-blanc {
-            background-color: var(--light);
-            color: var(--secondary);
-            border-color: var(--light);
-        }
-
-        .btn-blanc:hover {
-            background-color: var(--accent);
-            color: var(--secondary);
-        }
-
-        .btn-vert {
-            background-color: var(--primary);
-        }
-
-        .btn-vert:hover {
-            background-color: var(--secondary);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--light);
-            color: var(--light);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--light);
-            color: var(--secondary);
-        }
-
-        /* Loader */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease-out, visibility 0.5s;
-        }
-
-        .loader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader-content {
-            text-align: center;
-            transform: translateY(-50px);
-        }
-
-        .loader-spinner {
-            width: 60px;
-            height: 60px;
-            border: 5px solid var(--accent);
-            border-top: 5px solid var(--secondary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 1.5rem;
-        }
-
-        .loader p {
-            font-size: 1.2rem;
-            color: var(--dark);
-            font-weight: 500;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1.5rem 0;
-            transition: var(--transition);
-            background-color: transparent;
-        }
-
-        header.scrolled {
-            background-color: rgba(255, 255, 255, 0.98);
-            padding: 0.8rem 0;
-            box-shadow: var(--shadow-sm);
-            backdrop-filter: blur(10px);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--light);
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo span {
-            color: var(--secondary);
-        }
-
-        header.scrolled .logo {
-            color: var(--primary);
-        }
-
-        header.scrolled .logo span {
-            color: var(--secondary);
-        }
-
-        /* Navigation */
-        nav ul {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        nav ul li a {
-            color: var(--light);
-            font-weight: 500;
-            position: relative;
-            padding-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        header.scrolled nav ul li a {
-            color: var(--dark);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--secondary);
-            transition: var(--transition);
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        .btn-menu {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--light);
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 101;
-            transition: var(--transition);
-        }
-
-        header.scrolled .btn-menu {
-            color: var(--dark);
-        }
-
-        /* Hero Slider */
-        .hero-slider {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            min-height: 700px;
-            overflow: hidden;
-        }
-
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            will-change: opacity;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        .slide::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .slider-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: var(--light);
-            width: 90%;
-            max-width: 800px;
-            z-index: 2;
-            padding: 0 1rem;
-        }
-
-        .slider-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .slider-content p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 0.8s ease-out 0.3s forwards;
-            opacity: 0;
-        }
-
-        .slider-content .btn {
-            animation: fadeInUp 0.8s ease-out 0.6s forwards;
-            opacity: 0;
-        }
-
-        .slider-controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 2rem;
-            transform: translateY(-50%);
-            z-index: 10;
-        }
-
-        .slider-controls button {
-            background: rgba(255, 255, 255, 0.3);
-            border: none;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(5px);
-        }
-
-        .slider-controls button:hover {
-            background: rgba(255, 255, 255, 0.7);
-            color: var(--secondary);
-            transform: scale(1.1);
-        }
-
-        .slider-dots {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 0.8rem;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .dot.active {
-            background: var(--light);
-            transform: scale(1.3);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Search Bar */
-        .search-bar {
-            background: var(--light);
-            padding: 2rem;
-            margin: -3.5rem auto 0;
-            max-width: 1000px;
-            box-shadow: var(--shadow-xl);
-            border-radius: var(--radius);
-            position: relative;
-            z-index: 10;
-        }
-
-        .search-form {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .search-form .form-group {
-            flex: 1;
-            min-width: 200px;
-            position: relative;
-        }
-
-        .search-form input, 
-        .search-form select {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            border: 1px solid var(--light-gray);
-            border-radius: var(--radius-lg);
-            font-family: 'Raleway', sans-serif;
-            transition: var(--transition);
-            font-size: 0.95rem;
-            appearance: none;
-        }
-
-        .search-form select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23555555' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 12px;
-        }
-
-        .search-form input:focus, 
-        .search-form select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(30, 86, 49, 0.1);
-        }
-
-        .search-form button {
-            border-radius: var(--radius-lg);
-            padding: 1rem 2rem;
-            font-weight: 600;
-            min-width: 180px;
-        }
-
-        /* Cards Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            height: 450px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            border-radius: var(--radius);
-            overflow: hidden;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 2rem;
-            color: var(--light);
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .card-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .card-content p {
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        /* CAN 2025 Section */
-        .can-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .can-highlight {
-            text-align: center;
-            padding: 2rem;
-            background: var(--light);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            border: 2px solid transparent;
-        }
-
-        .can-highlight:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--secondary);
-        }
-
-        .highlight-icon {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        .can-highlight h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        /* Compte à rebours CAN 2025 */
-        .countdown-container {
-            text-align: center;
-            margin: 3rem 0;
-            padding: 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: var(--radius);
-            color: var(--light);
-        }
-
-        .countdown-container h3 {
-            color: var(--light);
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-        }
-
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .countdown-item {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 1.5rem 1rem;
-            border-radius: var(--radius);
-            min-width: 100px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .countdown-item span {
-            font-size: 2.5rem;
-            font-weight: 700;
-            display: block;
-            color: var(--light);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .countdown-item small {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .can-venues {
-            margin-top: 4rem;
-        }
-
-        .can-venues h3 {
-            text-align: center;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            font-size: 2rem;
-        }
-
-        .venues-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-            gap: 2rem;
-        }
-
-        .venue-card {
-            background: var(--light);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-
-        .venue-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .venue-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .venue-card h4 {
-            padding: 1rem 1rem 0.5rem;
-            color: var(--primary);
-            font-size: 1.3rem;
-        }
-
-        .venue-card p {
-            padding: 0 1rem 1rem;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        /* Packages Section */
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .package-card {
-            background: var(--light);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .package-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .package-card.featured {
-            border: 3px solid var(--secondary);
-            transform: scale(1.05);
-        }
-
-        .package-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--secondary);
-            color: var(--light);
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius);
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .package-header {
-            padding: 2rem 2rem 1rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--light);
-        }
-
-        .package-header h3 {
-            color: var(--light);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .package-price {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .package-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            opacity: 0.8;
-        }
-
-        .package-content {
-            padding: 2rem;
-        }
-
-        .package-content ul {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .package-content li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.8rem;
-            color: var(--gray);
-        }
-
-        .package-content li i {
-            color: var(--secondary);
-            margin-right: 0.8rem;
-            font-size: 0.9rem;
-        }
-
-        /* Features Section */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-            gap: 2rem;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            border-radius: var(--radius);
-            background: var(--accent);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .feature::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            opacity: 0;
-            z-index: -1;
-            transition: var(--transition);
-        }
-
-        .feature:hover::before {
-            opacity: 1;
-        }
-
-        .feature:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            color: white;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .feature:hover .feature-icon {
-            color: white;
-            transform: scale(1.2);
-        }
-
-        .feature h3 {
-            margin-bottom: 1rem;
-            color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .feature:hover h3 {
-            color: white;
-        }
-
-        .feature p {
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-
-        .feature:hover p {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        
-        @media (max-width: 768px) {
-            .custom-trip { background-attachment: scroll; }
-            
-            .package-card.featured {
-                transform: none;
-            }
-            
-            .packages-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .venues-grid {
-                grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
-            }
-            
-            .countdown-timer {
-                gap: 1rem;
-            }
-            
-            .countdown-item {
-                min-width: 80px;
-                padding: 1rem 0.5rem;
-            }
-            
-            .countdown-item span {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .section {
-                padding: 4rem 0;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .slider-content h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero-slider {
-                height: 90vh;
-                min-height: 500px;
-            }
-            
-            .grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .card {
-                height: 350px;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .countdown-timer {
-                gap: 0.5rem;
-            }
-            
-            .countdown-item {
-                min-width: 70px;
-                padding: 0.8rem 0.3rem;
-            }
-            
-            .countdown-item span {
-                font-size: 1.5rem;
-            }
-            
-            .countdown-item small {
-                font-size: 0.7rem;
-            }
-        }
-
-        /* Custom Trip Section */
-        .custom-trip {
-            position: relative;
-            padding: 6rem 0;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            text-align: center;
-            color: var(--light);
-        }
-
-        .custom-trip::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(30, 86, 49, 0.85);
-        }
-
-        .custom-trip .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .custom-trip h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .custom-trip p {
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        .custom-form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            gap: 0;
-        }
-
-        .custom-form .form-group {
-            flex: 1;
-        }
-
-        .custom-form input {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: var(--radius-lg) 0 0 var(--radius-lg);
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.95rem;
-        }
-
-        .custom-form input:focus {
-            outline: none;
-        }
-
-        .custom-form button {
-            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-            padding: 1rem 2rem;
-            min-width: 160px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary);
-            color: var(--light);
-            padding: 5rem 0 2rem;
-            position: relative;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-            gap: 3rem;
-            margin-bottom: 4rem;
-        }
-
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--secondary);
-        }
-
-        .footer-about p {
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-            font-size: 0.95rem;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            opacity: 0.8;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--secondary);
-            transform: translateX(5px);
-        }
-
-        .footer-links i {
-            width: 20px;
-            color: var(--secondary);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: var(--transition);
-            color: var(--light);
-        }
-
-        .social-links a:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-            color: var(--light);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.85rem;
-            opacity: 0.7;
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--secondary);
-            color: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 99;
-            box-shadow: var(--shadow-md);
-        }
-
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        /* Modal */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1001;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background-color: var(--light);
-            border-radius: var(--radius);
-            width: 90%;
-            max-width: 500px;
-            padding: 2.5rem;
-            position: relative;
-            transform: translateY(20px);
-            transition: var(--transition);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .modal.active .modal-content {
-            transform: translateY(0);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--gray);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .modal-close:hover {
-            color: var(--secondary);
-            transform: rotate(90deg);
-        }
-
-        .modal-title {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .modal-form .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-            font-weight: 500;
-        }
-
-        .modal-form input,
-        .modal-form textarea,
-        .modal-form select {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid var(--light-gray);
-            border-radius: var(--radius);
-            font-family: 'Raleway', sans-serif;
-            transition: var(--transition);
-        }
-
-        .modal-form input:focus,
-        .modal-form textarea:focus,
-        .modal-form select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(30, 86, 49, 0.1);
-        }
-
-        .modal-form textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        /* Cookie Consent */
-        .cookie-consent {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--dark);
-            color: var(--light);
-            padding: 1.5rem;
-            z-index: 999;
-            transform: translateY(100%);
-            transition: var(--transition);
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .cookie-consent.active {
-            transform: translateY(0);
-        }
-
-        .cookie-content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .cookie-text {
-            flex: 1;
-            min-width: 300px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .cookie-text a {
-            color: var(--secondary);
-            text-decoration: underline;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .section {
-                padding: 5rem 0;
-            }
-            
-            .slider-content h1 {
-                font-size: 3rem;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .section-title h2 {
-                font-size: 2.2rem;
-            }
-            
-            .slider-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .slider-content p {
-                font-size: 1.1rem;
-            }
-            
-            .card {
-                height: 380px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            /* Mobile Navigation */
-            nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 100%;
-                max-width: 320px;
-                height: 100vh;
-                background-color: var(--primary);
-                padding: 6rem 2rem 2rem;
-                transition: var(--transition);
-                z-index: 100;
-                overflow-y: auto;
-            }
-            
-            nav.active {
-                right: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            
-            nav ul li a {
-                font-size: 1.1rem;
-                color: var(--light);
-            }
-            
-            header.scrolled nav ul li a {
-                color: var(--light);
-            }
-            
-            .btn-menu {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 40px;
-                height: 40px;
-            }
-            
-            /* Hero Slider */
-            .hero-slider {
-                min-height: 600px;
-            }
-            
-            .slider-content h1 {
-                font-size: 2.2rem;
-                margin-bottom: 1rem;
-            }
-            
-            .slider-content p {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-            
-            .slider-controls button {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            
-            /* Search Bar */
-            .search-bar {
-                margin-top: -2.5rem;
-                padding: 1.5rem;
-            }
-            
-            .search-form {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
-            
-            .search-form input, 
-            .search-form select {
-                border-radius: var(--radius-lg);
-            }
-            
-            /* Custom Trip Form */
-            .custom-form {
-                flex-direction: column;
-            }
-            
-            .custom-form input {
-                border-radius: var(--radius-lg);
-                margin-bottom: 0.8rem;
-            }
-            
-            .custom-form button {
-                border-radius: var(--radius-lg);
-                width: 100%;
-            }
-            
-            /* Modal */
-            .modal-content {
-                padding: 1.5rem;
-            }
-            
-            /* Cookie Consent */
-            .cookie-buttons {
-                width: 100%;
-            }
-            
-            .cookie-buttons .btn {
-                flex: 1;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .section {
-                padding: 4rem 0;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .slider-content h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero-slider {
-                height: 90vh;
-                min-height: 500px;
-            }
-            
-            .grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .card {
-                height: 350px;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Loader -->
-    <div class="loader">
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <p>Chargement en cours...</p>
-        </div>
-    </div>
 
-    <!-- Header -->
-    <header id="header">
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <img src="images/logo-removebg-preview.png" alt="Souma Tourisme" style="height:64px;" width="128" height="64" loading="lazy">
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header" role="banner">
+        <div class="container header__inner">
+            <a href="#accueil" class="logo" aria-label="Souma Tourisme — Accueil">
+                <img src="images/logo-removebg-preview.png" alt="Souma Tourisme" class="logo-img">
             </a>
-            <nav id="nav" aria-label="Navigation principale">
-                <ul>
-                    <li><a href="#home">Accueil</a></li>
-                    <li><a href="#can-2025">CAN 2025</a></li>
-                    <li><a href="#experiences">Nos Services</a></li>
-                    <li><a href="#packages">Packages</a></li>
-                    <li><a href="#contact">Contact</a></li>
+
+            <nav class="nav" id="nav" aria-label="Navigation principale">
+                <ul class="nav__list" role="list">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#services">Nos services</a></li>
+                    <li><a href="#voyages">Sur mesure</a></li>
+                    <li><a href="#temoignages">Avis clients</a></li>
+                    <li><a href="#contact" class="nav__cta">Contact</a></li>
                 </ul>
             </nav>
-            <button class="btn-menu" id="btn-menu" aria-label="Menu mobile" aria-controls="nav" aria-expanded="false">
-                <i class="fas fa-bars"></i>
+
+            <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
             </button>
         </div>
     </header>
 
-    <!-- Hero Slider -->
-    <section class="hero-slider" id="home">
-        <div class="slide active" style="background-image: url('images/can1.jpg')">
-            <div class="slider-content">
-                <h1>CAN 2025 au Maroc</h1>
-                <p>Vivez la Coupe d'Afrique des Nations avec Souma Tourisme : billets, hébergement premium et transport VIP</p>
-                <a href="#can-2025" class="btn btn-blanc">Découvrir nos offres CAN</a>
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="accueil" aria-label="Bienvenue chez Souma Tourisme">
+        <!-- Slideshow d'arrière-plan -->
+        <div class="hero__slides" aria-hidden="true">
+            <div class="hero__slide active" style="background-image: url('https://images.unsplash.com/photo-1580746738099-1cb74f972feb?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');"></div>
+            <div class="hero__slide" style="background-image: url('https://images.pexels.com/photos/2349165/pexels-photo-2349165.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+            <div class="hero__slide" style="background-image: url('https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+        </div>
+        <div class="hero__overlay" aria-hidden="true"></div>
+
+        <div class="hero__content container">
+            <span class="hero__tag">Depuis Casablanca, vers le monde</span>
+            <h1 class="hero__title">
+                L'élégance du voyage<br>
+                <em>au cœur du Maroc</em>
+            </h1>
+            <p class="hero__text">Des expériences sur mesure, entre spiritualité, bien-être et découverte.</p>
+            <div class="hero__actions">
+                <a href="#voyages" class="btn btn-primary">Inspirez-vous</a>
+                <a href="#services" class="btn btn-ghost">Nos services</a>
             </div>
         </div>
-        <div class="slide" style="background-image: url('images/logement.jpg')">
-            <div class="slider-content">
-                <h1>Billets & Logements CAN</h1>
-                <p>Réservation garantie de billets de match et hébergement dans les meilleurs hôtels près des stades</p>
-                <a href="#packages" class="btn btn-blanc">Réserver maintenant</a>
+
+        <!-- Stats rapides -->
+        <div class="hero__stats" aria-label="Chiffres clés">
+            <div class="hero__stat">
+                <strong class="counter" data-target="1200">0</strong>
+                <span>Voyageurs satisfaits</span>
+            </div>
+            <div class="hero__stat">
+                <strong class="counter" data-target="12">0</strong>
+                <span>Années d'expérience</span>
+            </div>
+            <div class="hero__stat">
+                <strong class="counter" data-target="30">0</strong>
+                <span>Destinations</span>
             </div>
         </div>
-        <div class="slide" style="background-image: url('images/pexels-edwin-vossen-206618-640936.jpg')">
-            <div class="slider-content">
-                <h1>Nos services </h1>
-                <p>Transport , tourisme religieux, médical et culturel - Une expérience complète au Maroc</p>
-                <a href="#experiences" class="btn btn-blanc">Nos services</a>
-            </div>
+
+        <div class="hero__scroll" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="hero__scroll-line"></div>
         </div>
-        <div class="slider-controls">
-            <button class="prev" aria-label="Slide précédent"><i class="fas fa-chevron-left"></i></button>
-            <button class="next" aria-label="Slide suivant"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="slider-dots"></div>
     </section>
 
-    <!-- Search Bar -->
-    <section class="search-bar">
+    <!-- ========== PRESTIGE / VALEURS ========== -->
+    <section class="section prestige" aria-labelledby="prestige-title">
         <div class="container">
-            <form id="search-form" class="search-form">
-                <div class="form-group">
-                    <select required aria-label="Ville hôte CAN">
-                        <option value="">Ville hôte CAN</option>
-                        <option value="casablanca">Casablanca</option>
-                        <option value="rabat">Rabat</option>
-                        <option value="marrakech">Marrakech</option>
-                        <option value="fes">Fès</option>
-                        <option value="tanger">Tanger</option>
-                        <option value="agadir">Agadir</option>
-                    </select>
+            <div class="section__header">
+                <span class="section__tag">Notre engagement</span>
+                <h2 class="section__title" id="prestige-title">Ce qui nous distingue</h2>
+            </div>
+            <div class="prestige__grid">
+                <div class="prestige__item">
+                    <div class="prestige__icon" aria-hidden="true"><i class="fas fa-hand-sparkles"></i></div>
+                    <h3>Accompagnement premium</h3>
+                    <p>Un conseiller dédié 24h/24, 7j/7, pour un voyage sans aucune contrainte.</p>
                 </div>
-                <div class="form-group">
-                    <input type="date" placeholder="Date d'arrivée" required aria-label="Date d'arrivée">
+                <div class="prestige__item">
+                    <div class="prestige__icon" aria-hidden="true"><i class="fas fa-mosque"></i></div>
+                    <h3>Authenticité garantie</h3>
+                    <p>Des circuits pensés avec les acteurs locaux pour une immersion respectueuse.</p>
                 </div>
-                <div class="form-group">
-                    <select required aria-label="Type de service">
-                        <option value="">Type de service</option>
-                        <option value="can-complet">Package CAN Complet</option>
-                        <option value="billets-seuls">Billets seulement</option>
-                        <option value="logement">Hébergement</option>
-                        <option value="transport">Transport</option>
-                        <option value="religieux">Tourisme Religieux</option>
-                        <option value="medical">Tourisme Médical</option>
-                    </select>
+                <div class="prestige__item">
+                    <div class="prestige__icon" aria-hidden="true"><i class="fas fa-leaf"></i></div>
+                    <h3>Tourisme responsable</h3>
+                    <p>Nos engagements éco-responsables et sociétaux sont au cœur de notre ADN.</p>
                 </div>
-                <button type="submit" class="btn btn-vert">Rechercher</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DESTINATIONS ========== -->
+    <section class="section destinations" id="destinations" aria-labelledby="dest-title">
+        <div class="container">
+            <div class="section__header">
+                <span class="section__tag">Voyager autrement</span>
+                <h2 class="section__title" id="dest-title">Nos destinations<br><em>d'exception</em></h2>
+                <p class="section__subtitle">Marrakech, Fès, Chefchaouen, désert d'Agafay… Chaque lieu raconte une histoire.</p>
+            </div>
+            <div class="destinations__grid">
+                <article class="dest-card">
+                    <div class="dest-card__img" style="background-image: url('images/marrakech.jpg');" role="img" aria-label="Marrakech">
+                        <div class="dest-card__badge">Populaire</div>
+                    </div>
+                    <div class="dest-card__content">
+                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Maroc du Sud</div>
+                        <h3>Marrakech ocre</h3>
+                        <p>Palais secrets, jardins luxuriants et souk animé.</p>
+                        <a href="destinations.html" class="link-arrow" aria-label="Découvrir Marrakech">Découvrir <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+                <article class="dest-card">
+                    <div class="dest-card__img" style="background-image: url('images/fes.jpg');" role="img" aria-label="Fès">
+                        <div class="dest-card__badge">UNESCO</div>
+                    </div>
+                    <div class="dest-card__content">
+                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Maroc du Nord</div>
+                        <h3>Fès l'intemporelle</h3>
+                        <p>La médina classée UNESCO et ses trésors artisanaux.</p>
+                        <a href="destinations.html" class="link-arrow" aria-label="Découvrir Fès">Découvrir <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+                <article class="dest-card">
+                    <div class="dest-card__img" style="background-image: url('https://plus.unsplash.com/premium_photo-1666793530691-1fe7da3b3072?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');" role="img" aria-label="Désert d'Agafay">
+                        <div class="dest-card__badge">Coup de cœur</div>
+                    </div>
+                    <div class="dest-card__content">
+                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Région de Marrakech</div>
+                        <h3>Désert d'Agafay</h3>
+                        <p>Nuits étoilées, dîner sous tente et sensations pures.</p>
+                        <a href="destinations.html" class="link-arrow" aria-label="Découvrir le désert d'Agafay">Découvrir <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SERVICES ========== -->
+    <section class="section services" id="services" aria-labelledby="services-title">
+        <div class="container">
+            <div class="section__header text-center">
+                <span class="section__tag">Expertises uniques</span>
+                <h2 class="section__title" id="services-title">Trois piliers,<br><em>une seule excellence</em></h2>
+                <p class="section__subtitle">Des voyages pensés autour de vos besoins spirituels, de santé ou culturels.</p>
+            </div>
+            <div class="services__grid">
+                <article class="service-card">
+                    <div class="service-card__icon" aria-hidden="true"><i class="fas fa-hands-praying"></i></div>
+                    <h3>Tourisme religieux</h3>
+                    <p>Pèlerinages, retraites spirituelles et visites des lieux saints du Maroc, encadrés par des guides spécialisés.</p>
+                    <ul class="service-details" aria-label="Services inclus">
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Mosquées historiques (Hassan II, Koutoubia)</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Itinéraires vers Zaouïas et mausolées</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Accompagnement religieux sur demande</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Hébergement à proximité des lieux saints</li>
+                    </ul>
+                    <a href="religieux.html" class="link-arrow">En savoir plus <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </article>
+                <article class="service-card service-card--featured">
+                    <div class="service-card__badge">Le plus demandé</div>
+                    <div class="service-card__icon" aria-hidden="true"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Tourisme médical</h3>
+                    <p>Soins de qualité, cliniques partenaires certifiées, et séjours de convalescence dans un cadre apaisant.</p>
+                    <ul class="service-details" aria-label="Services inclus">
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Chirurgie esthétique, dentaire, ophtalmologie</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Bilans de santé complets</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Séjours post-opératoires avec suivi</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Transferts médicalisés et interprètes</li>
+                    </ul>
+                    <a href="medical.html" class="link-arrow">En savoir plus <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </article>
+                <article class="service-card">
+                    <div class="service-card__icon" aria-hidden="true"><i class="fas fa-landmark"></i></div>
+                    <h3>Tourisme culturel</h3>
+                    <p>Circuits privés au cœur des médinas, musées, et rencontres avec les artisans d'art.</p>
+                    <ul class="service-details" aria-label="Services inclus">
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Visites exclusives des palais et jardins secrets</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Ateliers avec des maîtres artisans</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Dégustations gastronomiques et cours de cuisine</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Nuits dans des riads d'exception</li>
+                    </ul>
+                    <a href="culturel.html" class="link-arrow">En savoir plus <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== POURQUOI NOUS ========== -->
+    <section class="section why-us" aria-labelledby="why-title">
+        <div class="container">
+            <div class="section__header text-center">
+                <span class="section__tag">Notre différence</span>
+                <h2 class="section__title" id="why-title">Pourquoi voyager<br><em>avec Souma Tourisme ?</em></h2>
+            </div>
+            <div class="why__grid">
+                <div class="why__item">
+                    <div class="why__number" aria-hidden="true">01</div>
+                    <div class="why__icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
+                    <h3>Disponibilité 24/7</h3>
+                    <p>Une équipe à votre écoute avant, pendant et après votre voyage.</p>
+                </div>
+                <div class="why__item">
+                    <div class="why__number" aria-hidden="true">02</div>
+                    <div class="why__icon" aria-hidden="true"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Sécurité garantie</h3>
+                    <p>Tous nos partenaires sont certifiés et assurés pour votre tranquillité.</p>
+                </div>
+                <div class="why__item">
+                    <div class="why__number" aria-hidden="true">03</div>
+                    <div class="why__icon" aria-hidden="true"><i class="fas fa-tags"></i></div>
+                    <h3>Meilleur prix</h3>
+                    <p>Devis transparent, sans frais cachés, avec notre garantie du prix le plus juste.</p>
+                </div>
+                <div class="why__item">
+                    <div class="why__number" aria-hidden="true">04</div>
+                    <div class="why__icon" aria-hidden="true"><i class="fas fa-route"></i></div>
+                    <h3>Sur mesure total</h3>
+                    <p>Chaque itinéraire est conçu spécifiquement pour vous, selon vos envies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="section cta" id="voyages" aria-labelledby="cta-title">
+        <div class="cta__bg" aria-hidden="true"></div>
+        <div class="container cta__container">
+            <div class="cta__content">
+                <span class="section__tag" style="color: rgba(255,255,255,0.7);">Sur mesure</span>
+                <h2 id="cta-title">Un voyage unique,<br><em>conçu rien que pour vous</em></h2>
+                <p>Racontez‑nous vos envies, nous dessinons l'itinéraire parfait.</p>
+                <div class="cta__actions">
+                    <a href="#contact" class="btn btn-light">Demander un devis</a>
+                    <a href="https://wa.me/212650405798" class="btn btn-ghost-light" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TÉMOIGNAGES ========== -->
+    <section class="section testimonials" id="temoignages" aria-labelledby="testi-title">
+        <div class="container">
+            <div class="section__header text-center">
+                <span class="section__tag">Ils nous font confiance</span>
+                <h2 class="section__title" id="testi-title">Avis de nos<br><em>voyageurs</em></h2>
+            </div>
+            <div class="testimonials__grid">
+                <blockquote class="testi-card">
+                    <div class="testi-card__stars" aria-label="5 étoiles sur 5">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p>« Un professionnalisme irréprochable, un voyage qui a dépassé toutes nos espérances. Souma Tourisme est désormais notre seul interlocuteur pour le Maroc. »</p>
+                    <footer class="testi-card__author">
+                        <div class="testi-card__avatar" aria-hidden="true">FM</div>
+                        <div>
+                            <strong>Famille Martin</strong>
+                            <span>Voyage à Marrakech, 2024</span>
+                        </div>
+                    </footer>
+                </blockquote>
+                <blockquote class="testi-card">
+                    <div class="testi-card__stars" aria-label="5 étoiles sur 5">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p>« Le tourisme médical avec Souma, c'est une prise en charge totale. De l'aéroport à la clinique, tout était parfaitement organisé. Je recommande vivement. »</p>
+                    <footer class="testi-card__author">
+                        <div class="testi-card__avatar" aria-hidden="true">SA</div>
+                        <div>
+                            <strong>Samira A.</strong>
+                            <span>Tourisme médical, 2024</span>
+                        </div>
+                    </footer>
+                </blockquote>
+                <blockquote class="testi-card">
+                    <div class="testi-card__stars" aria-label="5 étoiles sur 5">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                    </div>
+                    <p>« Notre circuit spirituel à Fès et Meknès était tout simplement magique. Les guides étaient d'une culture et d'une bienveillance rares. Expérience inoubliable. »</p>
+                    <footer class="testi-card__author">
+                        <div class="testi-card__avatar" aria-hidden="true">KH</div>
+                        <div>
+                            <strong>Karim H.</strong>
+                            <span>Circuit religieux, 2023</span>
+                        </div>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FORMULAIRE DE CONTACT ========== -->
+    <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="container contact__inner">
+            <div class="contact__info">
+                <span class="section__tag">Parlons de votre voyage</span>
+                <h2 class="section__title" id="contact-title">Contactez<br><em>notre équipe</em></h2>
+                <p>Notre équipe répond sous 24h pour concevoir votre voyage idéal.</p>
+                <ul class="contact__list" role="list">
+                    <li>
+                        <a href="tel:+212 650-405798" class="contact__link">
+                            <div class="contact__icon" aria-hidden="true"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <strong>Téléphone</strong>
+                                <span>+212 650-405798</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:masoumare72@gmail.com class="contact__link">
+                            <div class="contact__icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <strong>Email</strong>
+                                <span>masoumare72@gmail.com</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="contact__link">
+                            <div class="contact__icon" aria-hidden="true"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <strong>Adresse</strong>
+                                <span>Casablanca, Maroc</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <form class="contact__form" id="contactForm" novalidate aria-label="Formulaire de contact">
+                <div class="form__row">
+                    <div class="form__group">
+                        <label for="nom">Nom complet <span aria-hidden="true">*</span></label>
+                        <input type="text" id="nom" name="nom" placeholder="Jean Dupont" required autocomplete="name">
+                        <span class="form__error" role="alert" aria-live="polite"></span>
+                    </div>
+                    <div class="form__group">
+                        <label for="email">Email <span aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="jean@exemple.com" required autocomplete="email">
+                        <span class="form__error" role="alert" aria-live="polite"></span>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__group">
+                        <label for="telephone">Téléphone</label>
+                        <input type="tel" id="telephone" name="telephone" placeholder="+33 6 00 00 00 00" autocomplete="tel">
+                    </div>
+                    <div class="form__group">
+                        <label for="service">Type de voyage</label>
+                        <select id="service" name="service">
+                            <option value="">Choisissez un service</option>
+                            <option value="sur-mesure">Voyage sur mesure</option>
+                            <option value="religieux">Tourisme religieux</option>
+                            <option value="medical">Tourisme médical</option>
+                            <option value="culturel">Tourisme culturel</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form__group">
+                    <label for="message">Votre message <span aria-hidden="true">*</span></label>
+                    <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet de voyage, vos dates, vos besoins particuliers…" required></textarea>
+                    <span class="form__error" role="alert" aria-live="polite"></span>
+                </div>
+                <button type="submit" class="btn btn-primary btn--full">
+                    <span class="btn__text">Envoyer ma demande</span>
+                    <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                </button>
+                <div class="form__success" id="formSuccess" role="status" aria-live="polite" hidden>
+                    <i class="fas fa-check-circle" aria-hidden="true"></i>
+                    <p>Merci ! Votre message a été envoyé. Nous vous répondrons sous 24h.</p>
+                </div>
             </form>
         </div>
     </section>
 
-    <!-- CAN 2025 Section -->
-    <section class="section can-2025" id="can-2025">
-        <div class="container">
-            <div class="section-title">
-                <h2>CAN 2025 au Maroc</h2>
-                <p>Vivez l'événement sportif de l'année avec nos services premium : billets garantis, hébergement de luxe et transport VIP</p>
-            </div>
-            
-            <!-- Compte à rebours CAN 2025 -->
-            <div class="countdown-container">
-                <h3>Ouverture de la CAN 2025 dans :</h3>
-                <div class="countdown-timer">
-                    <div class="countdown-item">
-                        <span id="days">00</span>
-                        <small>Jours</small>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="hours">00</span>
-                        <small>Heures</small>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="minutes">00</span>
-                        <small>Minutes</small>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="seconds">00</span>
-                        <small>Secondes</small>
-                    </div>
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <div class="footer__col footer__col--brand">
+                <a href="#accueil" aria-label="Souma Tourisme — Retour en haut">
+                    <img src="images/logo-white.png" alt="Souma Tourisme" class="footer__logo">
+                </a>
+                <p>L'excellence du voyage sur mesure au Maroc, depuis Casablanca.</p>
+                <div class="social" aria-label="Réseaux sociaux">
+                    <a href="https://www.instagram.com/soumatourisme" target="_blank" rel="noopener" aria-label="Instagram">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.facebook.com/soumatourisme" target="_blank" rel="noopener" aria-label="Facebook">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://wa.me/212650405798" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
-
-            <div class="can-highlights">
-                <div class="can-highlight">
-                    <div class="highlight-icon">
-                        <i class="fas fa-ticket-alt"></i>
-                    </div>
-                    <h3>Billets Garantis</h3>
-                    <p>Accès prioritaire aux billets de tous les matchs de la CAN 2025</p>
-                </div>
-                <div class="can-highlight">
-                    <div class="highlight-icon">
-                        <i class="fas fa-hotel"></i>
-                    </div>
-                    <h3>Hébergement Premium</h3>
-                    <p>Hôtels 4-5 étoiles à proximité des stades et dans les centres-villes</p>
-                </div>
-                <div class="can-highlight">
-                    <div class="highlight-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3>Transport VIP</h3>
-                    <p>Véhicules de luxe avec chauffeur pour tous vos déplacements</p>
-                </div>
-                <div class="can-highlight">
-                    <div class="highlight-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3>Guide Expert</h3>
-                    <p>Accompagnement par nos experts locaux 24h/24</p>
-                </div>
+            <div class="footer__col">
+                <h4>Nos services</h4>
+                <ul>
+                    <li><a href="religieux.html">Tourisme religieux</a></li>
+                    <li><a href="medical.html">Tourisme médical</a></li>
+                    <li><a href="culturel.html">Tourisme culturel</a></li>
+                    <li><a href="#voyages">Voyages sur mesure</a></li>
+                </ul>
             </div>
-            
-            <div class="can-venues">
-                <h3>Villes Hôtes de la CAN 2025</h3>
-                <div class="venues-grid">
-                    <div class="venue-card">
-                        <img src="images/casablanca.jpg" alt="Stade Mohammed V, Casablanca" loading="lazy">
-                        <h4>Casablanca</h4>
-                        <p>Stade Mohammed V - 67 000 places</p>
-                    </div>
-                    <div class="venue-card">
-                        <img src="images/rabat.jpg" alt="Stade Prince Moulay Abdellah, Rabat" loading="lazy">
-                        <h4>Rabat</h4>
-                        <p>Stade Prince Moulay Abdellah - 53 000 places</p>
-                    </div>
-                    <div class="venue-card">
-                        <img src="images/marrakech.jpg" alt="Stade de Marrakech" loading="lazy">
-                        <h4>Marrakech</h4>
-                        <p>Stade de Marrakech - 45 000 places</p>
-                    </div>
-                    <div class="venue-card">
-                        <img src="images/fes.jpg" alt="Stade de Fès" loading="lazy">
-                        <h4>Fès</h4>
-                        <p>Stade de Fès - 40 000 places</p>
-                    </div>
-                </div>
+            <div class="footer__col">
+                <h4>Contact</h4>
+                <address style="font-style:normal;">
+                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+212 650-405798">+212 650-405798</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:masoumare72@gmail.com">masoumare72@gmail.com
+                    </a></p>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Casablanca, Maroc</p>
+                </address>
+            </div>
+            <div class="footer__col">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions générales</a></li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- Packages CAN -->
-    <section class="section packages" id="packages">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nos Packages CAN 2025</h2>
-                <p>Choisissez le package qui correspond à vos besoins et votre budget</p>
-            </div>
-            
-            <div class="packages-grid">
-                <div class="package-card">
-                    <div class="package-header">
-                        <h3>Package Essentiel</h3>
-                        <div class="package-price">À partir de 299€<span>/personne</span></div>
-                    </div>
-                    <div class="package-content">
-                        <ul>
-                            <li><i class="fas fa-check"></i> 1 Billet de match (groupe)</li>
-                            <li><i class="fas fa-check"></i> 2 nuits d'hébergement 3*</li>
-                            <li><i class="fas fa-check"></i> Transport aéroport-hôtel</li>
-                            <li><i class="fas fa-check"></i> Guide francophone</li>
-                        </ul>
-                        <button class="btn btn-outline" onclick="showPackageModal('essentiel')">Réserver</button>
-                    </div>
-                </div>
-                
-                <div class="package-card featured">
-                    <div class="package-badge">Populaire</div>
-                    <div class="package-header">
-                        <h3>Package Premium</h3>
-                        <div class="package-price">À partir de 599€<span>/personne</span></div>
-                    </div>
-                    <div class="package-content">
-                        <ul>
-                            <li><i class="fas fa-check"></i> 2 Billets de match (tribune)</li>
-                            <li><i class="fas fa-check"></i> 4 nuits hôtel 4*</li>
-                            <li><i class="fas fa-check"></i> Transport  avec chauffeur</li>
-                            <li><i class="fas fa-check"></i> Visite culturelle incluse</li>
-                            <li><i class="fas fa-check"></i> Assistance 24h/24</li>
-                        </ul>
-                        <button class="btn btn-vert" onclick="showPackageModal('premium')">Réserver</button>
-                    </div>
-                </div>
-                
-                <div class="package-card">
-                    <div class="package-header">
-                        <h3>Package VIP</h3>
-                        <div class="package-price">À partir de 999€<span>/personne</span></div>
-                    </div>
-                    <div class="package-content">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Billets VIP tous matchs</li>
-                            <li><i class="fas fa-check"></i> 7 nuits hôtel 5*</li>
-                            <li><i class="fas fa-check"></i> Limousine avec chauffeur</li>
-                            <li><i class="fas fa-check"></i> Accès zones VIP stade</li>
-                            <li><i class="fas fa-check"></i> Concierge personnel</li>
-                            <li><i class="fas fa-check"></i> Restaurants gastronomiques</li>
-                        </ul>
-                        <button class="btn btn-outline" onclick="showPackageModal('vip')">Réserver</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Expériences -->
-    <section class="section experiences" id="experiences">
-        <div class="container">
-            <div class="section-title">
-                <h2>Nos Autres Services</h2>
-                <p>Découvrez nos services complémentaires : tourisme religieux, médical et culturel</p>
-            </div>
-            <div class="grid">
-                <div class="card" style="background-image: url('images/pexels-halil-cihat-daricioglu-229755410-32880197.jpg')">
-                    <div class="card-content">
-                        <h3>Tourisme Religieux</h3>
-                        <p>Pèlerinages et retraites spirituelles dans les lieux saints du Maroc</p>
-                        <a href="#" class="btn">Découvrir</a>
-                    </div>
-                </div>
-                <div class="card" style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
-                    <div class="card-content">
-                        <h3>Tourisme Médical</h3>
-                        <p>Soins et traitements dans nos cliniques partenaires certifiées</p>
-                        <a href="#" class="btn">Découvrir</a>
-                    </div>
-                </div>
-                <div class="card" style="background-image: url('images/pexels-taryn-elliott-4502969.jpg')">
-                    <div class="card-content">
-                        <h3>Villes Impériales</h3>
-                        <p>Découverte des richesses culturelles et historiques du Maroc</p>
-                        <a href="#" class="btn">Découvrir</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pourquoi Nous -->
-    <section class="section why-us" id="why-us">
-        <div class="container">
-            <div class="section-title">
-                <h2>Pourquoi Choisir Souma Tourisme ?</h2>
-                <p>Notre expertise pour la CAN 2025 et nos services premium au Maroc</p>
-            </div>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-ticket-alt"></i>
-                    </div>
-                    <h3>Billets CAN Garantis</h3>
-                    <p>Accès prioritaire et réservation garantie pour tous les matchs de la CAN 2025.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Accompagnement 24/7</h3>
-                    <p>Assistance permanente durant votre séjour avec nos experts locaux.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-hotel"></i>
-                    </div>
-                    <h3>Hébergement Premium</h3>
-                    <p>Hôtels 4-5 étoiles sélectionnés près des stades et dans les centres-villes.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3>Transport </h3>
-                    <p>Véhicules de luxe avec chauffeur pour tous vos déplacements CAN.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <h3>Circuits Exclusifs</h3>
-                    <p>Accès à des expériences uniques : religieux, médical et culturel.</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h3>Tourisme Responsable</h3>
-                    <p>Respect des cultures locales et préservation des environnements.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Voyage Sur Mesure -->
-    <section class="section custom-trip" id="custom-trip">
-        <div class="container">
-            <h2>Un voyage 100% personnalisé</h2>
-            <p>Nos experts conçoivent pour vous un itinéraire unique selon vos besoins spirituels ou médicaux</p>
-            <form class="custom-form">
-                <div class="form-group">
-                    <input type="text" placeholder="Où souhaitez-vous aller?" aria-label="Destination pour voyage sur mesure">
-                </div>
-                <button type="submit" class="btn">Demander un devis</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Souma Tourisme</h3>
-                    <div class="footer-about">
-                        <p>Spécialiste CAN 2025 au Maroc. Billets garantis, hébergement premium, transport . Services religieux, médicaux et culturels.</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Liens rapides</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Accueil</a></li>
-                        <li><a href="#can-2025"><i class="fas fa-chevron-right"></i> CAN 2025</a></li>
-                        <li><a href="#packages"><i class="fas fa-chevron-right"></i> Packages CAN</a></li>
-                        <li><a href="#experiences"><i class="fas fa-chevron-right"></i> Nos services</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://maps.google.com" target="_blank" rel="noopener noreferrer"><i class="fas fa-map-marker-alt"></i> 123 Avenue Hassan II, Casablanca</a></li>
-                        <li><a href="tel:+212612345678"><i class="fas fa-phone"></i> +212 6 12 34 56 78</a></li>
-                        <li><a href="mailto:contact@soumatourisme.com"><i class="fas fa-envelope"></i> contact@soumatourisme.com</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2023</span> Souma Tourisme. Tous droits réservés.</p>
-            </div>
+        <div class="footer__bottom">
+            <p>© <span id="currentYear">2025</span> Souma Tourisme — Tous droits réservés</p>
+            <p>Conçu avec <i class="fas fa-heart" aria-hidden="true" style="color:var(--secondary);"></i> au Maroc</p>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <div class="back-to-top" aria-label="Retour en haut">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    <!-- Bouton WhatsApp flottant -->
+    <a href="https://wa.me/212650405798?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20un%20voyage%20sur%20mesure"
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Nous contacter sur WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        <span>Discuter</span>
+    </a>
 
-    <!-- Contact Modal -->
-    <div class="modal" id="contact-modal">
-        <div class="modal-content">
-            <button class="modal-close" aria-label="Fermer la modal">&times;</button>
-            <h3 class="modal-title">Contactez-nous</h3>
-            <form class="modal-form">
-                <div class="form-group">
-                    <label for="name">Nom complet</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Téléphone</label>
-                    <input type="tel" id="phone">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-vert">Envoyer</button>
-            </form>
-        </div>
-    </div>
+    <!-- Bouton retour en haut -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut de page" hidden>
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
 
-    <!-- Cookie Consent -->
-    <div class="cookie-consent">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <p>Nous utilisons des cookies pour améliorer votre expérience sur notre site. En continuant, vous acceptez notre <a href="#">politique de cookies</a>.</p>
-            </div>
-            <div class="cookie-buttons">
-                <button class="btn btn-blanc" id="accept-cookies">Accepter</button>
-                <button class="btn btn-outline" id="reject-cookies">Refuser</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Loader
-        document.addEventListener('DOMContentLoaded', function() {
-            const loader = document.querySelector('.loader');
-            
-            // Simule un chargement minimum pour une meilleure expérience utilisateur
-            setTimeout(() => {
-                loader.classList.add('hidden');
-                
-                // Affiche le consentement cookies après 2s
-                setTimeout(() => {
-                    document.querySelector('.cookie-consent').classList.add('active');
-                }, 2000);
-            }, 1000);
-            
-            // Met à jour l'année dans le footer
-
-            // Met à jour les prix en dirham marocain (MAD)
-            document.querySelectorAll('.package-card .package-price').forEach((el, idx) => {
-                const pricesMAD = [3200, 6400, 10700]; // Essentiel, Premium, VIP
-                el.innerHTML = `À partir de ${pricesMAD[idx].toLocaleString()} MAD<span>/personne</span>`;
-            });
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-        });
-
-        // Menu Mobile
-        const btnMenu = document.getElementById('btn-menu');
-        const nav = document.getElementById('nav');
-        
-        btnMenu.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            btnMenu.setAttribute('aria-expanded', nav.classList.contains('active'));
-            btnMenu.innerHTML = nav.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-
-        // Ferme le menu quand on clique sur un lien
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('active');
-                btnMenu.innerHTML = '<i class="fas fa-bars"></i>';
-                btnMenu.setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        // Header Scroll Effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            const backToTop = document.querySelector('.back-to-top');
-            
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('active');
-            } else {
-                backToTop.classList.remove('active');
-            }
-        });
-
-        // Back to top button
-        document.querySelector('.back-to-top').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Slider functionality
-        const slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.querySelector('.slider-dots');
-        const prevBtn = document.querySelector('.prev');
-        const nextBtn = document.querySelector('.next');
-        let autoSlide = true;
-        let sliderInterval;
-
-        // Create dots
-        slides.forEach((_, idx) => {
-            dotsContainer.insertAdjacentHTML('beforeend', 
-                `<button class="dot" data-slide="${idx}" aria-label="Aller au slide ${idx + 1}"></button>`);
-        });
-
-        const dots = document.querySelectorAll('.dot');
-
-        let curSlide = 0;
-        const maxSlide = slides.length - 1;
-
-        // Functions
-        const goToSlide = (slide) => {
-            slides.forEach((s, i) => {
-                s.style.opacity = i === slide ? 1 : 0;
-                s.setAttribute('aria-hidden', i !== slide);
-            });
-            
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === slide);
-                dot.setAttribute('aria-current', i === slide);
-            });
-            
-            curSlide = slide;
-        };
-
-        // Next slide
-        const nextSlide = () => {
-            curSlide === maxSlide ? goToSlide(0) : goToSlide(curSlide + 1);
-        };
-
-        // Previous slide
-        const prevSlide = () => {
-            curSlide === 0 ? goToSlide(maxSlide) : goToSlide(curSlide - 1);
-        };
-
-        // Initialize
-        goToSlide(0);
-
-        // Event handlers
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetAutoSlide();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetAutoSlide();
-        });
-
-        // Dots navigation
-        dotsContainer.addEventListener('click', function(e) {
-            if (e.target.classList.contains('dot')) {
-                const slide = e.target.dataset.slide;
-                goToSlide(parseInt(slide));
-                resetAutoSlide();
-            }
-        });
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowRight') {
-                nextSlide();
-                resetAutoSlide();
-            } else if (e.key === 'ArrowLeft') {
-                prevSlide();
-                resetAutoSlide();
-            }
-        });
-
-        // Auto-slide
-        const startAutoSlide = () => {
-            sliderInterval = setInterval(nextSlide, 5000);
-        };
-
-        const resetAutoSlide = () => {
-            clearInterval(sliderInterval);
-            if (autoSlide) {
-                startAutoSlide();
-            }
-        };
-
-        // Pause on hover
-        const slider = document.querySelector('.hero-slider');
-        slider.addEventListener('mouseenter', () => {
-            autoSlide = false;
-            clearInterval(sliderInterval);
-        });
-
-        slider.addEventListener('mouseleave', () => {
-            autoSlide = true;
-            startAutoSlide();
-        });
-
-        // Start auto slide
-        startAutoSlide();
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#' || targetId === '#!') return;
-                
-                e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerHeight = document.getElementById('header').offsetHeight;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Change URL without page reload
-                    if (history.pushState) {
-                        history.pushState(null, null, targetId);
-                    } else {
-                        location.hash = targetId;
-                    }
-                }
-            });
-        });
-
-        // Form submission
-        const forms = document.querySelectorAll('form');
-        forms.forEach(form => {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = new FormData(this);
-                const serviceType = formData.get('type') || 'service';
-                
-                let message = 'Merci pour votre demande !<br>Un conseiller Souma Tourisme vous contactera dans les plus brefs délais.';
-                
-                if (serviceType.includes('can')) {
-                    message = 'Demande CAN 2025 reçue !<br>Nous vous confirmerons la disponibilité des billets et hébergements sous 24h.';
-                } else if (serviceType.includes('billets')) {
-                    message = 'Demande de billets CAN reçue !<br>Nous vous proposerons les meilleures places disponibles.';
-                } else if (serviceType.includes('logement')) {
-                    message = 'Demande d\'hébergement reçue !<br>Nous vous proposerons les meilleurs hôtels près des stades.';
-                }
-                
-                showModal(message);
-                this.reset();
-            });
-        });
-
-        // Modal functionality
-        const contactModal = document.getElementById('contact-modal');
-        
-        function showModal(message = null) {
-            if (message) {
-                const modalContent = contactModal.querySelector('.modal-content');
-                modalContent.innerHTML = `
-                    <button class="modal-close">&times;</button>
-                    <h3 class="modal-title">Merci !</h3>
-                    <div class="modal-message" style="text-align: center; padding: 1rem 0 2rem;">
-                        ${message}
-                    </div>
-                    <button class="btn btn-vert modal-close-btn">Fermer</button>
-                `;
-                
-                // Ajoute les event listeners aux nouveaux éléments
-                contactModal.querySelector('.modal-close').addEventListener('click', closeModal);
-                contactModal.querySelector('.modal-close-btn').addEventListener('click', closeModal);
-            }
-            
-            contactModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeModal() {
-            contactModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-        
-        // Close modal when clicking outside
-        contactModal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-        
-        // Close modal with ESC key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && contactModal.classList.contains('active')) {
-                closeModal();
-            }
-        });
-
-        // Cookie Consent
-        const acceptCookies = document.getElementById('accept-cookies');
-        const rejectCookies = document.getElementById('reject-cookies');
-        const cookieConsent = document.querySelector('.cookie-consent');
-        
-        if (!localStorage.getItem('cookieConsent')) {
-            setTimeout(() => {
-                cookieConsent.classList.add('active');
-            }, 2000);
-        }
-        
-        acceptCookies.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'accepted');
-            cookieConsent.classList.remove('active');
-            // Initialiser les cookies analytiques ici
-        });
-        
-        rejectCookies.addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'rejected');
-            cookieConsent.classList.remove('active');
-            // Ne pas initialiser les cookies analytiques
-        });
-
-
-        // Lazy loading pour les images
-        if ('loading' in HTMLImageElement.prototype) {
-            // Les navigateurs gèrent nativement; pas de mutation de src
-        } else {
-            // Fallback avec Intersection Observer
-            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-            
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        observer.unobserve(img);
-                    }
-                });
-            });
-            
-            lazyImages.forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-        // WebP detection et remplacement des images
-        function checkWebP() {
-            return new Promise(resolve => {
-                const webP = new Image();
-                webP.onload = webP.onerror = function() {
-                    resolve(webP.height === 2);
-                };
-                webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
-            });
-        }
-        
-        checkWebP().then(hasWebP => {
-            if (hasWebP) {
-                document.body.classList.add('webp');
-            } else {
-                document.body.classList.add('no-webp');
-            }
-        });
-
-        // Compte à rebours CAN 2025 (date d'ouverture estimée : 21 décembre 2025)
-        const eventDate = new Date("Dec 21, 2025 20:00:00").getTime();
-        const countdown = setInterval(function () {
-            const now = new Date().getTime();
-            const distance = eventDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            const daysEl = document.getElementById("days");
-            const hoursEl = document.getElementById("hours");
-            const minutesEl = document.getElementById("minutes");
-            const secondsEl = document.getElementById("seconds");
-
-            if (daysEl) daysEl.innerText = days.toString().padStart(2, '0');
-            if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
-            if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
-            if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
-
-            if (distance < 0) {
-                clearInterval(countdown);
-                const countdownContainer = document.querySelector('.countdown-container');
-                if (countdownContainer) {
-                    countdownContainer.innerHTML = "<h3>La CAN 2025 a commencé !</h3><p>Vivez l'événement avec Souma Tourisme</p>";
-                }
-            }
-        }, 1000);
-
-        // Fonction pour afficher la modal de réservation de package
-        function showPackageModal(packageType) {
-            const packageNames = {
-                'essentiel': 'Package Essentiel',
-                'premium': 'Package Premium', 
-                'vip': 'Package VIP'
-            };
-            
-            const packagePrices = {
-                'essentiel': '299€',
-                'premium': '599€',
-                'vip': '999€'
-            };
-            
-            const modalContent = `
-                <button class="modal-close">&times;</button>
-                <h3 class="modal-title">Réservation ${packageNames[packageType]}</h3>
-                <div class="modal-message" style="text-align: center; padding: 1rem 0 2rem;">
-                    <p>Prix : <strong>${packagePrices[packageType]}/personne</strong></p>
-                    <p>Remplissez le formulaire ci-dessous pour réserver votre package CAN 2025</p>
-                </div>
-                <form class="modal-form" id="package-form">
-                    <div class="form-group">
-                        <label for="package-name">Nom complet</label>
-                        <input type="text" id="package-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="package-email">Email</label>
-                        <input type="email" id="package-email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="package-phone">Téléphone</label>
-                        <input type="tel" id="package-phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="package-guests">Nombre de personnes</label>
-                        <select id="package-guests" required>
-                            <option value="">Sélectionner</option>
-                            <option value="1">1 personne</option>
-                            <option value="2">2 personnes</option>
-                            <option value="3">3 personnes</option>
-                            <option value="4">4 personnes</option>
-                            <option value="5+">5+ personnes</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="package-city">Ville hôte préférée</label>
-                        <select id="package-city" required>
-                            <option value="">Sélectionner</option>
-                            <option value="casablanca">Casablanca</option>
-                            <option value="rabat">Rabat</option>
-                            <option value="marrakech">Marrakech</option>
-                            <option value="fes">Fès</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="package-dates">Dates souhaitées</label>
-                        <input type="text" id="package-dates" placeholder="Ex: 15-20 janvier 2025">
-                    </div>
-                    <div class="form-group">
-                        <label for="package-message">Message spécial</label>
-                        <textarea id="package-message" placeholder="Précisez vos besoins particuliers..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-vert">Confirmer la réservation</button>
-                </form>
-            `;
-            
-            const contactModal = document.getElementById('contact-modal');
-            const modalContentDiv = contactModal.querySelector('.modal-content');
-            modalContentDiv.innerHTML = modalContent;
-            
-            // Ajouter les event listeners
-            contactModal.querySelector('.modal-close').addEventListener('click', closeModal);
-            contactModal.querySelector('#package-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                showModal(`Réservation ${packageNames[packageType]} confirmée !<br>Un conseiller vous contactera sous 24h pour finaliser votre package CAN 2025.`);
-            });
-            
-            contactModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-    </script>
-  
+    <script src="js/main.js"></script>
 </body>
 </html>
