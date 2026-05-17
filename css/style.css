@@ -1504,3 +1504,169 @@ address { font-style: normal; }
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ---------- MOT DU DIRECTEUR GÉNÉRAL ---------- */
+.dg-section {
+    background: var(--light);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.dg__inner {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 70px;
+    align-items: start;
+}
+
+.dg__photo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: sticky;
+    top: 120px;
+}
+
+.dg__photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: var(--accent);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dg__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+.dg__photo--placeholder {
+    background: linear-gradient(160deg, var(--accent) 0%, var(--accent-dark) 100%);
+}
+
+.dg__photo--placeholder::after {
+    content: '\f2bb';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 6rem;
+    color: var(--primary);
+    opacity: 0.18;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+}
+
+.dg__photo-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(26,77,46,0.88), transparent);
+    color: var(--light);
+    padding: 40px 20px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.dg__photo-label i { font-size: 1.1rem; }
+
+.dg__signature {
+    text-align: center;
+}
+
+.dg__signature-text {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-style: italic;
+    color: var(--primary);
+    opacity: 0.35;
+    letter-spacing: 1px;
+}
+
+/* Contenu */
+.dg__quote {
+    border-left: 3px solid var(--secondary);
+    padding-left: 28px;
+    margin: 0 0 32px;
+}
+
+.dg__quote p {
+    font-family: var(--font-display);
+    font-size: 1.12rem;
+    font-style: italic;
+    color: var(--dark-soft);
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+.dg__quote footer {
+    padding-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.dg__name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: 600;
+    font-style: normal;
+}
+
+.dg__company {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gray-light);
+    font-style: normal;
+}
+
+.dg__address {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--accent);
+    border-radius: var(--radius);
+    padding: 18px 22px;
+    border: 1px solid var(--accent-dark);
+}
+
+.dg__address i {
+    color: var(--secondary);
+    font-size: 1rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.dg__address address {
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--dark-soft);
+    line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+    .dg__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .dg__photo-wrapper {
+        position: static;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
