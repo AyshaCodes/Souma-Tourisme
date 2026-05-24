@@ -29,551 +29,619 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* ── HERO DESTINATIONS ── */
-        .hero-dest {
-            position: relative;
-            height: 70vh;
-            min-height: 520px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--light);
-            overflow: hidden;
-        }
+    /* ── VARIABLES locales (harmonisées avec index + galerie) ── */
+    :root {
+        --topbar-h: 38px;
+        --header-h: 70px;
+    }
 
-        .hero-dest__bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg?auto=compress&cs=tinysrgb&w=1600');
-            background-size: cover;
-            background-position: center;
-            z-index: -2;
-            transition: transform 0.1s linear;
-        }
+    /* ── TOPBAR (identique index + galerie) ── */
+    .topbar {
+        background: var(--primary);
+        color: rgba(255,255,255,0.85);
+        font-size: 0.78rem;
+        text-align: center;
+        padding: 9px 20px;
+        letter-spacing: 0.3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        height: var(--topbar-h);
+    }
+    .topbar a { color: var(--gold); text-decoration: none; font-weight: 600; transition: opacity .2s; }
+    .topbar a:hover { opacity: .8; }
+    .topbar__sep { opacity: .3; }
+    @media (max-width: 768px) { .topbar { display: none; } }
 
-        .hero-dest__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                160deg,
-                rgba(26, 77, 46, 0.78) 0%,
-                rgba(26, 77, 46, 0.52) 45%,
-                rgba(100, 20, 20, 0.58) 100%
-            );
-            z-index: -1;
-        }
+    /* ── HEADER (ajusté pour topbar) ── */
+    .header { top: var(--topbar-h); }
+    @media (max-width: 768px) { .header { top: 0; } }
 
-        .hero-dest__content {
-            position: relative;
-            z-index: 2;
-            max-width: 820px;
-            padding: 0 20px;
-        }
+    /* ── HERO (style galerie.html) ── */
+    .hero-dest {
+        position: relative;
+        height: 62vh;
+        min-height: 440px;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        padding-top: calc(var(--topbar-h) + var(--header-h));
+    }
 
-        .hero-dest__tag {
-            display: inline-block;
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(8px);
-            padding: 7px 18px;
-            border-radius: 50px;
-            margin-bottom: 28px;
-            animation: fadeUp 0.8s ease-out both;
-        }
+    .hero-dest__slides {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
 
-        .hero-dest__title {
-            font-family: var(--font-display);
-            font-size: clamp(2.4rem, 5.5vw, 4.5rem);
-            color: var(--light);
-            margin-bottom: 20px;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
-            animation: fadeUp 0.8s ease-out 0.15s both;
-            line-height: 1.15;
-        }
+    .hero-dest__slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1s ease;
+        transform: scale(1.06);
+        animation: heroZoom 14s ease-out forwards;
+    }
+    .hero-dest__slide.active { opacity: 1; }
 
-        .hero-dest__title em {
-            font-style: italic;
-            color: rgba(255,255,255,0.82);
-        }
+    @keyframes heroZoom { to { transform: scale(1); } }
 
-        .hero-dest__text {
-            font-size: clamp(1rem, 1.4vw, 1.15rem);
-            opacity: 0.9;
-            max-width: 560px;
-            margin: 0 auto;
-            line-height: 1.7;
-            animation: fadeUp 0.8s ease-out 0.3s both;
-        }
+    .hero-dest__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(26,77,46,0.25) 0%,
+            rgba(18,18,20,0.72) 100%
+        );
+        z-index: 1;
+    }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            padding: 16px 0;
-            font-size: 0.83rem;
-            color: var(--gray-light);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .breadcrumb a { text-decoration: none; color: var(--gray); transition: color 0.2s; }
-        .breadcrumb a:hover { color: var(--secondary); }
-        .breadcrumb i { font-size: 0.65rem; color: var(--gray-light); }
-        .breadcrumb span { color: var(--secondary); font-weight: 500; }
+    .hero-dest__content {
+        position: relative;
+        z-index: 2;
+        padding-bottom: 52px;
+        width: 100%;
+    }
 
-        /* ── FILTRES ── */
-        .filters-bar {
-            background: var(--light);
-            padding: 28px 0;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 70px;
-            z-index: 100;
-            transition: box-shadow 0.3s ease;
-        }
+    .hero-dest__content .container {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+    }
 
-        .filters-bar.shadowed {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-        }
+    .hero-dest__eyebrow {
+        display: block;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: rgba(255,255,255,0.45);
+        margin-bottom: 10px;
+    }
 
-        .filters-inner {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
+    .hero-dest__title {
+        font-family: var(--font-display);
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        color: var(--light);
+        line-height: 1.1;
+        font-weight: 400;
+        animation: fadeUp .9s ease-out both;
+    }
+    .hero-dest__title em { font-style: italic; color: rgba(255,255,255,0.55); }
 
-        .filter-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gray-light);
-            margin-right: 6px;
-            white-space: nowrap;
-        }
+    .hero-dest__num {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        color: rgba(255,255,255,0.08);
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: -4px;
+        text-align: right;
+        animation: fadeUp .9s ease-out .15s both;
+        flex-shrink: 0;
+    }
+    .hero-dest__num small {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: rgba(255,255,255,0.28);
+        font-weight: 400;
+        margin-top: 4px;
+    }
 
-        .filter-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 9px 20px;
-            border-radius: 50px;
-            border: 1.5px solid var(--border);
-            background: transparent;
-            font-family: var(--font-body);
-            font-size: 0.86rem;
-            font-weight: 500;
-            color: var(--gray);
-            cursor: pointer;
-            transition: var(--transition-fast);
-        }
+    /* Dots slideshow (identiques index.html) */
+    .hero-dest__dots {
+        position: absolute;
+        bottom: 22px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 3;
+    }
+    .hero-dest__dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.35);
+        border: none;
+        cursor: pointer;
+        transition: all .3s ease;
+        padding: 0;
+    }
+    .hero-dest__dot.active {
+        background: var(--light);
+        width: 22px;
+        border-radius: 3px;
+    }
 
-        .filter-btn i { font-size: 0.78rem; }
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(22px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
 
-        .filter-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+        padding: 14px 0;
+        font-size: 0.82rem;
+        color: var(--gray-light);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid var(--border);
+    }
+    .breadcrumb a { text-decoration: none; color: var(--gray); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--secondary); }
+    .breadcrumb i { font-size: 0.6rem; }
+    .breadcrumb span { color: var(--secondary); font-weight: 500; }
 
-        .filter-btn.active {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: var(--light);
-        }
+    /* ── FILTRES (harmonisés avec galerie.html) ── */
+    .filters-wrap {
+        background: var(--light);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: calc(var(--topbar-h) + var(--header-h));
+        z-index: 100;
+        transition: box-shadow .3s;
+    }
+    @media (max-width: 768px) { .filters-wrap { top: var(--header-h); } }
+    .filters-wrap.shadowed { box-shadow: 0 6px 24px rgba(0,0,0,.06); }
 
-        /* ── GRILLE DESTINATIONS ── */
-        .destinations-page {
-            padding: clamp(50px, 7vw, 90px) 0;
-            background: var(--light-gray);
-        }
+    .filters-inner {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 14px 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+    .filters-inner::-webkit-scrollbar { display: none; }
 
-        .dest-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 28px;
-        }
+    .filter-label {
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--gray-light);
+        margin-right: 4px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
 
-        /* Carte featured (grande) */
-        .dest-card {
-            background: var(--light);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-        }
+    .f-btn {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 20px;
+        border-radius: 50px;
+        border: 1.5px solid var(--border);
+        background: transparent;
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--gray);
+        cursor: pointer;
+        transition: all .2s;
+        white-space: nowrap;
+    }
+    .f-btn i { font-size: 0.75rem; }
+    .f-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .f-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
 
-        .dest-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: transparent;
-        }
+    .f-count {
+        margin-left: auto;
+        flex-shrink: 0;
+        font-size: 0.78rem;
+        color: var(--gray-light);
+        padding-left: 14px;
+        white-space: nowrap;
+        border-left: 1px solid var(--border);
+    }
+    .f-count strong { color: var(--primary); font-weight: 600; }
 
-        .dest-card.hidden {
-            display: none;
-        }
+    /* ── SECTION DESTINATIONS ── */
+    .destinations-page {
+        padding: 36px 0 90px;
+        background: #f5f3ef;
+    }
 
-        .dest-card__img {
-            position: relative;
-            height: 260px;
-            overflow: hidden;
-        }
+    .results-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .results-count {
+        font-size: 0.88rem;
+        color: var(--gray);
+    }
+    .results-count strong {
+        color: var(--primary);
+        font-weight: 600;
+    }
 
-        .dest-card.featured .dest-card__img {
-            height: 360px;
-        }
+    /* ── GRILLE PRINCIPALE ── */
+    .dest-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 24px;
+    }
 
-        .dest-card__img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.7s ease;
-        }
+    /* Grille featured (identique index.html avec 3 colonnes) */
+    .dest-grid--featured {
+        display: grid;
+        grid-template-columns: 1.45fr 1fr 1fr;
+        gap: 24px;
+        margin-bottom: 24px;
+    }
+    .dest-grid--featured .dest-card--big {
+        grid-row: span 2;
+    }
 
-        .dest-card:hover .dest-card__img img {
-            transform: scale(1.06);
-        }
+    /* ── CARTE DESTINATION (harmonisée avec index.html dest-card) ── */
+    .dest-card {
+        background: var(--light);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        /* Reveal comme index.html */
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .dest-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .dest-card:hover {
+        box-shadow: var(--shadow-lg);
+        border-color: transparent;
+        transform: translateY(-6px);
+    }
+    .dest-card.visible:hover {
+        transform: translateY(-6px);
+    }
+    .dest-card.hidden { display: none; }
 
-        .dest-card__badge {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            background: var(--secondary);
-            color: var(--light);
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 5px 14px;
-            border-radius: 50px;
-        }
+    .dest-card__img {
+        position: relative;
+        height: 230px;
+        overflow: hidden;
+    }
+    .dest-card--big .dest-card__img { height: 100%; min-height: 340px; }
 
-        .dest-card__badge--gold {
-            background: var(--gold);
-            color: var(--dark);
-        }
+    .dest-card__img-inner {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: transform .7s cubic-bezier(.25,.46,.45,.94);
+    }
+    .dest-card:hover .dest-card__img-inner { transform: scale(1.06); }
 
-        .dest-card__badge--green {
-            background: var(--primary);
-        }
+    /* Badge */
+    .dest-card__badge {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        background: var(--secondary);
+        color: var(--light);
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        padding: 5px 14px;
+        border-radius: 50px;
+        z-index: 2;
+    }
+    .dest-card__badge--gold  { background: var(--gold); color: var(--dark); }
+    .dest-card__badge--green { background: var(--primary); }
 
-        /* Overlay au survol */
-        .dest-card__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(26,77,46,0.7) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            display: flex;
-            align-items: flex-end;
-            padding: 24px;
-        }
+    /* Overlay hover (comme index.html) */
+    .dest-card__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(26,77,46,0.65) 0%, transparent 55%);
+        opacity: 0;
+        transition: opacity .4s ease;
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
+        z-index: 1;
+    }
+    .dest-card:hover .dest-card__overlay { opacity: 1; }
+    .dest-card__overlay-text {
+        color: var(--light);
+        font-size: 0.82rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+    }
+    .dest-card__overlay-text i { transition: transform .25s ease; }
+    .dest-card:hover .dest-card__overlay-text i { transform: translateX(4px); }
 
-        .dest-card:hover .dest-card__overlay {
-            opacity: 1;
-        }
+    /* Contenu carte */
+    .dest-card__body {
+        padding: 24px 26px 26px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .dest-card__meta {
+        font-size: 0.75rem;
+        color: var(--gray-light);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .dest-card__meta i { color: var(--secondary); font-size: 0.68rem; }
 
-        .dest-card__cta-hover {
-            color: var(--light);
-            font-size: 0.88rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-        }
+    .dest-card__body h3 {
+        font-family: var(--font-display);
+        font-size: 1.55rem;
+        color: var(--primary);
+        margin-bottom: 10px;
+        line-height: 1.2;
+    }
+    .dest-card--big .dest-card__body h3 { font-size: 2rem; }
 
-        .dest-card__cta-hover i { transition: transform 0.25s ease; }
-        .dest-card:hover .dest-card__cta-hover i { transform: translateX(5px); }
+    .dest-card__body p {
+        color: var(--gray);
+        font-size: 0.91rem;
+        line-height: 1.65;
+        margin-bottom: 18px;
+        flex: 1;
+    }
 
-        .dest-card__body {
-            padding: 26px 28px 30px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
+    .dest-card__tags {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+    }
+    .dest-tag {
+        font-size: 0.72rem;
+        padding: 4px 11px;
+        border-radius: 50px;
+        background: var(--accent);
+        color: var(--gray);
+        border: 1px solid var(--accent-dark);
+        font-weight: 500;
+    }
 
-        .dest-card__meta {
-            font-size: 0.75rem;
-            color: var(--gray-light);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+    .dest-card__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+    }
+    .dest-card__duration {
+        font-size: 0.79rem;
+        color: var(--gray-light);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    .dest-card__duration i { color: var(--primary); font-size: 0.74rem; }
 
-        .dest-card__meta i { color: var(--secondary); font-size: 0.68rem; }
+    /* ── CTA MILIEU (reprend style CTA de index.html) ── */
+    .mid-cta {
+        background: var(--primary);
+        border-radius: var(--radius-lg);
+        padding: 44px 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+        margin: 0 0 24px;
+        flex-wrap: wrap;
+        position: relative;
+        overflow: hidden;
+    }
+    .mid-cta::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+        pointer-events: none;
+    }
+    .mid-cta__text h3 {
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 2.5vw, 2rem);
+        color: var(--light);
+        margin-bottom: 10px;
+        position: relative;
+    }
+    .mid-cta__text h3 em { color: rgba(255,255,255,0.7); }
+    .mid-cta__text p {
+        font-size: 0.93rem;
+        color: rgba(255,255,255,0.68);
+        max-width: 420px;
+        line-height: 1.65;
+        position: relative;
+    }
+    .mid-cta__actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+        position: relative;
+    }
 
-        .dest-card__body h3 {
-            font-family: var(--font-display);
-            font-size: 1.65rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
+    /* ── NO RESULTS ── */
+    .no-results {
+        text-align: center;
+        padding: 70px 20px;
+        color: var(--gray);
+        display: none;
+    }
+    .no-results i { font-size: 2.8rem; color: var(--accent-dark); margin-bottom: 14px; display: block; }
+    .no-results p { font-size: .95rem; }
 
-        .dest-card.featured .dest-card__body h3 {
-            font-size: 2rem;
-        }
+    /* ── SECTION POURQUOI (harmonisée avec index.html prestige) ── */
+    .why-section {
+        background: var(--accent);
+        padding: clamp(60px, 8vw, 100px) 0;
+    }
+    .why-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 24px;
+        margin-top: 48px;
+    }
+    .why-item {
+        background: var(--light);
+        border-radius: var(--radius);
+        padding: 32px 24px;
+        text-align: center;
+        border: 1px solid var(--border);
+        transition: var(--transition);
+        position: relative;
+        /* Même reveal que index.html */
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .why-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .why-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+        border-color: transparent;
+    }
+    .why-item.visible:hover { transform: translateY(-5px); }
 
-        .dest-card__body p {
-            color: var(--gray);
-            font-size: 0.92rem;
-            line-height: 1.65;
-            margin-bottom: 20px;
-            flex: 1;
-        }
+    /* Ligne décorative hover (comme prestige__item::before dans index.html) */
+    .why-item::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: var(--secondary);
+        transition: width .4s ease;
+    }
+    .why-item:hover::after { width: 40%; }
 
-        .dest-card__tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 18px;
-        }
+    .why-item__icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: rgba(181,39,42,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 18px;
+        transition: background .3s ease;
+    }
+    .why-item:hover .why-item__icon { background: var(--secondary); }
+    .why-item__icon i { font-size: 1.4rem; color: var(--secondary); transition: color .3s ease; }
+    .why-item:hover .why-item__icon i { color: var(--light); }
 
-        .dest-tag {
-            font-size: 0.73rem;
-            padding: 4px 12px;
-            border-radius: 50px;
-            background: var(--accent);
-            color: var(--gray);
-            border: 1px solid var(--accent-dark);
-            font-weight: 500;
-        }
+    .why-item h4 {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        color: var(--primary);
+        margin-bottom: 8px;
+    }
+    .why-item p { font-size: 0.87rem; color: var(--gray); line-height: 1.6; }
 
-        .dest-card__footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 18px;
-            border-top: 1px solid var(--border);
-        }
-
-        .dest-card__duration {
-            font-size: 0.8rem;
-            color: var(--gray-light);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .dest-card__duration i { color: var(--primary); font-size: 0.75rem; }
-
-        /* ── CARTE FEATURED (colonne large) ── */
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
         .dest-grid--featured {
-            display: grid;
-            grid-template-columns: 1.4fr 1fr 1fr;
-            gap: 28px;
-            margin-bottom: 28px;
+            grid-template-columns: 1fr 1fr;
         }
-
-        .dest-grid--featured .dest-card:first-child {
-            grid-row: span 2;
+        .dest-grid--featured .dest-card--big {
+            grid-column: span 2;
+            grid-row: span 1;
         }
+        .dest-grid--featured .dest-card--big .dest-card__img { min-height: 280px; }
+    }
+    @media (max-width: 768px) {
+        .dest-grid--featured,
+        .dest-grid { grid-template-columns: 1fr; }
+        .dest-grid--featured .dest-card--big { grid-column: span 1; }
+        .mid-cta { flex-direction: column; text-align: center; padding: 36px 28px; }
+        .mid-cta__text p { margin: 0 auto; }
+        .hero-dest__num { display: none; }
+    }
 
-        /* ── SECTION CTA MILIEU ── */
-        .mid-cta {
-            background: var(--primary);
-            border-radius: var(--radius-lg);
-            padding: 48px 44px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 32px;
-            margin: 0 0 28px;
-            flex-wrap: wrap;
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: .01ms !important;
+            transition-duration: .01ms !important;
         }
+    }
 
-        .mid-cta__text h3 {
-            font-family: var(--font-display);
-            font-size: clamp(1.5rem, 2.5vw, 2rem);
-            color: var(--light);
-            margin-bottom: 10px;
-        }
-
-        .mid-cta__text h3 em {
-            color: rgba(255,255,255,0.75);
-        }
-
-        .mid-cta__text p {
-            font-size: 0.93rem;
-            color: rgba(255,255,255,0.72);
-            max-width: 440px;
-            line-height: 1.65;
-        }
-
-        .mid-cta__actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            flex-shrink: 0;
-        }
-
-        /* ── COMPTEUR RÉSULTATS ── */
-        .results-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 28px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .results-count {
-            font-size: 0.88rem;
-            color: var(--gray);
-        }
-
-        .results-count strong {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* ── NO RESULTS ── */
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--gray);
-            display: none;
-        }
-
-        .no-results i {
-            font-size: 3rem;
-            color: var(--accent-dark);
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        .no-results p {
-            font-size: 1rem;
-        }
-
-        /* ── SECTION POURQUOI SOUMA ── */
-        .why-section {
-            background: var(--accent);
-            padding: clamp(60px, 8vw, 100px) 0;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .why-item {
-            background: var(--light);
-            border-radius: var(--radius);
-            padding: 32px 24px;
-            text-align: center;
-            border: 1px solid var(--border);
-            transition: var(--transition);
-        }
-
-        .why-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-            border-color: transparent;
-        }
-
-        .why-item__icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: rgba(181,39,42,0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 18px;
-            transition: var(--transition);
-        }
-
-        .why-item:hover .why-item__icon { background: var(--secondary); }
-
-        .why-item__icon i {
-            font-size: 1.4rem;
-            color: var(--secondary);
-            transition: var(--transition-fast);
-        }
-
-        .why-item:hover .why-item__icon i { color: var(--light); }
-
-        .why-item h4 {
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .why-item p {
-            font-size: 0.88rem;
-            color: var(--gray);
-            line-height: 1.6;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to   { opacity: 1; }
-        }
-
-        .dest-card { animation: fadeIn 0.4s ease both; }
-
-        /* Responsive */
-        @media (max-width: 1100px) {
-            .dest-grid--featured {
-                grid-template-columns: 1fr 1fr;
-            }
-            .dest-grid--featured .dest-card:first-child {
-                grid-column: span 2;
-                grid-row: span 1;
-            }
-            .dest-grid--featured .dest-card:first-child .dest-card__img {
-                height: 280px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .dest-grid--featured {
-                grid-template-columns: 1fr;
-            }
-            .dest-grid--featured .dest-card:first-child {
-                grid-column: span 1;
-            }
-            .dest-grid { grid-template-columns: 1fr; }
-            .mid-cta { flex-direction: column; text-align: center; }
-            .mid-cta__text p { margin: 0 auto; }
-            .filters-bar { top: 60px; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
+    /* sr-only utilitaire */
+    .sr-only {
+        position: absolute; width: 1px; height: 1px; padding: 0;
+        margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+        white-space: nowrap; border: 0;
+    }
     </style>
 </head>
 <body>
+
+    <!-- ========== TOPBAR (identique index.html + galerie.html) ========== -->
+    <div class="topbar" role="banner" aria-label="Informations de contact">
+        <span><i class="fas fa-phone-alt"></i> <a href="tel:+212650405798">+212 650-405798</a></span>
+        <span class="topbar__sep">|</span>
+        <span><i class="fas fa-envelope"></i> <a href="mailto:masoumare72@gmail.com">masoumare72@gmail.com</a></span>
+        <span class="topbar__sep">|</span>
+        <span><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</span>
+    </div>
 
     <!-- ========== HEADER ========== -->
     <header class="header" id="header" role="banner">
         <div class="container header__inner">
             <a href="index.html" class="logo" aria-label="Souma Tourisme — Retour à l'accueil">
-                <img src="images/image.png" alt="Souma Tourisme" class="logo-img">
+                <img src="images/logo.png" alt="Souma Tourisme" class="logo-img">
             </a>
             <nav class="nav" id="nav" aria-label="Navigation principale">
                 <ul class="nav__list" role="list">
@@ -581,6 +649,7 @@
                     <li><a href="destinations.html" class="nav__active">Destinations</a></li>
                     <li><a href="index.html#services">Nos services</a></li>
                     <li><a href="index.html#voyages">Sur mesure</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
                     <li><a href="index.html#temoignages">Avis clients</a></li>
                     <li><a href="index.html#contact" class="nav__cta">Contact</a></li>
                 </ul>
@@ -593,19 +662,32 @@
         </div>
     </header>
 
-    <!-- ========== HERO ========== -->
-    <section class="hero-dest" aria-label="Nos destinations au Maroc">
-        <div class="hero-dest__bg" id="heroBg" aria-hidden="true"></div>
+    <!-- ========== HERO (style galerie.html avec slideshow dots) ========== -->
+    <section class="hero-dest" id="accueil" aria-label="Nos destinations au Maroc">
+        <div class="hero-dest__slides" aria-hidden="true">
+            <div class="hero-dest__slide active" style="background-image: url('https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+            <div class="hero-dest__slide" style="background-image: url('https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+            <div class="hero-dest__slide" style="background-image: url('https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+        </div>
         <div class="hero-dest__overlay" aria-hidden="true"></div>
-        <div class="hero-dest__content container">
-            <span class="hero-dest__tag">Voyager autrement</span>
-            <h1 class="hero-dest__title">
-                Nos destinations<br><em>d'exception</em>
-            </h1>
-            <p class="hero-dest__text">
-                Du bleu de Chefchaouen aux dunes de Merzouga, chaque lieu du Maroc
-                raconte une histoire. Laquelle vous appelle ?
-            </p>
+
+        <div class="hero-dest__content">
+            <div class="container">
+                <div>
+                    <span class="hero-dest__eyebrow">Souma Tourisme</span>
+                    <h1 class="hero-dest__title">
+                        Nos destinations<br><em>d'exception</em>
+                    </h1>
+                </div>
+                <div class="hero-dest__num" aria-hidden="true">8+<small>destinations</small></div>
+            </div>
+        </div>
+
+        <!-- Dots navigation (identiques index.html) -->
+        <div class="hero-dest__dots" role="tablist" aria-label="Navigation du diaporama">
+            <button class="hero-dest__dot active" data-slide="0" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+            <button class="hero-dest__dot" data-slide="1" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+            <button class="hero-dest__dot" data-slide="2" role="tab" aria-label="Slide 3" aria-selected="false"></button>
         </div>
     </section>
 
@@ -620,28 +702,31 @@
         </div>
     </nav>
 
-    <!-- ========== FILTRES ========== -->
-    <div class="filters-bar" id="filtersBar" role="navigation" aria-label="Filtrer par région">
-        <div class="container filters-inner">
-            <span class="filter-label">Filtrer :</span>
-            <button class="filter-btn active" data-filter="all">
-                <i class="fas fa-globe-africa"></i> Tout le Maroc
-            </button>
-            <button class="filter-btn" data-filter="nord">
-                <i class="fas fa-mountain"></i> Maroc du Nord
-            </button>
-            <button class="filter-btn" data-filter="centre">
-                <i class="fas fa-city"></i> Villes impériales
-            </button>
-            <button class="filter-btn" data-filter="sud">
-                <i class="fas fa-sun"></i> Maroc du Sud
-            </button>
-            <button class="filter-btn" data-filter="desert">
-                <i class="fas fa-wind"></i> Désert &amp; Oasis
-            </button>
-            <button class="filter-btn" data-filter="cote">
-                <i class="fas fa-water"></i> Côte Atlantique
-            </button>
+    <!-- ========== FILTRES (identiques galerie.html) ========== -->
+    <div class="filters-wrap" id="filtersWrap">
+        <div class="container">
+            <div class="filters-inner" role="group" aria-label="Filtrer par région">
+                <span class="filter-label">Filtrer :</span>
+                <button class="f-btn active" data-filter="all">
+                    <i class="fas fa-globe-africa"></i> Tout le Maroc
+                </button>
+                <button class="f-btn" data-filter="nord">
+                    <i class="fas fa-mountain"></i> Maroc du Nord
+                </button>
+                <button class="f-btn" data-filter="centre">
+                    <i class="fas fa-city"></i> Villes impériales
+                </button>
+                <button class="f-btn" data-filter="sud">
+                    <i class="fas fa-sun"></i> Maroc du Sud
+                </button>
+                <button class="f-btn" data-filter="desert">
+                    <i class="fas fa-wind"></i> Désert &amp; Oasis
+                </button>
+                <button class="f-btn" data-filter="cote">
+                    <i class="fas fa-water"></i> Côte Atlantique
+                </button>
+                <span class="f-count"><strong id="resultCount">8</strong> destinations</span>
+            </div>
         </div>
     </div>
 
@@ -650,31 +735,28 @@
         <div class="container">
 
             <div class="results-header">
-                <h2 class="section__title" id="dest-page-title" style="font-size:1.6rem; margin:0;">
-                    Toutes nos destinations
-                </h2>
-                <p class="results-count"><strong id="resultCount">8</strong> destinations trouvées</p>
+                <h2 class="section__title sr-only" id="dest-page-title">Toutes nos destinations</h2>
+                <p class="results-count">
+                    <strong id="resultCountAlt">8</strong> destinations trouvées
+                </p>
             </div>
 
-            <!-- GRILLE FEATURED (ligne 1 : Marrakech grande + 2 petites) -->
+            <!-- GRILLE FEATURED — ligne 1 : grande carte + 2 petites -->
             <div class="dest-grid--featured" id="featuredGrid">
 
-                <!-- Marrakech — FEATURED -->
-                <article class="dest-card featured" data-region="sud" data-name="marrakech">
+                <!-- Marrakech — FEATURED / grande -->
+                <article class="dest-card dest-card--big" data-region="sud" id="marrakech">
                     <div class="dest-card__img">
-                        <img src="https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=900"
-                             alt="Marrakech, la ville ocre" loading="lazy">
+                        <div class="dest-card__img-inner" style="background-image: url('https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=900');"></div>
                         <div class="dest-card__badge">Populaire</div>
                         <div class="dest-card__overlay">
-                            <a href="index.html#contact" class="dest-card__cta-hover">
+                            <a href="index.html#contact" class="dest-card__overlay-text">
                                 Planifier ce voyage <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                     <div class="dest-card__body">
-                        <div class="dest-card__meta">
-                            <i class="fas fa-map-marker-alt"></i> Maroc du Sud
-                        </div>
+                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt"></i> Maroc du Sud</div>
                         <h3>Marrakech ocre</h3>
                         <p>La ville rouge envoûte au premier regard. Palais Bahia, jardins Majorelle, Jemaa el-Fna animée jusqu'à l'aube — Marrakech est une fête permanente des sens.</p>
                         <div class="dest-card__tags">
@@ -684,24 +766,19 @@
                             <span class="dest-tag">Nuit festive</span>
                         </div>
                         <div class="dest-card__footer">
-                            <span class="dest-card__duration">
-                                <i class="fas fa-clock"></i> Idéal : 3–5 jours
-                            </span>
-                            <a href="index.html#contact" class="link-arrow">
-                                Découvrir <i class="fas fa-arrow-right"></i>
-                            </a>
+                            <span class="dest-card__duration"><i class="fas fa-clock"></i> Idéal : 3–5 jours</span>
+                            <a href="index.html#contact" class="link-arrow">Découvrir <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </article>
 
                 <!-- Fès -->
-                <article class="dest-card" data-region="centre" data-name="fes">
+                <article class="dest-card" data-region="centre" id="fes">
                     <div class="dest-card__img">
-                        <img src="https://images.pexels.com/photos/2349165/pexels-photo-2349165.jpeg?auto=compress&cs=tinysrgb&w=700"
-                             alt="Tanneries de Fès" loading="lazy">
+                        <div class="dest-card__img-inner" style="background-image: url('https://images.pexels.com/photos/2349165/pexels-photo-2349165.jpeg?auto=compress&cs=tinysrgb&w=700');"></div>
                         <div class="dest-card__badge dest-card__badge--green">UNESCO</div>
                         <div class="dest-card__overlay">
-                            <a href="index.html#contact" class="dest-card__cta-hover">
+                            <a href="index.html#contact" class="dest-card__overlay-text">
                                 Planifier ce voyage <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -723,13 +800,12 @@
                 </article>
 
                 <!-- Chefchaouen -->
-                <article class="dest-card" data-region="nord" data-name="chefchaouen">
+                <article class="dest-card" data-region="nord" id="chefchaouen">
                     <div class="dest-card__img">
-                        <img src="https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=700"
-                             alt="Ruelles bleues de Chefchaouen" loading="lazy">
+                        <div class="dest-card__img-inner" style="background-image: url('https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=700');"></div>
                         <div class="dest-card__badge dest-card__badge--gold">Coup de cœur</div>
                         <div class="dest-card__overlay">
-                            <a href="index.html#contact" class="dest-card__cta-hover">
+                            <a href="index.html#contact" class="dest-card__overlay-text">
                                 Planifier ce voyage <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -760,23 +836,23 @@
                 </div>
                 <div class="mid-cta__actions">
                     <a href="index.html#contact" class="btn btn-light">Demander un devis</a>
-                    <a href="https://wa.me/212612345678" class="btn btn-ghost-light" target="_blank" rel="noopener">
+                    <a href="https://wa.me/212650405798?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20découvrir%20vos%20destinations"
+                       class="btn btn-ghost-light" target="_blank" rel="noopener">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
                 </div>
             </div>
 
-            <!-- GRILLE PRINCIPALE (5 destinations restantes) -->
+            <!-- GRILLE PRINCIPALE — destinations restantes -->
             <div class="dest-grid" id="mainGrid">
 
                 <!-- Désert d'Agafay -->
-                <article class="dest-card" data-region="desert" data-name="agafay">
+                <article class="dest-card" data-region="desert" id="agafay">
                     <div class="dest-card__img">
-                        <img src="https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg?auto=compress&cs=tinysrgb&w=700"
-                             alt="Désert d'Agafay au coucher du soleil" loading="lazy">
+                        <div class="dest-card__img-inner" style="background-image: url('https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg?auto=compress&cs=tinysrgb&w=700');"></div>
                         <div class="dest-card__badge">Exclusif</div>
                         <div class="dest-card__overlay">
-                            <a href="index.html#contact" class="dest-card__cta-hover">
+                            <a href="index.html#contact" class="dest-card__overlay-text">
                                 Planifier ce voyage <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -798,13 +874,12 @@
                 </article>
 
                 <!-- Essaouira -->
-                <article class="dest-card" data-region="cote" data-name="essaouira">
+                <article class="dest-card" data-region="cote" id="essaouira">
                     <div class="dest-card__img">
-                        <img src="https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg?auto=compress&cs=tinysrgb&w=700"
-                             alt="Remparts d'Essaouira face à l'Atlantique" loading="lazy">
+                        <div class="dest-card__img-inner" style="background-image: url('https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg?auto=compress&cs=tinysrgb&w=700');"></div>
                         <div class="dest-card__badge dest-card__badge--green">UNESCO</div>
                         <div class="dest-card__overlay">
-                            <a href="index.html#contact" class="dest-card__cta-hover">
+                            <a href="index.html#contact" class="dest-card__overlay-text">
                                 Planifier ce voyage <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -826,13 +901,12 @@
                 </article>
 
                 <!-- Merzouga -->
-                <article class="dest-card" data-region="desert" data-name="merzouga">
+                <article class="dest-card" data-region="desert" id="merzouga">
                     <div class="dest-card__img">
-                        <img src="https://images.pexels.com/photos/4577793/pexels-photo-4577793.jpeg?auto=compress&cs=tinysrgb&w=700"
-                             alt="Dunes de l'Erg Chebbi à Merzouga" loading="lazy">
+                        <div class="dest-card__img-inner" style="background-image: url('https://images.pexels.com/photos/4577793/pexels-photo-4577793.jpeg?auto=compress&cs=tinysrgb&w=700');"></div>
                         <div class="dest-card__badge">Incontournable</div>
                         <div class="dest-card__overlay">
-                            <a href="index.html#contact" class="dest-card__cta-hover">
+                            <a href="index.html#contact" class="dest-card__overlay-text">
                                 Planifier ce voyage <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -854,13 +928,12 @@
                 </article>
 
                 <!-- Rabat -->
-                <article class="dest-card" data-region="centre" data-name="rabat">
+                <article class="dest-card" data-region="centre" id="rabat">
                     <div class="dest-card__img">
-                        <img src="images/rabat.jpg"
-                             alt="Tour Hassan et mausolée Mohammed V à Rabat" loading="lazy">
+                        <div class="dest-card__img-inner" style="background-image: url('https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=700');"></div>
                         <div class="dest-card__badge dest-card__badge--green">Capitale</div>
                         <div class="dest-card__overlay">
-                            <a href="index.html#contact" class="dest-card__cta-hover">
+                            <a href="index.html#contact" class="dest-card__overlay-text">
                                 Planifier ce voyage <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -882,13 +955,12 @@
                 </article>
 
                 <!-- Aït Benhaddou -->
-                <article class="dest-card" data-region="sud" data-name="aitbenhaddou">
+                <article class="dest-card" data-region="sud" id="aitbenhaddou">
                     <div class="dest-card__img">
-                        <img src="images/pexels-salah-eddine-tafakourt-1985977-15419074.jpg"
-                             alt="Ksar d'Aït Benhaddou au coucher du soleil" loading="lazy">
+                        <div class="dest-card__img-inner" style="background-image: url('https://images.pexels.com/photos/3747035/pexels-photo-3747035.jpeg?auto=compress&cs=tinysrgb&w=700');"></div>
                         <div class="dest-card__badge dest-card__badge--gold">Cinéma &amp; UNESCO</div>
                         <div class="dest-card__overlay">
-                            <a href="index.html#contact" class="dest-card__cta-hover">
+                            <a href="index.html#contact" class="dest-card__overlay-text">
                                 Planifier ce voyage <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
@@ -911,7 +983,7 @@
 
             </div><!-- /main grid -->
 
-            <!-- Message aucun résultat -->
+            <!-- No results -->
             <div class="no-results" id="noResults" aria-live="polite">
                 <i class="fas fa-map-marked-alt"></i>
                 <p>Aucune destination trouvée pour ce filtre.<br>Essayez une autre région.</p>
@@ -920,7 +992,7 @@
         </div>
     </section>
 
-    <!-- ========== POURQUOI SOUMA ========== -->
+    <!-- ========== POURQUOI SOUMA (harmonisé avec prestige de index.html) ========== -->
     <section class="why-section" aria-labelledby="why-title">
         <div class="container">
             <div class="section__header text-center">
@@ -953,19 +1025,45 @@
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- ========== CTA FINAL (style galerie-cta de galerie.html) ========== -->
+    <section class="galerie-cta" style="
+        background: var(--primary);
+        padding: 80px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    " aria-labelledby="dcta">
+        <div class="container">
+            <span style="display:inline-block; font-size:0.72rem; text-transform:uppercase; letter-spacing:3px; color:rgba(255,255,255,0.45); margin-bottom:18px;">Votre prochain voyage</span>
+            <h2 id="dcta" style="font-family:var(--font-display); font-size:clamp(1.8rem, 3vw, 2.8rem); color:#fff; margin-bottom:14px; font-weight:400;">
+                Ces destinations vous inspirent ?<br><em style="color:rgba(255,255,255,.55);">Planifions votre voyage.</em>
+            </h2>
+            <p style="font-size:.95rem; color:rgba(255,255,255,.55); margin-bottom:32px; max-width:420px; margin-left:auto; margin-right:auto; line-height:1.7;">
+                Racontez‑nous vos envies, nous dessinons l'itinéraire parfait en moins de 24h.
+            </p>
+            <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                <a href="index.html#contact" class="btn btn-light">Demander un devis</a>
+                <a href="https://wa.me/212650405798?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20un%20voyage%20sur%20mesure"
+                   class="btn btn-ghost-light" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER (identique index.html + galerie.html) ========== -->
     <footer class="footer" role="contentinfo">
         <div class="container footer__inner">
             <div class="footer__col footer__col--brand">
                 <a href="index.html" aria-label="Souma Tourisme — Retour à l'accueil">
-                    <img src="images/logo-white.png" alt="Souma Tourisme" class="footer__logo">
+                    <img src="images/logo.png" alt="Souma Tourisme" class="footer__logo">
                 </a>
                 <p>L'excellence du voyage sur mesure au Maroc, depuis Casablanca.</p>
                 <div class="social" aria-label="Réseaux sociaux">
                     <a href="https://www.instagram.com/soumatourisme" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                     <a href="https://www.facebook.com/soumatourisme" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                    <a href="https://wa.me/212612345678" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                    <a href="#" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="https://wa.me/212650405798" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="footer__col">
@@ -980,29 +1078,30 @@
             <div class="footer__col">
                 <h4>Contact</h4>
                 <address>
-                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+212 650-405798">+212 650-405798</a></p>
+                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+212650405798">+212 650-405798</a></p>
                     <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:masoumare72@gmail.com">masoumare72@gmail.com</a></p>
-                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Casablanca, Maroc</p>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> El Azhari 1, rue 65, esc. 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 220 Casablanca, Maroc</p>
                 </address>
             </div>
             <div class="footer__col">
                 <h4>Liens utiles</h4>
                 <ul>
+                    <li><a href="destinations.html" aria-current="page">Destinations</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
                     <li><a href="#">À propos</a></li>
-                    <li><a href="#">FAQ</a></li>
                     <li><a href="#">Politique de confidentialité</a></li>
                     <li><a href="#">Conditions générales</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer__bottom">
-            <p>© <span id="currentYear">2025</span> Souma Tourisme — Tous droits réservés</p>
+            <p>© <span id="currentYear"></span> Souma Tourisme — Tous droits réservés</p>
             <p>Conçu avec <i class="fas fa-heart" aria-hidden="true" style="color:var(--secondary);"></i> au Maroc</p>
         </div>
     </footer>
 
-    <!-- WhatsApp flottant -->
-    <a href="https://wa.me/212612345678?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20découvrir%20vos%20destinations"
+    <!-- Bouton WhatsApp flottant -->
+    <a href="https://wa.me/212650405798?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20découvrir%20vos%20destinations"
        class="whatsapp-float" target="_blank" rel="noopener noreferrer"
        aria-label="Nous contacter sur WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
@@ -1014,70 +1113,136 @@
         <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
-    <script src="js/main.js"></script>
     <script>
-        /* ── Parallaxe hero ── */
-        const heroBg = document.getElementById('heroBg');
-        if (heroBg) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY < window.innerHeight) {
-                    heroBg.style.transform = `translateY(${window.scrollY * 0.28}px)`;
-                }
-            }, { passive: true });
-        }
+    /* ================================================================
+       JS — destinations.html (harmonisé avec index.html + galerie.html)
+    ================================================================ */
 
-        /* ── Filtre ombre barre sticky ── */
-        const filtersBar = document.getElementById('filtersBar');
-        window.addEventListener('scroll', () => {
-            if (filtersBar) filtersBar.classList.toggle('shadowed', window.scrollY > 200);
-        }, { passive: true });
+    /* ── Année footer ── */
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        /* ── Système de filtres ── */
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const allCards   = document.querySelectorAll('.dest-card');
-        const noResults  = document.getElementById('noResults');
-        const countEl    = document.getElementById('resultCount');
+    /* ── Header scroll ── */
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Activer le bouton
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+    /* ── Burger menu ── */
+    const burger = document.getElementById('burger');
+    const nav    = document.getElementById('nav');
+    burger.addEventListener('click', () => {
+        const open = nav.classList.toggle('active');
+        burger.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        nav.classList.remove('active');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }));
 
-                const filter = btn.dataset.filter;
-                let visible = 0;
+    /* ── Hero Slideshow (identique index.html) ── */
+    const slides = document.querySelectorAll('.hero-dest__slide');
+    const dots   = document.querySelectorAll('.hero-dest__dot');
+    let current  = 0;
+    let timer;
 
+    function goTo(n) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        dots[current].setAttribute('aria-selected', 'false');
+        current = (n + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        dots[current].setAttribute('aria-selected', 'true');
+    }
+    function startTimer() { timer = setInterval(() => goTo(current + 1), 5000); }
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => { clearInterval(timer); goTo(i); startTimer(); });
+    });
+    startTimer();
+
+    /* ── Filtres sticky shadow ── */
+    const fw = document.getElementById('filtersWrap');
+    window.addEventListener('scroll', () => fw.classList.toggle('shadowed', window.scrollY > 200), { passive: true });
+
+    /* ── Système de filtres (logique galerie.html adaptée) ── */
+    const filterBtns    = document.querySelectorAll('.f-btn');
+    const allCards      = document.querySelectorAll('.dest-card');
+    const noResults     = document.getElementById('noResults');
+    const countEl       = document.getElementById('resultCount');
+    const countElAlt    = document.getElementById('resultCountAlt');
+    const featuredGrid  = document.getElementById('featuredGrid');
+
+    function updateCount(n) {
+        if (countEl)    countEl.textContent = n;
+        if (countElAlt) countElAlt.textContent = n;
+    }
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.dataset.filter;
+            let visible  = 0;
+
+            // Montrer/masquer la grille featured
+            if (filter === 'all') {
+                featuredGrid.style.display = '';
+                // Les cartes featured sont gérées par la grille et non par hidden
+                allCards.forEach(card => {
+                    card.classList.remove('hidden');
+                    visible++;
+                });
+            } else {
+                featuredGrid.style.display = 'none';
                 allCards.forEach((card, i) => {
-                    const region = card.dataset.region;
-                    const show = filter === 'all' || region === filter;
+                    const show = card.dataset.region === filter;
                     card.classList.toggle('hidden', !show);
                     if (show) {
                         visible++;
-                        // Petite animation de réapparition
-                        card.style.animationDelay = `${(visible - 1) * 0.06}s`;
-                        card.style.animation = 'none';
-                        void card.offsetHeight; // reflow
-                        card.style.animation = '';
+                        // Réanimer les cartes visibles
+                        card.classList.remove('visible');
+                        setTimeout(() => card.classList.add('visible'), visible * 60);
                     }
                 });
+            }
 
-                // Afficher/masquer la grille featured selon filtre
-                const featuredGrid = document.getElementById('featuredGrid');
-                if (filter !== 'all') {
-                    featuredGrid.style.display = 'none';
-                    // Remettre toutes les cartes dans la grille principale visuellement
-                } else {
-                    featuredGrid.style.display = '';
-                }
-
-                if (countEl) countEl.textContent = visible;
-                if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
-            });
+            updateCount(visible);
+            if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
         });
+    });
 
-        /* ── Année footer ── */
-        const yr = document.getElementById('currentYear');
-        if (yr) yr.textContent = new Date().getFullYear();
+    /* ── Scroll reveal (identique index.html) ── */
+    const revealEls = document.querySelectorAll('.dest-card, .why-item');
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                revealObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    revealEls.forEach((el, i) => {
+        el.style.transitionDelay = `${(i % 4) * 0.08}s`;
+        revealObs.observe(el);
+    });
+
+    /* ── WhatsApp flottant ── */
+    const wa = document.querySelector('.whatsapp-float');
+    window.addEventListener('scroll', () => {
+        wa.style.opacity        = window.scrollY > 300 ? '1' : '0';
+        wa.style.pointerEvents  = window.scrollY > 300 ? 'auto' : 'none';
+    }, { passive: true });
+
+    /* ── Back to top ── */
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => { btt.hidden = window.scrollY < 400; }, { passive: true });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ── Compteur initial ── */
+    updateCount(allCards.length);
     </script>
 </body>
 </html>

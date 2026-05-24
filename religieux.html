@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tourisme Religieux au Maroc | Souma Tourisme</title>
     <meta name="description" content="Pèlerinages, visites de mosquées historiques et retraites spirituelles au Maroc. Accompagnement sur mesure par Souma Tourisme.">
-    <meta name="keywords" content="tourisme religieux maroc, pèlerinage maroc, mosquée hassan II, zaouïa, retraite spirituelle maroc">
+    <meta name="keywords" content="tourisme religieux maroc, pèlerinage maroc, mosquée hassan II, zaouïa, retraite spirituelle maroc, omra maroc">
     <meta name="author" content="Souma Tourisme">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Tourisme Religieux au Maroc | Souma Tourisme">
     <meta property="og:description" content="Pèlerinages, mosquées historiques et retraites spirituelles au Maroc.">
-    <meta property="og:image" content="images/og-religieux.jpg">
     <meta property="og:url" content="https://www.soumatourisme.com/religieux.html">
 
     <link rel="canonical" href="https://www.soumatourisme.com/religieux.html">
@@ -26,605 +25,652 @@
     <!-- Icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- CSS partagé -->
+    <!-- CSS partagé (identique aux autres pages) -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- CSS spécifique à cette page -->
     <style>
-        /* ── HERO RELIGIEUX ── */
-        .hero-religieux {
-            position: relative;
-            height: 88vh;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--light);
-            overflow: hidden;
-        }
-
-        .hero-religieux__bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://images.pexels.com/photos/4677560/pexels-photo-4677560.jpeg?auto=compress&cs=tinysrgb&w=1600');
-            background-size: cover;
-            background-position: center;
-            z-index: -2;
-            transition: transform 0.1s linear;
-        }
-
-        .hero-religieux__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                160deg,
-                rgba(26, 77, 46, 0.75) 0%,
-                rgba(26, 77, 46, 0.5) 40%,
-                rgba(100, 20, 20, 0.55) 100%
-            );
-            z-index: -1;
-        }
-
-        .hero-religieux__content {
-            position: relative;
-            z-index: 2;
-            max-width: 820px;
-            padding: 0 20px;
-        }
-
-        .hero-religieux__tag {
-            display: inline-block;
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(8px);
-            padding: 7px 18px;
-            border-radius: 50px;
-            margin-bottom: 28px;
-            animation: fadeUp 0.8s ease-out both;
-        }
-
-        .hero-religieux__title {
-            font-family: var(--font-display);
-            font-size: clamp(2.6rem, 6vw, 5rem);
-            color: var(--light);
-            margin-bottom: 22px;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
-            animation: fadeUp 0.8s ease-out 0.15s both;
-        }
-
-        .hero-religieux__title em {
-            font-style: italic;
-            color: rgba(255,255,255,0.82);
-        }
-
-        .hero-religieux__text {
-            font-size: clamp(1rem, 1.5vw, 1.2rem);
-            opacity: 0.9;
-            max-width: 580px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-            animation: fadeUp 0.8s ease-out 0.3s both;
-        }
-
-        .hero-religieux__actions {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeUp 0.8s ease-out 0.45s both;
-        }
-
-        /* Breadcrumb */
-        .breadcrumb {
-            padding: 16px 0;
-            font-size: 0.83rem;
-            color: var(--gray-light);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .breadcrumb a {
-            text-decoration: none;
-            color: var(--gray);
-            transition: color 0.2s;
-        }
-        .breadcrumb a:hover { color: var(--secondary); }
-        .breadcrumb i { font-size: 0.65rem; color: var(--gray-light); }
-        .breadcrumb span { color: var(--secondary); font-weight: 500; }
-
-        /* ── INTRO SECTION ── */
-        .intro-section {
-            background: var(--accent);
-            padding: clamp(50px, 6vw, 90px) 0;
-        }
-
-        .intro-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .intro-grid__text .section__tag { margin-bottom: 14px; }
-
-        .intro-grid__text h2 {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 3vw, 2.8rem);
-            color: var(--primary);
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .intro-grid__text p {
-            color: var(--gray);
-            font-size: 0.97rem;
-            line-height: 1.75;
-            margin-bottom: 16px;
-        }
-
-        .intro-grid__image {
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .intro-grid__image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .intro-grid__image:hover img {
-            transform: scale(1.04);
-        }
-
-        .intro-grid__image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 2px solid rgba(255,255,255,0.2);
-            border-radius: var(--radius-lg);
-            pointer-events: none;
-        }
-
-        /* ── EXPÉRIENCES ── */
-        .experiences {
-            padding: clamp(60px, 8vw, 110px) 0;
-            background: var(--light);
-        }
-
-        .exp-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
-        }
-
-        .exp-card {
-            background: var(--light);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .exp-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: transparent;
-        }
-
-        .exp-card__img {
-            position: relative;
-            height: 230px;
-            overflow: hidden;
-        }
-
-        .exp-card__img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .exp-card:hover .exp-card__img img {
-            transform: scale(1.05);
-        }
-
-        .exp-card__number {
-            position: absolute;
-            bottom: 16px;
-            left: 16px;
-            background: var(--secondary);
-            color: var(--light);
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            font-weight: 700;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .exp-card__body {
-            padding: 28px 30px 32px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .exp-card__body h3 {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        .exp-card__body > p {
-            color: var(--gray);
-            font-size: 0.92rem;
-            line-height: 1.65;
-            margin-bottom: 20px;
-            flex: 1;
-        }
-
-        .exp-card__list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .exp-card__list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 0.87rem;
-            color: var(--gray);
-            line-height: 1.5;
-        }
-
-        .exp-card__list li i {
-            color: var(--secondary);
-            font-size: 0.72rem;
-            margin-top: 4px;
-            flex-shrink: 0;
-        }
-
-        /* ── ITINÉRAIRE (timeline) ── */
-        .itineraire {
-            background: var(--accent);
-            padding: clamp(60px, 8vw, 110px) 0;
-        }
-
-        .timeline {
-            position: relative;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0;
-            margin-top: 50px;
-        }
-
-        /* ligne de connexion */
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 28px;
-            left: 10%;
-            right: 10%;
-            height: 2px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            z-index: 0;
-        }
-
-        .timeline-step {
-            background: var(--light);
-            border-radius: var(--radius);
-            padding: 28px 22px;
-            margin: 0 10px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            z-index: 1;
-            border: 1px solid var(--border);
-            transition: var(--transition);
-        }
-
-        .timeline-step:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow);
-            border-color: transparent;
-        }
-
-        .step-number {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: var(--light);
-            font-family: var(--font-display);
-            font-size: 1.3rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 18px;
-            box-shadow: 0 4px 14px rgba(26,77,46,0.3);
-            transition: var(--transition);
-        }
-
-        .timeline-step:hover .step-number {
-            background: var(--secondary);
-            box-shadow: 0 4px 14px rgba(181,39,42,0.3);
-        }
-
-        .timeline-step h4 {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .timeline-step p {
-            font-size: 0.85rem;
-            color: var(--gray);
-            line-height: 1.55;
-        }
-
-        /* ── CHIFFRES CLÉS ── */
-        .stats-section {
-            padding: clamp(50px, 6vw, 80px) 0;
-            background: var(--primary);
-            color: var(--light);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2px;
-            background: rgba(255,255,255,0.1);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-        }
-
-        .stat-item {
-            padding: 40px 30px;
-            text-align: center;
-            background: rgba(255,255,255,0.04);
-            transition: var(--transition);
-        }
-
-        .stat-item:hover {
-            background: rgba(255,255,255,0.08);
-        }
-
-        .stat-item strong {
-            display: block;
-            font-family: var(--font-display);
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--light);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .stat-item span {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            opacity: 0.75;
-        }
-
-        /* ── TÉMOIGNAGES ── */
-        .testimonials-page {
-            padding: clamp(60px, 8vw, 110px) 0;
-            background: var(--light);
-        }
-
-        .testi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        /* ── FAQ ── */
-        .faq-section {
-            background: var(--accent);
-            padding: clamp(60px, 8vw, 110px) 0;
-        }
-
-        .faq-list {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .faq-item {
-            background: var(--light);
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-            overflow: hidden;
-            transition: var(--transition-fast);
-        }
-
-        .faq-item.open {
-            box-shadow: var(--shadow-sm);
-            border-color: rgba(26,77,46,0.15);
-        }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 24px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--dark);
-            gap: 16px;
-            user-select: none;
-            list-style: none;
-        }
-
-        .faq-question::-webkit-details-marker { display: none; }
-
-        .faq-question i {
-            color: var(--secondary);
-            font-size: 0.85rem;
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .faq-item.open .faq-question i {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-            padding: 0 24px;
-        }
-
-        .faq-item.open .faq-answer {
-            max-height: 300px;
-            padding: 0 24px 20px;
-        }
-
-        .faq-answer p {
-            font-size: 0.9rem;
-            color: var(--gray);
-            line-height: 1.7;
-        }
-
-        /* ── FORMULAIRE ── */
-        .devis-section {
-            padding: clamp(60px, 8vw, 110px) 0;
-            background: var(--light-gray);
-        }
-
-        .devis-inner {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .devis-info {
-            position: sticky;
-            top: 110px;
-        }
-
-        .devis-info h2 {
-            font-family: var(--font-display);
-            font-size: clamp(1.8rem, 2.5vw, 2.5rem);
-            color: var(--primary);
-            margin-bottom: 18px;
-            line-height: 1.25;
-        }
-
-        .devis-info > p {
-            color: var(--gray);
-            font-size: 0.93rem;
-            line-height: 1.7;
-            margin-bottom: 28px;
-        }
-
-        .devis-features {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .devis-feature {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 14px 18px;
-            background: var(--light);
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--border);
-            font-size: 0.9rem;
-            color: var(--dark-soft);
-        }
-
-        .devis-feature i {
-            color: var(--primary);
-            font-size: 1rem;
-            width: 20px;
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .intro-grid { grid-template-columns: 1fr; }
-            .intro-grid__image { order: -1; }
-            .devis-inner { grid-template-columns: 1fr; }
-            .devis-info { position: static; }
-            .timeline::before { display: none; }
-        }
-
-        @media (max-width: 600px) {
-            .timeline { grid-template-columns: 1fr; gap: 16px; }
-            .timeline-step { margin: 0; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
+    /* ── VARIABLES locales (harmonisées) ── */
+    :root {
+        --topbar-h: 38px;
+        --header-h: 70px;
+    }
+
+    /* ── TOPBAR (identique index + medical) ── */
+    .topbar {
+        background: var(--primary);
+        color: rgba(255,255,255,0.85);
+        font-size: 0.78rem;
+        text-align: center;
+        padding: 9px 20px;
+        letter-spacing: 0.3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        height: var(--topbar-h);
+    }
+    .topbar a { color: var(--gold); text-decoration: none; font-weight: 600; transition: opacity .2s; }
+    .topbar a:hover { opacity: .8; }
+    .topbar__sep { opacity: .3; }
+    @media (max-width: 768px) { .topbar { display: none; } }
+
+    /* ── HEADER décalé sous topbar ── */
+    .header { top: var(--topbar-h); }
+    @media (max-width: 768px) { .header { top: 0; } }
+
+    /* ── HERO avec slideshow (identique medical) ── */
+    .hero-religieux {
+        position: relative;
+        height: 62vh;
+        min-height: 440px;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        padding-top: calc(var(--topbar-h) + var(--header-h));
+    }
+
+    .hero-religieux__slides {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+    .hero-religieux__slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1s ease;
+        transform: scale(1.06);
+        animation: heroZoom 14s ease-out forwards;
+    }
+    .hero-religieux__slide.active { opacity: 1; }
+    @keyframes heroZoom { to { transform: scale(1); } }
+
+    .hero-religieux__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(26,77,46,0.25) 0%, rgba(18,18,20,0.72) 100%);
+        z-index: 1;
+    }
+
+    .hero-religieux__content {
+        position: relative;
+        z-index: 2;
+        padding-bottom: 52px;
+        width: 100%;
+    }
+    .hero-religieux__content .container {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .hero-religieux__eyebrow {
+        display: block;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: rgba(255,255,255,0.45);
+        margin-bottom: 10px;
+    }
+    .hero-religieux__title {
+        font-family: var(--font-display);
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        color: var(--light);
+        line-height: 1.1;
+        font-weight: 400;
+        animation: fadeUp .9s ease-out both;
+    }
+    .hero-religieux__title em { font-style: italic; color: rgba(255,255,255,0.55); }
+
+    .hero-religieux__num {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        color: rgba(255,255,255,0.08);
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: -4px;
+        text-align: right;
+        animation: fadeUp .9s ease-out .15s both;
+        flex-shrink: 0;
+    }
+    .hero-religieux__num small {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: rgba(255,255,255,0.28);
+        font-weight: 400;
+        margin-top: 4px;
+    }
+
+    /* Dots */
+    .hero-religieux__dots {
+        position: absolute;
+        bottom: 22px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 3;
+    }
+    .hero-religieux__dot {
+        width: 6px; height: 6px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.35);
+        border: none; cursor: pointer;
+        transition: all .3s ease; padding: 0;
+    }
+    .hero-religieux__dot.active {
+        background: var(--light);
+        width: 22px;
+        border-radius: 3px;
+    }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(22px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+        padding: 14px 0;
+        font-size: 0.82rem;
+        color: var(--gray-light);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid var(--border);
+    }
+    .breadcrumb a { text-decoration: none; color: var(--gray); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--secondary); }
+    .breadcrumb i { font-size: 0.6rem; }
+    .breadcrumb span { color: var(--secondary); font-weight: 500; }
+
+    /* ── INTRO ── */
+    .intro-section {
+        background: var(--accent);
+        padding: clamp(50px, 6vw, 90px) 0;
+    }
+    .intro-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: center;
+    }
+    .intro-grid__text h2 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        color: var(--primary);
+        margin-bottom: 20px;
+        line-height: 1.2;
+    }
+    .intro-grid__text p {
+        color: var(--gray);
+        font-size: 0.97rem;
+        line-height: 1.75;
+        margin-bottom: 16px;
+    }
+    .intro-grid__image {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        box-shadow: var(--shadow-lg);
+    }
+    .intro-grid__image img {
+        width: 100%; height: 100%;
+        object-fit: cover;
+        transition: transform .6s ease;
+    }
+    .intro-grid__image:hover img { transform: scale(1.04); }
+    .intro-grid__image::after {
+        content: '';
+        position: absolute; inset: 0;
+        border: 2px solid rgba(255,255,255,0.2);
+        border-radius: var(--radius-lg);
+        pointer-events: none;
+    }
+
+    /* ── STATS ── */
+    .stats-section {
+        padding: clamp(50px, 6vw, 80px) 0;
+        background: var(--primary);
+        color: var(--light);
+    }
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 2px;
+        background: rgba(255,255,255,0.1);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+    }
+    .stat-item {
+        padding: 40px 30px;
+        text-align: center;
+        background: rgba(255,255,255,0.04);
+        transition: background .3s ease;
+    }
+    .stat-item:hover { background: rgba(255,255,255,0.08); }
+    .stat-item strong {
+        display: block;
+        font-family: var(--font-display);
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--light);
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+    .stat-item span {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        opacity: 0.75;
+    }
+
+    /* ── OFFRES RELIGIEUSES (même style que medical) ── */
+    .experiences {
+        padding: clamp(60px, 8vw, 110px) 0;
+        background: var(--light);
+    }
+    .exp-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 28px;
+    }
+    .exp-card {
+        background: var(--light);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-sm);
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .exp-card.visible { opacity: 1; transform: translateY(0); }
+    .exp-card:hover {
+        box-shadow: var(--shadow-lg);
+        border-color: transparent;
+    }
+    .exp-card.visible:hover { transform: translateY(-6px); }
+
+    .exp-card__img {
+        position: relative;
+        height: 230px;
+        overflow: hidden;
+    }
+    .exp-card__img-inner {
+        width: 100%; height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: transform .7s cubic-bezier(.25,.46,.45,.94);
+    }
+    .exp-card:hover .exp-card__img-inner { transform: scale(1.06); }
+
+    .exp-card__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(26,77,46,0.65) 0%, transparent 55%);
+        opacity: 0;
+        transition: opacity .4s ease;
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
+        z-index: 1;
+    }
+    .exp-card:hover .exp-card__overlay { opacity: 1; }
+    .exp-card__overlay-text {
+        color: var(--light);
+        font-size: 0.82rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        text-decoration: none;
+    }
+    .exp-card__overlay-text i { transition: transform .25s ease; }
+    .exp-card:hover .exp-card__overlay-text i { transform: translateX(4px); }
+
+    .exp-card__number {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        background: var(--secondary);
+        color: var(--light);
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-weight: 700;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+    .exp-card__body {
+        padding: 28px 30px 32px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .exp-card__body h3 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 12px;
+    }
+    .exp-card__body > p {
+        color: var(--gray);
+        font-size: 0.92rem;
+        line-height: 1.65;
+        margin-bottom: 20px;
+        flex: 1;
+    }
+    .exp-card__list { display: flex; flex-direction: column; gap: 8px; }
+    .exp-card__list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.87rem;
+        color: var(--gray);
+        line-height: 1.5;
+    }
+    .exp-card__list li i {
+        color: var(--secondary);
+        font-size: 0.72rem;
+        margin-top: 4px;
+        flex-shrink: 0;
+    }
+
+    /* ── AVANTAGES (spécifique religieux) ── */
+    .avantages-section {
+        background: var(--accent);
+        padding: clamp(60px, 8vw, 110px) 0;
+    }
+    .avantages-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 2px;
+        background: var(--accent-dark);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+    }
+    .avantage-item {
+        background: var(--accent);
+        padding: 44px 32px;
+        text-align: center;
+        transition: background .3s ease;
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity .6s ease, transform .6s ease, background .3s ease;
+    }
+    .avantage-item.visible { opacity: 1; transform: translateY(0); }
+    .avantage-item:hover { background: var(--light); }
+    .avantage-item.visible:hover { transform: translateY(0); }
+    .avantage-icon {
+        width: 64px; height: 64px;
+        border-radius: 50%;
+        background: rgba(181,39,42,0.08);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 22px;
+        transition: background .3s ease;
+    }
+    .avantage-item:hover .avantage-icon { background: var(--secondary); }
+    .avantage-icon i { font-size: 1.6rem; color: var(--secondary); transition: color .3s ease; }
+    .avantage-item:hover .avantage-icon i { color: var(--light); }
+    .avantage-item h4 {
+        font-family: var(--font-display);
+        font-size: 1.3rem;
+        color: var(--primary);
+        margin-bottom: 10px;
+    }
+    .avantage-item p { color: var(--gray); font-size: 0.9rem; line-height: 1.65; }
+
+    /* ── TIMELINE PARCOURS SPIRITUEL ── */
+    .parcours-section {
+        background: var(--light);
+        padding: clamp(60px, 8vw, 110px) 0;
+    }
+    .timeline {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 0;
+        margin-top: 50px;
+    }
+    .timeline::before {
+        content: '';
+        position: absolute;
+        top: 28px;
+        left: 10%; right: 10%;
+        height: 2px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        z-index: 0;
+    }
+    .timeline-step {
+        background: var(--accent);
+        border-radius: var(--radius);
+        padding: 28px 22px;
+        margin: 0 10px;
+        text-align: center;
+        box-shadow: var(--shadow-sm);
+        position: relative;
+        z-index: 1;
+        border: 1px solid var(--border);
+        transition: var(--transition);
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease;
+    }
+    .timeline-step.visible { opacity: 1; transform: translateY(0); }
+    .timeline-step:hover {
+        box-shadow: var(--shadow);
+        border-color: transparent;
+        background: var(--light);
+    }
+    .timeline-step.visible:hover { transform: translateY(-6px); }
+    .step-number {
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: var(--light);
+        font-family: var(--font-display);
+        font-size: 1.3rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 18px;
+        box-shadow: 0 4px 14px rgba(26,77,46,0.3);
+    }
+    .timeline-step:hover .step-number {
+        background: var(--secondary);
+        box-shadow: 0 4px 14px rgba(181,39,42,0.3);
+    }
+    .timeline-step h4 {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        color: var(--primary);
+        margin-bottom: 10px;
+    }
+    .timeline-step p { font-size: 0.85rem; color: var(--gray); line-height: 1.55; }
+
+    /* ── TÉMOIGNAGES ── */
+    .testimonials-page {
+        padding: clamp(60px, 8vw, 110px) 0;
+        background: var(--light-gray);
+    }
+    .testi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+    }
+
+    /* ── FAQ ── */
+    .faq-section {
+        background: var(--accent);
+        padding: clamp(60px, 8vw, 110px) 0;
+    }
+    .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .faq-item {
+        background: var(--light);
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        overflow: hidden;
+        transition: border-color .3s ease;
+    }
+    .faq-item.open { box-shadow: var(--shadow-sm); border-color: rgba(26,77,46,0.15); }
+    .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 24px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: var(--dark);
+        gap: 16px;
+        user-select: none;
+    }
+    .faq-question i { color: var(--secondary); font-size: 0.85rem; transition: transform .3s ease; flex-shrink: 0; }
+    .faq-item.open .faq-question i { transform: rotate(180deg); }
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .4s ease, padding .3s ease;
+        padding: 0 24px;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 24px 20px; }
+    .faq-answer p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+
+    /* ── FORMULAIRE DEVIS ── */
+    .devis-section {
+        padding: clamp(60px, 8vw, 110px) 0;
+        background: var(--light-gray);
+    }
+    .devis-inner {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 60px;
+        align-items: start;
+    }
+    .devis-info {
+        position: sticky;
+        top: calc(var(--topbar-h) + var(--header-h) + 20px);
+    }
+    .devis-info h2 {
+        font-family: var(--font-display);
+        font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+        color: var(--primary);
+        margin-bottom: 18px;
+        line-height: 1.25;
+    }
+    .devis-info > p { color: var(--gray); font-size: 0.93rem; line-height: 1.7; margin-bottom: 28px; }
+    .devis-features { display: flex; flex-direction: column; gap: 14px; }
+    .devis-feature {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        background: var(--light);
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--border);
+        font-size: 0.9rem;
+        color: var(--dark-soft);
+        transition: border-color .3s ease, box-shadow .3s ease;
+    }
+    .devis-feature:hover { border-color: rgba(26,77,46,0.2); box-shadow: var(--shadow-sm); }
+    .devis-feature i { color: var(--primary); font-size: 1rem; width: 20px; text-align: center; flex-shrink: 0; }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+        background: var(--primary);
+        padding: 80px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .cta-final::before {
+        content: '';
+        position: absolute; inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .cta-final__tag { display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 3px; color: rgba(255,255,255,0.45); margin-bottom: 18px; }
+    .cta-final h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); color: #fff; margin-bottom: 14px; font-weight: 400; }
+    .cta-final h2 em { color: rgba(255,255,255,.55); }
+    .cta-final p { font-size: .95rem; color: rgba(255,255,255,.55); margin-bottom: 32px; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .cta-final__btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+        .intro-grid { grid-template-columns: 1fr; }
+        .intro-grid__image { order: -1; }
+        .devis-inner { grid-template-columns: 1fr; }
+        .devis-info { position: static; }
+        .timeline::before { display: none; }
+    }
+    @media (max-width: 600px) {
+        .timeline { grid-template-columns: 1fr; gap: 16px; }
+        .timeline-step { margin: 0; }
+        .hero-religieux__num { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
     </style>
 
-    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "TouristTrip",
       "name": "Tourisme Religieux au Maroc",
       "description": "Pèlerinages, mosquées historiques et retraites spirituelles avec Souma Tourisme.",
-      "provider": {
-        "@type": "TravelAgency",
-        "name": "Souma Tourisme",
-        "url": "https://www.soumatourisme.com"
-      }
+      "provider": { "@type": "TravelAgency", "name": "Souma Tourisme", "url": "https://www.soumatourisme.com" }
     }
     </script>
 </head>
 <body>
 
-    <!-- ========== HEADER (identique index.html) ========== -->
+    <!-- ========== TOPBAR ========== -->
+    <div class="topbar" role="banner" aria-label="Informations de contact">
+        <span><i class="fas fa-phone-alt"></i> <a href="tel:+212650405798">+212 650-405798</a></span>
+        <span class="topbar__sep">|</span>
+        <span><i class="fas fa-envelope"></i> <a href="mailto:masoumare72@gmail.com">masoumare72@gmail.com</a></span>
+        <span class="topbar__sep">|</span>
+        <span><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</span>
+    </div>
+
+    <!-- ========== HEADER ========== -->
     <header class="header" id="header" role="banner">
         <div class="container header__inner">
             <a href="index.html" class="logo" aria-label="Souma Tourisme — Retour à l'accueil">
-                <img src="images/logo-removebg-preview.png" alt="Souma Tourisme" class="logo-img">
+                <img src="images/logo.png" alt="Souma Tourisme" class="logo-img">
             </a>
             <nav class="nav" id="nav" aria-label="Navigation principale">
                 <ul class="nav__list" role="list">
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="index.html#destinations">Destinations</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
                     <li><a href="index.html#services">Nos services</a></li>
                     <li><a href="index.html#voyages">Sur mesure</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
                     <li><a href="index.html#temoignages">Avis clients</a></li>
                     <li><a href="index.html#contact" class="nav__cta">Contact</a></li>
                 </ul>
@@ -637,23 +683,31 @@
         </div>
     </header>
 
-    <!-- ========== HERO ========== -->
+    <!-- ========== HERO SLIDESHOW ========== -->
     <section class="hero-religieux" aria-label="Tourisme religieux au Maroc">
-        <div class="hero-religieux__bg" id="heroBg" aria-hidden="true"></div>
+        <div class="hero-religieux__slides" aria-hidden="true">
+            <div class="hero-religieux__slide active" style="background-image: url('https://images.pexels.com/photos/4677560/pexels-photo-4677560.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+            <div class="hero-religieux__slide" style="background-image: url('https://images.pexels.com/photos/5037495/pexels-photo-5037495.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+            <div class="hero-religieux__slide" style="background-image: url('https://images.pexels.com/photos/258117/pexels-photo-258117.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+        </div>
         <div class="hero-religieux__overlay" aria-hidden="true"></div>
-        <div class="hero-religieux__content container">
-            <span class="hero-religieux__tag">Spiritualité &amp; Authenticité</span>
-            <h1 class="hero-religieux__title">
-                Tourisme religieux<br><em>au cœur du Maroc sacré</em>
-            </h1>
-            <p class="hero-religieux__text">
-                Pèlerinages, visites de mosquées historiques et retraites spirituelles,
-                accompagnés par des guides passionnés et experts.
-            </p>
-            <div class="hero-religieux__actions">
-                <a href="#demande" class="btn btn-primary">Demander un devis</a>
-                <a href="#experiences" class="btn btn-ghost">Nos expériences</a>
+
+        <div class="hero-religieux__content">
+            <div class="container">
+                <div>
+                    <span class="hero-religieux__eyebrow">Souma Tourisme</span>
+                    <h1 class="hero-religieux__title">
+                        Tourisme religieux<br><em>lumière du Maroc sacré</em>
+                    </h1>
+                </div>
+                <div class="hero-religieux__num" aria-hidden="true">98%<small>satisfaction</small></div>
             </div>
+        </div>
+
+        <div class="hero-religieux__dots" role="tablist" aria-label="Navigation du diaporama">
+            <button class="hero-religieux__dot active" data-slide="0" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+            <button class="hero-religieux__dot" data-slide="1" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+            <button class="hero-religieux__dot" data-slide="2" role="tab" aria-label="Slide 3" aria-selected="false"></button>
         </div>
     </section>
 
@@ -674,145 +728,81 @@
     <section class="intro-section" aria-labelledby="intro-title">
         <div class="container">
             <div class="intro-grid">
-                <div class="intro-grid__text">
+                <div class="intro-grid__text reveal-el">
                     <span class="section__tag">Notre philosophie</span>
                     <h2 id="intro-title">Un voyage qui nourrit<br><em>l'âme autant que le regard</em></h2>
                     <p>Le Maroc est une terre de spiritualité profonde. Ses zaouïas, ses mosquées millénaires et ses traditions soufies en font une destination unique pour les voyageurs en quête de sens.</p>
                     <p>Souma Tourisme vous accompagne dans une démarche respectueuse, authentique et personnalisée, en collaboration avec des guides locaux passionnés et des établissements certifiés.</p>
-                    <a href="#experiences" class="link-arrow" style="margin-top:8px; display:inline-flex;">
+                    <a href="#offres" class="link-arrow" style="margin-top:8px; display:inline-flex;">
                         Découvrir nos offres <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
                 </div>
-                <div class="intro-grid__image">
-                    <img src="images/pexels-halil-cihat-daricioglu-229755410-32880197.jpg"
-                         alt="Intérieur d'une mosquée marocaine aux zelliges colorés"
-                         loading="lazy">
+                <div class="intro-grid__image reveal-el" style="transition-delay:.15s;">
+                    <img src="https://images.pexels.com/photos/35332382/pexels-photo-35332382.jpeg?auto=compress&cs=tinysrgb&w=900"
+                         alt="Intérieur d'une mosquée marocaine aux zelliges" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== CHIFFRES CLÉS ========== -->
+    <!-- ========== STATS ========== -->
     <section class="stats-section" aria-label="Chiffres clés du tourisme religieux">
         <div class="container">
             <div class="stats-grid">
-                <div class="stat-item">
-                    <strong class="counter" data-target="350">0</strong>
-                    <span>Pèlerinages organisés</span>
-                </div>
-                <div class="stat-item">
-                    <strong class="counter" data-target="12">0</strong>
-                    <span>Lieux saints visités</span>
-                </div>
-                <div class="stat-item">
-                    <strong class="counter" data-target="98">0</strong>
-                    <span>% de satisfaction</span>
-                </div>
-                <div class="stat-item">
-                    <strong class="counter" data-target="15">0</strong>
-                    <span>Années d'expertise</span>
-                </div>
+                <div class="stat-item"><strong class="counter" data-target="520">0</strong><span>Pèlerins accompagnés</span></div>
+                <div class="stat-item"><strong class="counter" data-target="18">0</strong><span>Lieux saints visités</span></div>
+                <div class="stat-item"><strong class="counter" data-target="98">0</strong><span>% de satisfaction</span></div>
+                <div class="stat-item"><strong class="counter" data-target="15">0</strong><span>Années d'expertise</span></div>
             </div>
         </div>
     </section>
 
-    <!-- ========== EXPÉRIENCES ========== -->
-    <section class="experiences section" id="experiences" aria-labelledby="exp-title">
+    <!-- ========== OFFRES RELIGIEUSES ========== -->
+    <section class="experiences section" id="offres" aria-labelledby="exp-title">
         <div class="container">
             <div class="section__header text-center">
-                <span class="section__tag">Nos offres religieuses</span>
-                <h2 class="section__title" id="exp-title">Expériences spirituelles<br><em>uniques</em></h2>
-                <p class="section__subtitle">Découvrez le Maroc sacré à travers des circuits pensés pour le recueillement et la découverte.</p>
+                <span class="section__tag">Nos parcours spirituels</span>
+                <h2 class="section__title" id="exp-title">Expériences sacrées<br><em>authentiques</em></h2>
+                <p class="section__subtitle">Pèlerinages, mosquées emblématiques et retraites spirituelles, pensés pour le recueillement.</p>
             </div>
             <div class="exp-grid">
-                <!-- Carte 1 -->
-                <article class="exp-card">
-                    <div class="exp-card__img">
-                        <img src="images/pexels-halil-cihat-daricioglu-229755410-32880197.jpg"
-                             alt="Pèlerinage à la zaouïa de Moulay Idriss II à Fès"
-                             loading="lazy">
-                        <div class="exp-card__number" aria-hidden="true">01</div>
-                    </div>
-                    <div class="exp-card__body">
-                        <h3>Pèlerinages &amp; Zaouïas</h3>
-                        <p>Visitez les mausolées Fès.</p>
-                        <ul class="exp-card__list" aria-label="Services inclus">
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Accompagnement spirituel possible</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Transport privé et hébergement à proximité</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Cérémonies religieuses sur demande</li>
-                        </ul>
-                    </div>
-                </article>
-                <!-- Carte 2 -->
-                <article class="exp-card">
-                    <div class="exp-card__img">
-                        <img src="images/pexels-anouar-12433311.jpg"
-                             alt="Mosquée Hassan II de Casablanca vue de l'extérieur"
-                             loading="lazy">
-                        <div class="exp-card__number" aria-hidden="true">02</div>
-                    </div>
-                    <div class="exp-card__body">
-                        <h3>Mosquées emblématiques</h3>
-                        <p>Hassan II (Casablanca), Koutoubia (Marrakech), Mosquée des Andalous (Fès) — visites guidées selon les horaires.</p>
-                        <ul class="exp-card__list" aria-label="Services inclus">
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Visites commentées par des historiens</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Découverte des médersas adjacentes</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Horaires adaptés pour les non-musulmans</li>
-                        </ul>
-                    </div>
-                </article>
-                <!-- Carte 3 -->
-               <article class="exp-card">
-                    <div class="exp-card__img">
-                        <img src="https://images.pexels.com/photos/35332382/pexels-photo-35332382.jpeg"
-                             alt="La Kaaba à La Mecque lors du pèlerinage de l'Omra"
-                             loading="lazy">
-                        <div class="exp-card__number" aria-hidden="true">03</div>
-                    </div>
-                    <div class="exp-card__body">
-                        <h3>Omra &amp; Pèlerinage</h3>
-                        <p>Accompagnement complet pour votre Omra : visa, billets, hébergement à proximité des lieux saints et encadrement spirituel tout au long du séjour.</p>
-                        <ul class="exp-card__list" aria-label="Services inclus">
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Assistance visa et formalités administratives</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Hôtels classés proches Masjid Al-Haram</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Guide religieux francophone dédié</li>
-                            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Transferts et repas halal inclus</li>
-                        </ul>
-                    </div>
-                </article>
+                <article class="exp-card"><div class="exp-card__img"><div class="exp-card__img-inner" style="background-image: url('https://images.pexels.com/photos/258117/pexels-photo-258117.jpeg?auto=compress&cs=tinysrgb&w=700');"></div><div class="exp-card__overlay"><a href="#demande" class="exp-card__overlay-text">Demander un devis <i class="fas fa-arrow-right"></i></a></div><div class="exp-card__number" aria-hidden="true">01</div></div><div class="exp-card__body"><h3>Pèlerinages &amp; Zaouïas</h3><p>Visitez les mausolées sacrés de Moulay Idriss II (Fès), Moulay Yacoub, Cheikh al-Kamal.</p><ul class="exp-card__list"><li><i class="fas fa-check-circle"></i> Accompagnement spirituel possible</li><li><i class="fas fa-check-circle"></i> Transport privé et hébergement à proximité</li><li><i class="fas fa-check-circle"></i> Cérémonies religieuses sur demande</li></ul></div></article>
+                <article class="exp-card"><div class="exp-card__img"><div class="exp-card__img-inner" style="background-image: url('https://images.pexels.com/photos/5037495/pexels-photo-5037495.jpeg?auto=compress&cs=tinysrgb&w=700');"></div><div class="exp-card__overlay"><a href="#demande" class="exp-card__overlay-text">Demander un devis <i class="fas fa-arrow-right"></i></a></div><div class="exp-card__number" aria-hidden="true">02</div></div><div class="exp-card__body"><h3>Mosquées emblématiques</h3><p>Hassan II (Casablanca), Koutoubia (Marrakech), Mosquée des Andalous (Fès) — visites guidées adaptées.</p><ul class="exp-card__list"><li><i class="fas fa-check-circle"></i> Visites commentées par des historiens</li><li><i class="fas fa-check-circle"></i> Découverte des médersas adjacentes</li><li><i class="fas fa-check-circle"></i> Horaires spécifiques pour non-musulmans</li></ul></div></article>
+                <article class="exp-card"><div class="exp-card__img"><div class="exp-card__img-inner" style="background-image: url('https://images.pexels.com/photos/35332382/pexels-photo-35332382.jpeg?auto=compress&cs=tinysrgb&w=700');"></div><div class="exp-card__overlay"><a href="#demande" class="exp-card__overlay-text">Demander un devis <i class="fas fa-arrow-right"></i></a></div><div class="exp-card__number" aria-hidden="true">03</div></div><div class="exp-card__body"><h3>Omra &amp; Grand Pèlerinage</h3><p>Organisation complète de votre Omra : visa, billets, hébergement proche du Haram, encadrement spirituel.</p><ul class="exp-card__list"><li><i class="fas fa-check-circle"></i> Assistance visa et formalités</li><li><i class="fas fa-check-circle"></i> Hôtels classés à quelques pas du Masjid Al-Haram</li><li><i class="fas fa-check-circle"></i> Guide religieux francophone dédié</li></ul></div></article>
             </div>
         </div>
     </section>
 
-    <!-- ========== ITINÉRAIRE TYPE ========== -->
-    <section class="itineraire" aria-labelledby="itin-title">
+    <!-- ========== AVANTAGES (pourquoi le Maroc) ========== -->
+    <section class="avantages-section" aria-labelledby="avantages-title">
+        <div class="container">
+            <div class="section__header text-center">
+                <span class="section__tag">Pourquoi le Maroc ?</span>
+                <h2 class="section__title" id="avantages-title">Terre de spiritualité<br><em>et d'accueil</em></h2>
+                <p class="section__subtitle">Un cadre idéal pour votre voyage intérieur.</p>
+            </div>
+            <div class="avantages-grid">
+                <div class="avantage-item"><div class="avantage-icon" aria-hidden="true"><i class="fas fa-hands-praying"></i></div><h4>Authenticité spirituelle</h4><p>Zaouïas historiques, traditions soufies vivantes, confréries accessibles.</p></div>
+                <div class="avantage-item"><div class="avantage-icon" aria-hidden="true"><i class="fas fa-landmark"></i></div><h4>Patrimoine préservé</h4><p>Mosquées, médersas et mausolées classés à l'UNESCO.</p></div>
+                <div class="avantage-item"><div class="avantage-icon" aria-hidden="true"><i class="fas fa-user-friends"></i></div><h4>Accueil légendaire</h4><p>Hospitalité marocaine et accompagnement par des guides croyants.</p></div>
+                <div class="avantage-item"><div class="avantage-icon" aria-hidden="true"><i class="fas fa-moon"></i></div><h4>Ramadan &amp; retraites</h4><p>Séjours spéciaux pendant le mois sacré, itikaf et nuits de prière.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ITINÉRAIRE SPIRITUEL (timeline) ========== -->
+    <section class="parcours-section" aria-labelledby="parcours-title">
         <div class="container">
             <div class="section__header text-center">
                 <span class="section__tag">Circuit type — 7 jours</span>
-                <h2 class="section__title" id="itin-title">Sur les pas des saints<br><em>du Maroc</em></h2>
+                <h2 class="section__title" id="parcours-title">Sur les pas des saints<br><em>du Maroc</em></h2>
                 <p class="section__subtitle">Un itinéraire spirituel reliant Fès, Meknès, Rabat et Casablanca.</p>
             </div>
             <div class="timeline" role="list">
-                <div class="timeline-step" role="listitem">
-                    <div class="step-number" aria-hidden="true">1</div>
-                    <h4>Arrivée à Fès</h4>
-                    <p>Installation dans un riad, visite de la Zaouïa de Moulay Idriss II et de la médina.</p>
-                </div>
-                <div class="timeline-step" role="listitem">
-                    <div class="step-number" aria-hidden="true">2</div>
-                    <h4>Meknès &amp; Moulay Idriss Zerhoun</h4>
-                    <p>Pèlerinage au mausolée de Moulay Idriss Ier, découverte de Volubilis.</p>
-                </div>
-                <div class="timeline-step" role="listitem">
-                    <div class="step-number" aria-hidden="true">3</div>
-                    <h4>Rabat — Chellah &amp; Tour Hassan</h4>
-                    <p>Nécropole mérovingienne, mausolée de Mohammed V et mosquée historique.</p>
-                </div>
-                <div class="timeline-step" role="listitem">
-                    <div class="step-number" aria-hidden="true">4</div>
-                    <h4>Casablanca</h4>
-                    <p>Grande Mosquée Hassan II, médiathèque coranique et retour.</p>
-                </div>
+                <div class="timeline-step"><div class="step-number">1</div><h4>Arrivée à Fès</h4><p>Installation dans un riad, visite de la Zaouïa de Moulay Idriss II et de la médina.</p></div>
+                <div class="timeline-step"><div class="step-number">2</div><h4>Meknès &amp; Moulay Idriss Zerhoun</h4><p>Pèlerinage au mausolée de Moulay Idriss Ier, découverte de Volubilis.</p></div>
+                <div class="timeline-step"><div class="step-number">3</div><h4>Rabat — Chellah &amp; Tour Hassan</h4><p>Nécropole mérovingienne, mausolée de Mohammed V et mosquée historique.</p></div>
+                <div class="timeline-step"><div class="step-number">4</div><h4>Casablanca</h4><p>Grande Mosquée Hassan II, médiathèque coranique et retour.</p></div>
             </div>
         </div>
     </section>
@@ -820,47 +810,11 @@
     <!-- ========== TÉMOIGNAGES ========== -->
     <section class="testimonials-page" aria-labelledby="testi-title">
         <div class="container">
-            <div class="section__header text-center">
-                <span class="section__tag">Ils ont vécu l'expérience</span>
-                <h2 class="section__title" id="testi-title">Ce que disent<br><em>nos voyageurs</em></h2>
-            </div>
+            <div class="section__header text-center"><span class="section__tag">Ils ont vécu l'expérience</span><h2 class="section__title" id="testi-title">Ce que disent<br><em>nos pèlerins</em></h2></div>
             <div class="testi-grid">
-                <blockquote class="testi-card">
-                    <div class="testi-card__stars" aria-label="5 étoiles sur 5">
-                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                    </div>
-                    <p>« Un accompagnement d'une grande délicatesse. Les visites des zaouïas étaient magiques — je n'oublierai jamais ce séjour. »</p>
-                    <footer class="testi-card__author">
-                        <div class="testi-card__avatar" aria-hidden="true">FZ</div>
-                        <div><strong>Fatima Z.</strong><span>Pèlerinage, Fès 2024</span></div>
-                    </footer>
-                </blockquote>
-                <blockquote class="testi-card">
-                    <div class="testi-card__stars" aria-label="5 étoiles sur 5">
-                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                    </div>
-                    <p>« La retraite à Fès m'a profondément ressourcée. L'organisation était parfaite et les guides exceptionnels. »</p>
-                    <footer class="testi-card__author">
-                        <div class="testi-card__avatar" aria-hidden="true">AK</div>
-                        <div><strong>Ahmed K.</strong><span>Retraite spirituelle, 2024</span></div>
-                    </footer>
-                </blockquote>
-                <blockquote class="testi-card">
-                    <div class="testi-card__stars" aria-label="5 étoiles sur 5">
-                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i>
-                        <i class="fas fa-star" aria-hidden="true"></i>
-                    </div>
-                    <p>« Très professionnel, respectueux des pratiques religieuses. La mosquée Hassan II était un moment hors du temps. »</p>
-                    <footer class="testi-card__author">
-                        <div class="testi-card__avatar" aria-hidden="true">SL</div>
-                        <div><strong>Sophie L.</strong><span>Visite mosquées, 2023</span></div>
-                    </footer>
-                </blockquote>
+                <blockquote class="testi-card"><div class="testi-card__stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>« Un accompagnement d'une grande délicatesse. Les visites des zaouïas étaient magiques — je n'oublierai jamais ce séjour. »</p><footer class="testi-card__author"><div class="testi-card__avatar">FZ</div><div><strong>Fatima Z.</strong><span>Pèlerinage, Fès 2024</span></div></footer></blockquote>
+                <blockquote class="testi-card"><div class="testi-card__stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>« La retraite à Fès m'a profondément ressourcée. L'organisation était parfaite et les guides exceptionnels. »</p><footer class="testi-card__author"><div class="testi-card__avatar">AK</div><div><strong>Ahmed K.</strong><span>Retraite spirituelle, 2024</span></div></footer></blockquote>
+                <blockquote class="testi-card"><div class="testi-card__stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>« Très professionnel, respectueux des pratiques religieuses. La mosquée Hassan II était un moment hors du temps. »</p><footer class="testi-card__author"><div class="testi-card__avatar">SL</div><div><strong>Sophie L.</strong><span>Visite mosquées, 2023</span></div></footer></blockquote>
             </div>
         </div>
     </section>
@@ -868,47 +822,12 @@
     <!-- ========== FAQ ========== -->
     <section class="faq-section" aria-labelledby="faq-title">
         <div class="container">
-            <div class="section__header text-center">
-                <span class="section__tag">Questions fréquentes</span>
-                <h2 class="section__title" id="faq-title">Tout ce que vous<br><em>devez savoir</em></h2>
-            </div>
-            <ul class="faq-list" role="list">
-                <li class="faq-item">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
-                        Les non-musulmans peuvent-ils visiter les mosquées ?
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>La plupart des mosquées marocaines sont réservées aux musulmans. Cependant, la Mosquée Hassan II de Casablanca est l'une des rares mosquées au monde ouverte aux visiteurs non-musulmans lors de visites guidées. Nous adaptons tous nos itinéraires en conséquence.</p>
-                    </div>
-                </li>
-                <li class="faq-item">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
-                        Proposez-vous des repas halal tout au long du voyage ?
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Oui, absolument. Tous nos partenaires hôteliers et restaurateurs proposent des repas 100% halal. Nous pouvons également adapter les menus selon vos besoins diététiques ou religieux spécifiques.</p>
-                    </div>
-                </li>
-                <li class="faq-item">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
-                        Peut-on combiner pèlerinage et tourisme culturel ?
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Tout à fait. Nos circuits sont entièrement modulables. Vous pouvez combiner une visite des zaouïas avec la découverte des médinas, des souks d'artisanat ou des paysages naturels du Maroc. Parlez-nous de vos envies et nous concevons l'itinéraire idéal.</p>
-                    </div>
-                </li>
-                <li class="faq-item">
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
-                        Quel est le meilleur moment pour un voyage spirituel au Maroc ?
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Le printemps (mars–mai) et l'automne (septembre–novembre) offrent les meilleures conditions climatiques. Le mois de Ramadan est une période particulièrement intense et spirituelle, mais implique des adaptations dans les horaires de visites et de repas.</p>
-                    </div>
-                </li>
+            <div class="section__header text-center"><span class="section__tag">Questions fréquentes</span><h2 class="section__title" id="faq-title">Tout ce que vous<br><em>devez savoir</em></h2></div>
+            <ul class="faq-list">
+                <li class="faq-item"><div class="faq-question" tabindex="0">Les non-musulmans peuvent-ils visiter les mosquées ?<i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>La plupart des mosquées marocaines sont réservées aux musulmans. Cependant, la Mosquée Hassan II de Casablanca est ouverte aux visiteurs non-musulmans lors de visites guidées. Nous adaptons tous nos itinéraires en conséquence.</p></div></li>
+                <li class="faq-item"><div class="faq-question" tabindex="0">Proposez-vous des repas halal tout au long du voyage ?<i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Oui, absolument. Tous nos partenaires hôteliers et restaurateurs proposent des repas 100% halal. Nous pouvons également adapter les menus selon vos besoins diététiques.</p></div></li>
+                <li class="faq-item"><div class="faq-question" tabindex="0">Peut-on combiner pèlerinage et tourisme culturel ?<i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Tout à fait. Nos circuits sont entièrement modulables. Vous pouvez combiner une visite des zaouïas avec la découverte des médinas, des souks ou des paysages naturels.</p></div></li>
+                <li class="faq-item"><div class="faq-question" tabindex="0">Quel est le meilleur moment pour un voyage spirituel ?<i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Le printemps (mars–mai) et l'automne (septembre–novembre) offrent les meilleures conditions. Le mois de Ramadan est particulièrement intense et spirituel.</p></div></li>
             </ul>
         </div>
     </section>
@@ -917,246 +836,61 @@
     <section class="devis-section" id="demande" aria-labelledby="devis-title">
         <div class="container">
             <div class="devis-inner">
-                <!-- Info latérale -->
-                <div class="devis-info">
-                    <span class="section__tag">Votre voyage sur mesure</span>
-                    <h2 id="devis-title">Créons votre<br><em>itinéraire spirituel</em></h2>
-                    <p>Remplissez le formulaire, notre équipe spécialisée vous répond sous 24h pour construire ensemble votre voyage idéal.</p>
-                    <div class="devis-features">
-                        <div class="devis-feature">
-                            <i class="fas fa-clock" aria-hidden="true"></i>
-                            <span>Réponse garantie sous 24h</span>
-                        </div>
-                        <div class="devis-feature">
-                            <i class="fas fa-hand-sparkles" aria-hidden="true"></i>
-                            <span>Conseiller dédié 24h/7j</span>
-                        </div>
-                        <div class="devis-feature">
-                            <i class="fas fa-tags" aria-hidden="true"></i>
-                            <span>Devis gratuit et sans engagement</span>
-                        </div>
-                        <div class="devis-feature">
-                            <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                            <span>Partenaires certifiés et assurés</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Formulaire -->
-                <form class="contact__form" id="religiousForm" novalidate aria-label="Formulaire de devis tourisme religieux">
-                    <div class="form__row">
-                        <div class="form__group">
-                            <label for="r-nom">Nom complet <span aria-hidden="true">*</span></label>
-                            <input type="text" id="r-nom" name="nom" placeholder="Jean Dupont" required autocomplete="name">
-                            <span class="form__error" role="alert" aria-live="polite"></span>
-                        </div>
-                        <div class="form__group">
-                            <label for="r-email">Email <span aria-hidden="true">*</span></label>
-                            <input type="email" id="r-email" name="email" placeholder="jean@exemple.com" required autocomplete="email">
-                            <span class="form__error" role="alert" aria-live="polite"></span>
-                        </div>
-                    </div>
-                    <div class="form__row">
-                        <div class="form__group">
-                            <label for="r-tel">Téléphone</label>
-                            <input type="tel" id="r-tel" name="telephone" placeholder="+33 6 00 00 00 00" autocomplete="tel">
-                        </div>
-                        <div class="form__group">
-                            <label for="r-sejour">Type de séjour <span aria-hidden="true">*</span></label>
-                            <select id="r-sejour" name="sejour" required>
-                                <option value="">Choisissez un type</option>
-                                <option value="pelerinage">Pèlerinage (zaouïas)</option>
-                                <option value="mosquees">Visite de mosquées</option>
-                                <option value="retraite">Retraite spirituelle</option>
-                                <option value="combine">Circuit combiné</option>
-                            </select>
-                            <span class="form__error" role="alert" aria-live="polite"></span>
-                        </div>
-                    </div>
-                    <div class="form__row">
-                        <div class="form__group">
-                            <label for="r-voyageurs">Nombre de voyageurs</label>
-                            <select id="r-voyageurs" name="voyageurs">
-                                <option value="">Sélectionner</option>
-                                <option>1 personne</option>
-                                <option>2 personnes</option>
-                                <option>3–5 personnes</option>
-                                <option>Groupe (6+)</option>
-                            </select>
-                        </div>
-                        <div class="form__group">
-                            <label for="r-dates">Dates souhaitées</label>
-                            <input type="text" id="r-dates" name="dates" placeholder="ex : Avril 2025, 7 jours">
-                        </div>
-                    </div>
-                    <div class="form__group">
-                        <label for="r-message">Vos souhaits particuliers <span aria-hidden="true">*</span></label>
-                        <textarea id="r-message" name="message" rows="5" placeholder="Décrivez vos attentes, vos besoins religieux ou culturels spécifiques…" required></textarea>
-                        <span class="form__error" role="alert" aria-live="polite"></span>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn--full">
-                        <span class="btn__text">Envoyer ma demande</span>
-                        <i class="fas fa-paper-plane" aria-hidden="true"></i>
-                    </button>
-                    <div class="form__success" id="religiousFormSuccess" role="status" aria-live="polite" hidden>
-                        <i class="fas fa-check-circle" aria-hidden="true"></i>
-                        <p>Merci ! Votre demande a été envoyée. Nous vous contacterons sous 24h.</p>
-                    </div>
-                </form>
+                <div class="devis-info reveal-el"><span class="section__tag">Votre voyage sur mesure</span><h2 id="devis-title">Créons votre<br><em>itinéraire spirituel</em></h2><p>Remplissez le formulaire, notre équipe spécialisée vous répond sous 24h pour construire ensemble votre voyage idéal.</p><div class="devis-features"><div class="devis-feature"><i class="fas fa-clock"></i><span>Réponse garantie sous 24h</span></div><div class="devis-feature"><i class="fas fa-hand-sparkles"></i><span>Conseiller dédié 24h/7j</span></div><div class="devis-feature"><i class="fas fa-tags"></i><span>Devis gratuit et sans engagement</span></div><div class="devis-feature"><i class="fas fa-shield-alt"></i><span>Partenaires certifiés et assurés</span></div></div></div>
+                <form class="contact__form" id="religiousForm" novalidate><div class="form__row"><div class="form__group"><label for="r-nom">Nom complet <span>*</span></label><input type="text" id="r-nom" name="nom" placeholder="Jean Dupont" required autocomplete="name"><span class="form__error"></span></div><div class="form__group"><label for="r-email">Email <span>*</span></label><input type="email" id="r-email" name="email" placeholder="jean@exemple.com" required autocomplete="email"><span class="form__error"></span></div></div><div class="form__row"><div class="form__group"><label for="r-tel">Téléphone</label><input type="tel" id="r-tel" name="telephone" placeholder="+33 6 00 00 00 00" autocomplete="tel"></div><div class="form__group"><label for="r-sejour">Type de séjour <span>*</span></label><select id="r-sejour" name="sejour" required><option value="">Choisissez un type</option><option value="pelerinage">Pèlerinage (zaouïas)</option><option value="mosquees">Visite de mosquées</option><option value="retraite">Retraite spirituelle</option><option value="omra">Omra / Pèlerinage</option><option value="combine">Circuit combiné</option></select><span class="form__error"></span></div></div><div class="form__row"><div class="form__group"><label for="r-voyageurs">Nombre de voyageurs</label><select id="r-voyageurs" name="voyageurs"><option value="">Sélectionner</option><option>1 personne</option><option>2 personnes</option><option>3–5 personnes</option><option>Groupe (6+)</option></select></div><div class="form__group"><label for="r-dates">Dates souhaitées</label><input type="text" id="r-dates" name="dates" placeholder="ex : Avril 2025, 7 jours"></div></div><div class="form__group"><label for="r-message">Vos souhaits particuliers <span>*</span></label><textarea id="r-message" name="message" rows="5" placeholder="Décrivez vos attentes, vos besoins religieux ou culturels spécifiques…" required></textarea><span class="form__error"></span></div><button type="submit" class="btn btn-primary btn--full"><span class="btn__text">Envoyer ma demande</span><i class="fas fa-paper-plane"></i></button><div class="form__success" id="religiousFormSuccess" hidden><i class="fas fa-check-circle"></i><p>Merci ! Votre demande a été envoyée. Nous vous contacterons sous 24h.</p></div></form>
             </div>
         </div>
     </section>
 
+    <!-- ========== CTA FINAL ========== -->
+    <section class="cta-final" aria-labelledby="mcta"><div class="container"><span class="cta-final__tag">Votre quête spirituelle</span><h2 id="mcta">Prêt à vivre<br><em>le Maroc sacré ?</em></h2><p>Accompagnement personnalisé, respect des traditions et authenticité garantie.</p><div class="cta-final__btns"><a href="#demande" class="btn btn-light">Demander un devis gratuit</a><a href="https://wa.me/212650405798?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20un%20voyage%20religieux%20sur%20mesure" class="btn btn-ghost-light" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></div></div></section>
+
     <!-- ========== FOOTER ========== -->
-    <footer class="footer" role="contentinfo">
-        <div class="container footer__inner">
-            <div class="footer__col footer__col--brand">
-                <a href="index.html" aria-label="Souma Tourisme — Retour à l'accueil">
-                    <img src="images/logo-white.png" alt="Souma Tourisme" class="footer__logo">
-                </a>
-                <p>L'excellence du voyage sur mesure au Maroc, depuis Casablanca.</p>
-                <div class="social" aria-label="Réseaux sociaux">
-                    <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                    <a href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                    <a href="https://wa.me/212650405798" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-                </div>
-            </div>
-            <div class="footer__col">
-                <h4>Nos services</h4>
-                <ul>
-                    <li><a href="religieux.html" aria-current="page">Tourisme religieux</a></li>
-                    <li><a href="medical.html">Tourisme médical</a></li>
-                    <li><a href="culturel.html">Tourisme culturel</a></li>
-                    <li><a href="index.html#voyages">Voyages sur mesure</a></li>
-                </ul>
-            </div>
-            <div class="footer__col">
-                <h4>Contact</h4>
-                <address>
-                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+212 650-405798">+212 650-405798</a></p>
-                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:masoumare@gmail.com">masoumare@gmail.com</a></p>
-                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Casablanca, Maroc</p>
-                </address>
-            </div>
-            <div class="footer__col">
-                <h4>Liens utiles</h4>
-                <ul>
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Politique de confidentialité</a></li>
-                    <li><a href="#">Conditions générales</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer__bottom">
-            <p>© <span id="currentYear">2025</span> Souma Tourisme — Tous droits réservés</p>
-            <p>Conçu avec <i class="fas fa-heart" aria-hidden="true" style="color:var(--secondary);"></i> au Maroc</p>
-        </div>
-    </footer>
+    <footer class="footer" role="contentinfo"><div class="container footer__inner"><div class="footer__col footer__col--brand"><a href="index.html"><img src="images/logo-white.png" alt="Souma Tourisme" class="footer__logo"></a><p>L'excellence du voyage sur mesure au Maroc, depuis Casablanca.</p><div class="social"><a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://wa.me/212650405798" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div></div><div class="footer__col"><h4>Nos services</h4><ul><li><a href="religieux.html" aria-current="page">Tourisme religieux</a></li><li><a href="medical.html">Tourisme médical</a></li><li><a href="culturel.html">Tourisme culturel</a></li><li><a href="index.html#voyages">Voyages sur mesure</a></li></ul></div><div class="footer__col"><h4>Contact</h4><address><p><i class="fas fa-phone-alt"></i> <a href="tel:+212650405798">+212 650-405798</a></p><p><i class="fas fa-envelope"></i> <a href="mailto:masoumare72@gmail.com">masoumare72@gmail.com</a></p><p><i class="fas fa-map-marker-alt"></i> El Azhari 1, rue 65, esc. 1<br>20 220 Casablanca, Maroc</p></address></div><div class="footer__col"><h4>Liens utiles</h4><ul><li><a href="destinations.html">Destinations</a></li><li><a href="galerie.html">Galerie</a></li><li><a href="#">À propos</a></li><li><a href="#">Politique de confidentialité</a></li></ul></div></div><div class="footer__bottom"><p>© <span id="currentYear"></span> Souma Tourisme — Tous droits réservés</p><p>Conçu avec <i class="fas fa-heart" style="color:var(--secondary);"></i> au Maroc</p></div></footer>
 
-    <!-- WhatsApp flottant -->
-    <a href="https://wa.me/212650405798?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20un%20voyage%20religieux%20sur%20mesure"
-       class="whatsapp-float"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Nous contacter sur WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-        <span>Discuter</span>
-    </a>
+    <a href="https://wa.me/212650405798?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20un%20voyage%20religieux" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i><span>Discuter</span></a>
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut" hidden><i class="fas fa-chevron-up"></i></button>
 
-    <!-- Bouton retour en haut -->
-    <button class="back-to-top" id="backToTop" aria-label="Retour en haut de page" hidden>
-        <i class="fas fa-chevron-up" aria-hidden="true"></i>
-    </button>
-
-    <script src="js/main.js"></script>
     <script>
-    /* ── Scripts spécifiques à religieux.html ── */
+    /* Scripts identiques à medical.html */
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
+    const burger = document.getElementById('burger'), nav = document.getElementById('nav');
+    burger.addEventListener('click', () => { const open = nav.classList.toggle('active'); burger.setAttribute('aria-expanded', open); document.body.style.overflow = open ? 'hidden' : ''; });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('active'); burger.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }));
 
-    // Parallaxe hero
-    const heroBg = document.getElementById('heroBg');
-    if (heroBg) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY < window.innerHeight) {
-                heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
-            }
-        }, { passive: true });
-    }
+    // Slideshow
+    const slides = document.querySelectorAll('.hero-religieux__slide'), dots = document.querySelectorAll('.hero-religieux__dot');
+    let current = 0, timer;
+    function goTo(n) { slides[current].classList.remove('active'); dots[current].classList.remove('active'); dots[current].setAttribute('aria-selected','false'); current = (n + slides.length) % slides.length; slides[current].classList.add('active'); dots[current].classList.add('active'); dots[current].setAttribute('aria-selected','true'); }
+    function startTimer() { timer = setInterval(() => goTo(current+1), 5000); }
+    dots.forEach((dot,i) => dot.addEventListener('click', () => { clearInterval(timer); goTo(i); startTimer(); }));
+    startTimer();
 
-    // FAQ accordion
-    document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const item = btn.closest('.faq-item');
-            const isOpen = item.classList.contains('open');
-            // Fermer tous les autres
-            document.querySelectorAll('.faq-item.open').forEach(el => {
-                el.classList.remove('open');
-                el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-            });
-            if (!isOpen) {
-                item.classList.add('open');
-                btn.setAttribute('aria-expanded', 'true');
-            }
-        });
-        // Accessibilité clavier
-        btn.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                btn.click();
-            }
-        });
-    });
+    // Counters
+    function animateCounter(el) { const target = parseInt(el.dataset.target,10); let val = 0; const step = target / (1800/16); const interval = setInterval(() => { val += step; if(val >= target) { el.textContent = target.toLocaleString('fr'); clearInterval(interval); } else el.textContent = Math.floor(val).toLocaleString('fr'); }, 16); }
+    const counterObs = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); } }); }, { threshold:0.5 });
+    document.querySelectorAll('.counter').forEach(c => counterObs.observe(c));
 
-    // Formulaire religieux
-    const religiousForm = document.getElementById('religiousForm');
-    if (religiousForm) {
-        const successMsg = document.getElementById('religiousFormSuccess');
+    // Scroll reveal
+    const revealTargets = document.querySelectorAll('.exp-card, .timeline-step, .avantage-item, .testi-card, .reveal-el');
+    const revealObs = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } }); }, { threshold:0.1 });
+    revealTargets.forEach((el,i) => { if(!el.style.transitionDelay) el.style.transitionDelay = `${(i%3)*0.1}s`; revealObs.observe(el); });
 
-        function validateField(field) {
-            const errorEl = field.parentElement.querySelector('.form__error');
-            let msg = '';
-            if (field.required && !field.value.trim()) msg = 'Ce champ est requis.';
-            else if (field.type === 'email' && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) msg = 'Email invalide.';
-            if (errorEl) errorEl.textContent = msg;
-            field.classList.toggle('error', !!msg);
-            return !msg;
-        }
+    // FAQ
+    document.querySelectorAll('.faq-question').forEach(btn => { btn.addEventListener('click', () => { const item = btn.closest('.faq-item'); const isOpen = item.classList.contains('open'); document.querySelectorAll('.faq-item.open').forEach(el => { el.classList.remove('open'); el.querySelector('.faq-question').setAttribute('aria-expanded','false'); }); if(!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded','true'); } }); btn.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') { e.preventDefault(); btn.click(); } }); });
 
-        religiousForm.querySelectorAll('input[required], select[required], textarea[required]').forEach(f => {
-            f.addEventListener('blur', () => validateField(f));
-            f.addEventListener('input', () => { if (f.classList.contains('error')) validateField(f); });
-        });
+    // Form
+    const relForm = document.getElementById('religiousForm'), successMsg = document.getElementById('religiousFormSuccess');
+    function validateField(f) { const err = f.parentElement.querySelector('.form__error'); let msg=''; if(f.required && !f.value.trim()) msg='Ce champ est requis.'; else if(f.type==='email' && f.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value)) msg='Email invalide.'; if(err) err.textContent = msg; f.classList.toggle('error',!!msg); return !msg; }
+    relForm.querySelectorAll('[required]').forEach(f => { f.addEventListener('blur',()=>validateField(f)); f.addEventListener('input',()=>{ if(f.classList.contains('error')) validateField(f); }); });
+    relForm.addEventListener('submit', async e => { e.preventDefault(); let valid=true; relForm.querySelectorAll('[required]').forEach(f=>{ if(!validateField(f)) valid=false; }); if(!valid) return; const btn = relForm.querySelector('[type="submit"]'), text = btn.querySelector('.btn__text'); btn.disabled=true; if(text) text.textContent='Envoi en cours…'; await new Promise(r=>setTimeout(r,1500)); relForm.style.display='none'; successMsg.removeAttribute('hidden'); setTimeout(()=>{ relForm.reset(); relForm.style.display=''; successMsg.setAttribute('hidden',''); btn.disabled=false; if(text) text.textContent='Envoyer ma demande'; },6000); });
 
-        religiousForm.addEventListener('submit', async e => {
-            e.preventDefault();
-            const fields = religiousForm.querySelectorAll('[required]');
-            let valid = true;
-            fields.forEach(f => { if (!validateField(f)) valid = false; });
-            if (!valid) return;
-
-            const btn = religiousForm.querySelector('[type="submit"]');
-            const text = btn.querySelector('.btn__text');
-            btn.disabled = true;
-            if (text) text.textContent = 'Envoi en cours…';
-
-            await new Promise(r => setTimeout(r, 1500));
-
-            religiousForm.style.display = 'none';
-            if (successMsg) successMsg.removeAttribute('hidden');
-
-            setTimeout(() => {
-                religiousForm.reset();
-                religiousForm.style.display = '';
-                if (successMsg) successMsg.setAttribute('hidden', '');
-                btn.disabled = false;
-                if (text) text.textContent = 'Envoyer ma demande';
-            }, 6000);
-        });
-    }
-
-    // Année footer
-    const yr = document.getElementById('currentYear');
-    if (yr) yr.textContent = new Date().getFullYear();
+    // Floating WhatsApp & Back to top
+    const wa = document.querySelector('.whatsapp-float'), btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => { const y = window.scrollY; wa.style.opacity = y>300 ? '1' : '0'; wa.style.pointerEvents = y>300 ? 'auto' : 'none'; btt.hidden = y<400; }, { passive:true });
+    btt.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
     </script>
 </body>
 </html>

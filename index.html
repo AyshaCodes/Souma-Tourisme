@@ -8,7 +8,7 @@
     <meta name="keywords" content="tourisme maroc, voyage maroc, tourisme religieux, tourisme médical, circuits sur mesure, marrakech, fes, agafay">
     <meta name="author" content="Souma Tourisme">
 
-    <!-- Open Graph / Réseaux sociaux -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Souma Tourisme | Voyages d'exception au Maroc">
     <meta property="og:description" content="Circuits sur mesure, tourisme religieux, médical et culturel au Maroc.">
@@ -16,14 +16,11 @@
     <meta property="og:url" content="https://www.soumatourisme.com">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Canonical -->
     <link rel="canonical" href="https://www.soumatourisme.com">
-
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
-    <!-- Polices : Cormorant Garamond (display luxe) + DM Sans (corps élégant) -->
+    <!-- Polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -31,49 +28,378 @@
     <!-- Icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- CSS -->
+    <!-- CSS partagé (identique aux autres pages) -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "TravelAgency",
-      "name": "Souma Tourisme",
-      "description": "Agence de voyages premium au Maroc spécialisée en circuits sur mesure, tourisme religieux, médical et culturel.",
-      "url": "https://www.soumatourisme.com",
-      "telephone": "+212650405798",
-      "email": "masoumare72@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "El Azhari 1 rue 65 esc 1",
-        "postalCode": "20220",
-        "addressLocality": "Casablanca",
-        "addressCountry": "MA"
-      },
-      "sameAs": [
-        "https://www.instagram.com/soumatourisme",
-        "https://www.facebook.com/soumatourisme"
-      ]
+    <style>
+    /* ── VARIABLES locales (harmonisées avec medical.html) ── */
+    :root {
+        --topbar-h: 38px;
+        --header-h: 70px;
     }
-    </script>
+
+    /* ── TOPBAR (identique) ── */
+    .topbar {
+        background: var(--primary);
+        color: rgba(255,255,255,0.85);
+        font-size: 0.78rem;
+        text-align: center;
+        padding: 9px 20px;
+        letter-spacing: 0.3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        height: var(--topbar-h);
+    }
+    .topbar a {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 600;
+        transition: opacity 0.2s;
+    }
+    .topbar a:hover { opacity: 0.8; }
+    .topbar__sep { opacity: 0.3; }
+    @media (max-width: 768px) { .topbar { display: none; } }
+
+    /* ── HEADER décalé sous topbar (comme medical/religieux) ── */
+    .header {
+        top: var(--topbar-h);
+    }
+    @media (max-width: 768px) {
+        .header { top: 0; }
+    }
+
+    /* ── HERO : ajout du padding-top pour descendre sous header + topbar ── */
+    .hero {
+        position: relative;
+        height: 88vh;
+        min-height: 620px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--light);
+        overflow: hidden;
+        padding-top: calc(var(--topbar-h) + var(--header-h));
+    }
+    /* Le reste du hero (slides, overlay, content) reste inchangé */
+    .hero__slides {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+    .hero__slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1s ease;
+        transform: scale(1.06);
+        animation: heroZoom 14s ease-out forwards;
+    }
+    .hero__slide.active { opacity: 1; }
+    @keyframes heroZoom { to { transform: scale(1); } }
+    .hero__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(26,77,46,0.25) 0%, rgba(18,18,20,0.72) 100%);
+        z-index: 1;
+    }
+    .hero__content {
+        position: relative;
+        z-index: 2;
+        max-width: 820px;
+        padding: 0 20px;
+    }
+    .hero__tag {
+        display: inline-block;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.3);
+        backdrop-filter: blur(8px);
+        padding: 7px 18px;
+        border-radius: 50px;
+        margin-bottom: 28px;
+        animation: fadeUp 0.8s ease-out both;
+    }
+    .hero__title {
+        font-family: var(--font-display);
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        color: var(--light);
+        margin-bottom: 22px;
+        text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        animation: fadeUp 0.8s ease-out 0.15s both;
+    }
+    .hero__title em {
+        font-style: italic;
+        color: rgba(255,255,255,0.82);
+    }
+    .hero__text {
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        opacity: 0.9;
+        max-width: 580px;
+        margin: 0 auto 40px;
+        line-height: 1.7;
+        animation: fadeUp 0.8s ease-out 0.3s both;
+    }
+    .hero__actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeUp 0.8s ease-out 0.45s both;
+    }
+    .hero__slide-dots {
+        position: absolute;
+        bottom: 110px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 3;
+    }
+    .hero__dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.35);
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 0;
+    }
+    .hero__dot.active {
+        background: var(--light);
+        width: 22px;
+        border-radius: 3px;
+    }
+    .hero__stats {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 48px;
+        z-index: 2;
+        background: rgba(0,0,0,0.5);
+        backdrop-filter: blur(8px);
+        padding: 12px 24px;
+        border-radius: 60px;
+        width: fit-content;
+        margin: 0 auto;
+    }
+    .hero__stat {
+        text-align: center;
+        color: var(--light);
+    }
+    .hero__stat strong {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 700;
+        font-family: var(--font-display);
+    }
+    .hero__stat span {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.7;
+    }
+    .hero__scroll {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        z-index: 2;
+        opacity: 0.6;
+    }
+    .hero__scroll span {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    .hero__scroll-line {
+        width: 1px;
+        height: 30px;
+        background: var(--light);
+    }
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(28px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    /* ── SECTION PRESTIGE : amélioration ── */
+    .prestige__item {
+        position: relative;
+    }
+    .prestige__item::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: var(--secondary);
+        transition: width 0.4s ease;
+    }
+    .prestige__item:hover::before { width: 40%; }
+
+    /* ── DESTINATIONS : overlay amélioré ── */
+    .dest-card__img {
+        overflow: hidden;
+    }
+    .dest-card__img-inner {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .dest-card:hover .dest-card__img-inner {
+        transform: scale(1.06);
+    }
+    .dest-card__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(26,77,46,0.65) 0%, transparent 55%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
+    }
+    .dest-card:hover .dest-card__overlay { opacity: 1; }
+    .dest-card__overlay-text {
+        color: var(--light);
+        font-size: 0.82rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    /* ── SECTION DG : masquer si pas de photo ── */
+    .dg__content .section__tag { margin-bottom: 10px; }
+
+    /* ── NOUVELLE SECTION : Carte de contact améliorée ── */
+    .contact__trust {
+        margin-top: 28px;
+        padding: 20px;
+        background: rgba(26,77,46,0.05);
+        border-radius: var(--radius);
+        border: 1px solid rgba(26,77,46,0.1);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.85rem;
+        color: var(--gray);
+    }
+    .contact__trust i {
+        color: var(--primary);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+    }
+
+    /* ── SECTION GALERIE CTA ── */
+    .gallery-preview {
+        background: var(--accent);
+        padding: clamp(50px, 6vw, 80px) 0;
+        border-top: 1px solid var(--accent-dark);
+    }
+    .gallery-preview__inner {
+        display: flex;
+        align-items: center;
+        gap: 48px;
+    }
+    .gallery-preview__text { flex: 1; }
+    .gallery-preview__text p {
+        color: var(--gray);
+        font-size: 0.95rem;
+        margin: 12px 0 24px;
+        line-height: 1.7;
+    }
+    .gallery-preview__images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 140px 140px;
+        gap: 8px;
+        flex-shrink: 0;
+        width: 320px;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+    }
+    .gallery-preview__img {
+        overflow: hidden;
+    }
+    .gallery-preview__img:first-child {
+        grid-row: span 2;
+    }
+    .gallery-preview__img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+        display: block;
+    }
+    .gallery-preview__img:hover img { transform: scale(1.06); }
+
+    @media (max-width: 768px) {
+        .gallery-preview__inner { flex-direction: column; }
+        .gallery-preview__images { width: 100%; }
+        .topbar { display: none; }
+    }
+
+    /* ── ANIMATION SCROLL REVEAL ── */
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    </style>
 </head>
 <body>
 
+    <!-- ========== TOPBAR ========== -->
+    <div class="topbar" role="banner" aria-label="Informations de contact">
+        <span><i class="fas fa-phone-alt"></i> <a href="tel:+212650405798">+212 650-405798</a></span>
+        <span class="topbar__sep">|</span>
+        <span><i class="fas fa-envelope"></i> <a href="mailto:masoumare72@gmail.com">masoumare72@gmail.com</a></span>
+        <span class="topbar__sep">|</span>
+        <span><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</span>
+    </div>
+
     <!-- ========== HEADER ========== -->
-    <header class="header" id="header" role="banner">
+    <header  class="header" id="header" role="banner">
         <div class="container header__inner">
             <a href="#accueil" class="logo" aria-label="Souma Tourisme — Accueil">
-                <img src="images/" alt="Souma Tourisme" class="logo-img">
+                <!-- Utilisez un seul fichier logo : logo.png -->
+                <img src="images/logo.png" alt="Souma Tourisme" class="logo-img">
             </a>
 
             <nav class="nav" id="nav" aria-label="Navigation principale">
                 <ul class="nav__list" role="list">
                     <li><a href="#accueil">Accueil</a></li>
-                    <li><a href="#destinations">Destinations</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
                     <li><a href="#services">Nos services</a></li>
                     <li><a href="#voyages">Sur mesure</a></li>
-                    <li><a href="galerie.html"><i class="fas fa-images" style="font-size:0.75rem; margin-right:4px;"></i> Galerie</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
                     <li><a href="#temoignages">Avis clients</a></li>
                     <li><a href="#contact" class="nav__cta">Contact</a></li>
                 </ul>
@@ -85,11 +411,11 @@
                 <span class="burger__line"></span>
             </button>
         </div>
-    </header>logo-removebg-preview.png
+    </header>
 
     <!-- ========== HERO ========== -->
     <section class="hero" id="accueil" aria-label="Bienvenue chez Souma Tourisme">
-        <!-- Slideshow d'arrière-plan -->
+        <!-- Slideshow -->
         <div class="hero__slides" aria-hidden="true">
             <div class="hero__slide active" style="background-image: url('https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
             <div class="hero__slide" style="background-image: url('https://images.pexels.com/photos/2349165/pexels-photo-2349165.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
@@ -110,7 +436,14 @@
             </div>
         </div>
 
-        <!-- Stats rapides -->
+        <!-- Dots de navigation -->
+        <div class="hero__slide-dots" role="tablist" aria-label="Navigation du diaporama">
+            <button class="hero__dot active" data-slide="0" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+            <button class="hero__dot" data-slide="1" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+            <button class="hero__dot" data-slide="2" role="tab" aria-label="Slide 3" aria-selected="false"></button>
+        </div>
+
+        <!-- Stats -->
         <div class="hero__stats" aria-label="Chiffres clés">
             <div class="hero__stat">
                 <strong class="counter" data-target="1200">0</strong>
@@ -135,25 +468,25 @@
     <!-- ========== PRESTIGE / VALEURS ========== -->
     <section class="section prestige" aria-labelledby="prestige-title">
         <div class="container">
-            <div class="section__header">
+            <div class="section__header text-center">
                 <span class="section__tag">Notre engagement</span>
                 <h2 class="section__title" id="prestige-title">Ce qui nous distingue</h2>
             </div>
             <div class="prestige__grid">
-                <div class="prestige__item">
-                    <div class="prestige__icon" aria-hidden="true"><i class="fas fa-hand-sparkles"></i></div>
+                <div class="prestige__item reveal">
+                    <div class="prestige__icon" aria-hidden="true"><i class="fas fa-concierge-bell"></i></div>
                     <h3>Accompagnement premium</h3>
-                    <p>Un conseiller dédié 24h/24, 7j/7, pour un voyage sans aucune contrainte.</p>
+                    <p>Un conseiller dédié 24h/24, 7j/7, pour un voyage sans aucune contrainte ni mauvaise surprise.</p>
                 </div>
-                <div class="prestige__item">
-                    <div class="prestige__icon" aria-hidden="true"><i class="fas fa-mosque"></i></div>
+                <div class="prestige__item reveal reveal-delay-1">
+                    <div class="prestige__icon" aria-hidden="true"><i class="fas fa-gem"></i></div>
                     <h3>Authenticité garantie</h3>
-                    <p>Des circuits pensés avec les acteurs locaux pour une immersion respectueuse.</p>
+                    <p>Des circuits pensés avec les acteurs locaux pour une immersion respectueuse et profonde.</p>
                 </div>
-                <div class="prestige__item">
+                <div class="prestige__item reveal reveal-delay-2">
                     <div class="prestige__icon" aria-hidden="true"><i class="fas fa-leaf"></i></div>
                     <h3>Tourisme responsable</h3>
-                    <p>Nos engagements éco-responsables et sociétaux sont au cœur de notre ADN.</p>
+                    <p>Nos engagements éco-responsables et sociétaux sont au cœur de notre ADN depuis le premier jour.</p>
                 </div>
             </div>
         </div>
@@ -168,61 +501,100 @@
                 <p class="section__subtitle">Marrakech, Fès, Ifrane, désert d'Agafay… Chaque lieu raconte une histoire unique.</p>
             </div>
             <div class="destinations__grid">
-                <article class="dest-card">
-                    <div class="dest-card__img" style="background-image: url('images/marrakech.jpg');" role="img" aria-label="Marrakech">
+
+                <article class="dest-card reveal">
+                    <div class="dest-card__img">
+                        <div class="dest-card__img-inner" style="background-image: url('https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=800');" role="img" aria-label="Marrakech"></div>
                         <div class="dest-card__badge">Populaire</div>
+                        <div class="dest-card__overlay">
+                            <span class="dest-card__overlay-text">Planifier ce voyage <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                     <div class="dest-card__content">
                         <div class="dest-card__meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Maroc du Sud</div>
                         <h3>Marrakech ocre</h3>
-                        <p>Palais secrets, jardins luxuriants et souk animé.</p>
-                        <a href="#" class="link-arrow" aria-label="Découvrir Marrakech">Découvrir <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        <p>Palais secrets, jardins luxuriants et souk animé jusqu'à l'aube.</p>
+                        <a href="destinations.html#marrakech" class="link-arrow" aria-label="Découvrir Marrakech">Découvrir <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </article>
-                <article class="dest-card">
-                    <div class="dest-card__img" style="background-image: url('images/fes.jpg');" role="img" aria-label="Fès">
+
+                <article class="dest-card reveal reveal-delay-1">
+                    <div class="dest-card__img">
+                        <div class="dest-card__img-inner" style="background-image: url('https://images.pexels.com/photos/2349165/pexels-photo-2349165.jpeg?auto=compress&cs=tinysrgb&w=800');" role="img" aria-label="Fès"></div>
                         <div class="dest-card__badge">UNESCO</div>
+                        <div class="dest-card__overlay">
+                            <span class="dest-card__overlay-text">Planifier ce voyage <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                     <div class="dest-card__content">
                         <div class="dest-card__meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Maroc du Nord</div>
                         <h3>Fès l'intemporelle</h3>
-                        <p>La médina classée UNESCO et ses trésors artisanaux.</p>
-                        <a href="#" class="link-arrow" aria-label="Découvrir Fès">Découvrir <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        <p>La médina classée UNESCO et ses trésors artisanaux millénaires.</p>
+                        <a href="destinations.html#fes" class="link-arrow" aria-label="Découvrir Fès">Découvrir <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </article>
-                <article class="dest-card">
-                    <div class="dest-card__img" style="background-image: url('https://images.unsplash.com/photo-1641237855167-720e5a9a5d5e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');" role="img" aria-label="Désert d'Agafay">
+
+                <article class="dest-card reveal reveal-delay-2">
+                    <div class="dest-card__img">
+                        <div class="dest-card__img-inner" style="background-image: url('https://images.unsplash.com/photo-1641237855167-720e5a9a5d5e?q=80&w=1170&auto=format&fit=crop');" role="img" aria-label="Désert d'Agafay"></div>
                         <div class="dest-card__badge">Coup de cœur</div>
+                        <div class="dest-card__overlay">
+                            <span class="dest-card__overlay-text">Planifier ce voyage <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                     <div class="dest-card__content">
                         <div class="dest-card__meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Région de Marrakech</div>
                         <h3>Désert d'Agafay</h3>
-                        <p>Nuits étoilées, dîner sous tente et sensations pures.</p>
-                        <a href="#" class="link-arrow" aria-label="Découvrir le désert d'Agafay">Découvrir <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        <p>Nuits étoilées, dîner sous tente et sensations pures à 40 km de Marrakech.</p>
+                        <a href="destinations.html#agafay" class="link-arrow" aria-label="Découvrir le désert d'Agafay">Découvrir <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </article>
-                <article class="dest-card">
-                    <div class="dest-card__img" style="background-image: url('images/images.jpg');" role="img" aria-label="Ifrane sous la neige">
-                        <div class="dest-card__badge" style="background: #3B82F6;">Neige &amp; Nature</div>
+
+                <article class="dest-card reveal reveal-delay-3">
+                    <div class="dest-card__img">
+                        <div class="dest-card__img-inner" style="background-image: url('https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=800');" role="img" aria-label="Chefchaouen la bleue"></div>
+                        <div class="dest-card__badge" style="background: var(--primary);">Coup de cœur</div>
+                        <div class="dest-card__overlay">
+                            <span class="dest-card__overlay-text">Planifier ce voyage <i class="fas fa-arrow-right"></i></span>
+                        </div>
                     </div>
                     <div class="dest-card__content">
-                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Moyen Atlas</div>
-                        <h3>Ifrane la blanche</h3>
-                        <p>Paysages enneigés, forêts de cèdres et architecture alpine au cœur du Maroc.</p>
-                        <a href="#" class="link-arrow" aria-label="Découvrir Ifrane">Découvrir <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        <div class="dest-card__meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Rif — Maroc du Nord</div>
+                        <h3>Chefchaouen la bleue</h3>
+                        <p>Ruelles peintes en bleu et blanc, air de montagne et ambiance hors du temps.</p>
+                        <a href="destinations.html#chefchaouen" class="link-arrow" aria-label="Découvrir Chefchaouen">Découvrir <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </article>
+
             </div>
         </div>
-        <div style="text-align:center; margin-top: 40px;">
-    <a href="galerie.html" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:10px;">
-        <i class="fas fa-images"></i>
-        Voir toute notre galerie photo
-    </a>
-    <p style="margin-top:12px; font-size:0.85rem; color:var(--gray-light);">
-        Plus de 40 souvenirs de voyage à découvrir
-    </p>
-</div>
+
+        <!-- Aperçu galerie intégré -->
+        <div class="gallery-preview">
+            <div class="container">
+                <div class="gallery-preview__inner">
+                    <div class="gallery-preview__text reveal">
+                        <span class="section__tag">Notre galerie</span>
+                        <h2 class="section__title" style="font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 0;">Plus de 40 souvenirs<br><em>de voyage à découvrir</em></h2>
+                        <p>Chaque photo est un souvenir réel de nos voyageurs. Le vôtre peut être le prochain.</p>
+                        <a href="galerie.html" class="btn btn-primary">
+                            <i class="fas fa-images"></i> Voir la galerie complète
+                        </a>
+                    </div>
+                    <div class="gallery-preview__images reveal reveal-delay-1">
+                        <div class="gallery-preview__img">
+                            <img src="https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Marrakech" loading="lazy">
+                        </div>
+                        <div class="gallery-preview__img">
+                            <img src="https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Chefchaouen" loading="lazy">
+                        </div>
+                        <div class="gallery-preview__img">
+                            <img src="https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Désert" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- ========== SERVICES ========== -->
@@ -234,19 +606,21 @@
                 <p class="section__subtitle">Des voyages pensés autour de vos besoins spirituels, de santé ou culturels.</p>
             </div>
             <div class="services__grid">
-                <article class="service-card">
+
+                <article class="service-card reveal">
                     <div class="service-card__icon" aria-hidden="true"><i class="fas fa-hands-praying"></i></div>
                     <h3>Tourisme religieux</h3>
                     <p>Pèlerinages, retraites spirituelles et visites des lieux saints du Maroc, encadrés par des guides spécialisés.</p>
                     <ul class="service-details" aria-label="Services inclus">
                         <li><i class="fas fa-check-circle" aria-hidden="true"></i> Mosquées historiques (Hassan II, Koutoubia)</li>
                         <li><i class="fas fa-check-circle" aria-hidden="true"></i> Itinéraires vers Zaouïas et mausolées</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Accompagnement religieux sur demande</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Hébergement à proximité des lieux saints</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Accompagnement spirituel sur demande</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Accompagnement Omra complet</li>
                     </ul>
                     <a href="religieux.html" class="link-arrow">En savoir plus <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </article>
-                <article class="service-card service-card--featured">
+
+                <article class="service-card service-card--featured reveal reveal-delay-1">
                     <div class="service-card__badge">Le plus demandé</div>
                     <div class="service-card__icon" aria-hidden="true"><i class="fas fa-heartbeat"></i></div>
                     <h3>Tourisme médical</h3>
@@ -259,18 +633,20 @@
                     </ul>
                     <a href="medical.html" class="link-arrow">En savoir plus <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </article>
-                <article class="service-card">
+
+                <article class="service-card reveal reveal-delay-2">
                     <div class="service-card__icon" aria-hidden="true"><i class="fas fa-landmark"></i></div>
                     <h3>Tourisme culturel</h3>
-                    <p>Circuits privés au cœur des médinas, musées, et rencontres avec les artisans d'art.</p>
+                    <p>Circuits privés au cœur des médinas, musées, et rencontres avec les artisans d'art marocains.</p>
                     <ul class="service-details" aria-label="Services inclus">
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Visites exclusives des palais et jardins secrets</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Visites exclusives des palais et jardins</li>
                         <li><i class="fas fa-check-circle" aria-hidden="true"></i> Ateliers avec des maîtres artisans</li>
-                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Dégustations gastronomiques et cours de cuisine</li>
+                        <li><i class="fas fa-check-circle" aria-hidden="true"></i> Cours de cuisine et gastronomie</li>
                         <li><i class="fas fa-check-circle" aria-hidden="true"></i> Nuits dans des riads d'exception</li>
                     </ul>
                     <a href="culturel.html" class="link-arrow">En savoir plus <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </article>
+
             </div>
         </div>
     </section>
@@ -283,25 +659,25 @@
                 <h2 class="section__title" id="why-title">Pourquoi voyager<br><em>avec Souma Tourisme ?</em></h2>
             </div>
             <div class="why__grid">
-                <div class="why__item">
+                <div class="why__item reveal">
                     <div class="why__number" aria-hidden="true">01</div>
                     <div class="why__icon" aria-hidden="true"><i class="fas fa-clock"></i></div>
                     <h3>Disponibilité 24/7</h3>
                     <p>Une équipe à votre écoute avant, pendant et après votre voyage.</p>
                 </div>
-                <div class="why__item">
+                <div class="why__item reveal reveal-delay-1">
                     <div class="why__number" aria-hidden="true">02</div>
                     <div class="why__icon" aria-hidden="true"><i class="fas fa-shield-alt"></i></div>
                     <h3>Sécurité garantie</h3>
                     <p>Tous nos partenaires sont certifiés et assurés pour votre tranquillité.</p>
                 </div>
-                <div class="why__item">
+                <div class="why__item reveal reveal-delay-2">
                     <div class="why__number" aria-hidden="true">03</div>
                     <div class="why__icon" aria-hidden="true"><i class="fas fa-tags"></i></div>
                     <h3>Meilleur prix</h3>
                     <p>Devis transparent, sans frais cachés, avec notre garantie du prix le plus juste.</p>
                 </div>
-                <div class="why__item">
+                <div class="why__item reveal reveal-delay-3">
                     <div class="why__number" aria-hidden="true">04</div>
                     <div class="why__icon" aria-hidden="true"><i class="fas fa-route"></i></div>
                     <h3>Sur mesure total</h3>
@@ -315,9 +691,8 @@
     <section class="section dg-section" aria-labelledby="dg-title">
         <div class="container">
             <div class="dg__inner">
-                <div class="dg__photo-wrapper">
+                <div class="dg__photo-wrapper reveal">
                     <div class="dg__photo" aria-label="Photo du Directeur Général">
-                        <!-- Remplacez src par votre photo : images/directeur.jpg -->
                         <img src="images/directeur.png"
                              alt="Directeur Général de Souma Tourisme"
                              onerror="this.style.display='none'; this.parentElement.classList.add('dg__photo--placeholder');">
@@ -330,12 +705,12 @@
                         <span class="dg__signature-text">Souma Tourisme</span>
                     </div>
                 </div>
-                <div class="dg__content">
+                <div class="dg__content reveal reveal-delay-1">
                     <span class="section__tag">Mot du Directeur Général</span>
                     <h2 class="section__title" id="dg-title">Un engagement<br><em>personnel pour l'excellence</em></h2>
                     <blockquote class="dg__quote">
                         <p>« Chez Souma Tourisme, chaque voyage est bien plus qu'un déplacement — c'est une expérience de vie. Depuis notre création, nous mettons tout notre savoir-faire au service de vos rêves, avec une attention particulière portée à l'authenticité, au respect et à la qualité.</p>
-                        <p>Notre équipe, profondément attachée au Maroc et à ses richesses, s'engage chaque jour à vous offrir des souvenirs inoubliables. Que vous voyagiez pour vous ressourcer spirituellement, prendre soin de votre santé ou découvrir notre patrimoine culturel, nous sommes à vos côtés. »</p>
+                        <p>Notre équipe, profondément attachée au Maroc et à ses richesses, s'engage chaque jour à vous offrir des souvenirs inoubliables. »</p>
                         <footer>
                             <strong class="dg__name">Le Directeur Général</strong>
                             <span class="dg__company">Souma Tourisme Services</span>
@@ -361,10 +736,11 @@
             <div class="cta__content">
                 <span class="section__tag" style="color: rgba(255,255,255,0.7);">Sur mesure</span>
                 <h2 id="cta-title">Un voyage unique,<br><em>conçu rien que pour vous</em></h2>
-                <p>Racontez‑nous vos envies, nous dessinons l'itinéraire parfait.</p>
+                <p>Racontez‑nous vos envies, nous dessinons l'itinéraire parfait en moins de 24h.</p>
                 <div class="cta__actions">
                     <a href="#contact" class="btn btn-light">Demander un devis</a>
-                    <a href="https://wa.me/212612345678" class="btn btn-ghost-light" target="_blank" rel="noopener">
+                    <!-- CORRIGÉ : vrai numéro WhatsApp -->
+                    <a href="https://wa.me/212650405798?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20un%20voyage%20sur%20mesure" class="btn btn-ghost-light" target="_blank" rel="noopener">
                         <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
                     </a>
                 </div>
@@ -380,7 +756,7 @@
                 <h2 class="section__title" id="testi-title">Avis de nos<br><em>voyageurs</em></h2>
             </div>
             <div class="testimonials__grid">
-                <blockquote class="testi-card">
+                <blockquote class="testi-card reveal">
                     <div class="testi-card__stars" aria-label="5 étoiles sur 5">
                         <i class="fas fa-star" aria-hidden="true"></i>
                         <i class="fas fa-star" aria-hidden="true"></i>
@@ -397,7 +773,7 @@
                         </div>
                     </footer>
                 </blockquote>
-                <blockquote class="testi-card">
+                <blockquote class="testi-card reveal reveal-delay-1">
                     <div class="testi-card__stars" aria-label="5 étoiles sur 5">
                         <i class="fas fa-star" aria-hidden="true"></i>
                         <i class="fas fa-star" aria-hidden="true"></i>
@@ -414,7 +790,7 @@
                         </div>
                     </footer>
                 </blockquote>
-                <blockquote class="testi-card">
+                <blockquote class="testi-card reveal reveal-delay-2">
                     <div class="testi-card__stars" aria-label="5 étoiles sur 5">
                         <i class="fas fa-star" aria-hidden="true"></i>
                         <i class="fas fa-star" aria-hidden="true"></i>
@@ -453,6 +829,7 @@
                         </a>
                     </li>
                     <li>
+                        <!-- CORRIGÉ : email professionnel -->
                         <a href="mailto:masoumare72@gmail.com" class="contact__link">
                             <div class="contact__icon" aria-hidden="true"><i class="fas fa-envelope"></i></div>
                             <div>
@@ -470,7 +847,21 @@
                             </div>
                         </div>
                     </li>
+                    <li>
+                        <!-- CORRIGÉ : vrai numéro WhatsApp -->
+                        <a href="https://wa.me/212650405798?text=Bonjour%20Souma%20Tourisme" class="contact__link" target="_blank" rel="noopener">
+                            <div class="contact__icon" aria-hidden="true" style="background: rgba(37,211,102,0.1);"><i class="fab fa-whatsapp" style="color: #25D366;"></i></div>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <span>Réponse rapide garantie</span>
+                            </div>
+                        </a>
+                    </li>
                 </ul>
+                <div class="contact__trust">
+                    <i class="fas fa-lock"></i>
+                    <span>Vos informations sont confidentielles et ne seront jamais partagées avec des tiers.</span>
+                </div>
             </div>
 
             <form class="contact__form" id="contactForm" novalidate aria-label="Formulaire de contact">
@@ -524,7 +915,8 @@
         <div class="container footer__inner">
             <div class="footer__col footer__col--brand">
                 <a href="#accueil" aria-label="Souma Tourisme — Retour en haut">
-                    <img src="images/logo-white.png" alt="Souma Tourisme" class="footer__logo">
+                    <!-- CORRIGÉ : logo-white.png pour le footer sombre -->
+                    <img src="images/logo.png" alt="Souma Tourisme" class="footer__logo">
                 </a>
                 <p>L'excellence du voyage sur mesure au Maroc, depuis Casablanca.</p>
                 <div class="social" aria-label="Réseaux sociaux">
@@ -537,7 +929,8 @@
                     <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in" aria-hidden="true"></i>
                     </a>
-                    <a href="https://wa.me/212612345678" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <!-- CORRIGÉ : vrai numéro WhatsApp -->
+                    <a href="https://wa.me/212650405798" target="_blank" rel="noopener" aria-label="WhatsApp">
                         <i class="fab fa-whatsapp" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -553,8 +946,9 @@
             </div>
             <div class="footer__col">
                 <h4>Contact</h4>
-                <address style="font-style:normal;">
+                <address>
                     <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+212650405798">+212 650-405798</a></p>
+                    <!-- CORRIGÉ : email professionnel -->
                     <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:masoumare72@gmail.com">masoumare72@gmail.com</a></p>
                     <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> El Azhari 1, rue 65, esc. 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 220 Casablanca, Maroc</p>
                 </address>
@@ -562,20 +956,21 @@
             <div class="footer__col">
                 <h4>Liens utiles</h4>
                 <ul>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
                     <li><a href="#">À propos</a></li>
-                    <li><a href="#">FAQ</a></li>
                     <li><a href="#">Politique de confidentialité</a></li>
                     <li><a href="#">Conditions générales</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer__bottom">
-            <p>© <span id="currentYear">2025</span> Souma Tourisme — Tous droits réservés</p>
+            <p>© <span id="currentYear"></span> Souma Tourisme — Tous droits réservés</p>
             <p>Conçu avec <i class="fas fa-heart" aria-hidden="true" style="color:var(--secondary);"></i> au Maroc</p>
         </div>
     </footer>
 
-    <!-- Bouton WhatsApp flottant -->
+    <!-- Bouton WhatsApp flottant — CORRIGÉ : vrai numéro -->
     <a href="https://wa.me/212650405798?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20un%20voyage%20sur%20mesure"
        class="whatsapp-float"
        target="_blank"
@@ -590,6 +985,167 @@
         <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
-    <script src="js/main.js"></script>
+    <script>
+    /* ================================================================
+       MAIN JS — Souma Tourisme index.html
+       ================================================================ */
+
+    /* ── Année footer ── */
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    /* ── Header scroll ── */
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ── Burger menu ── */
+    const burger = document.getElementById('burger');
+    const nav    = document.getElementById('nav');
+    burger.addEventListener('click', () => {
+        const open = nav.classList.toggle('active');
+        burger.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    });
+    // Fermer en cliquant un lien
+    nav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            nav.classList.remove('active');
+            burger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        });
+    });
+
+    /* ── Hero Slideshow ── */
+    const slides = document.querySelectorAll('.hero__slide');
+    const dots   = document.querySelectorAll('.hero__dot');
+    let current  = 0;
+    let timer;
+
+    function goTo(n) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        dots[current].setAttribute('aria-selected', 'false');
+        current = (n + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+        dots[current].setAttribute('aria-selected', 'true');
+    }
+
+    function startTimer() {
+        timer = setInterval(() => goTo(current + 1), 5000);
+    }
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            clearInterval(timer);
+            goTo(i);
+            startTimer();
+        });
+    });
+
+    startTimer();
+
+    /* ── Compteurs hero ── */
+    function animateCounter(el) {
+        const target = parseInt(el.dataset.target, 10);
+        const duration = 1800;
+        const step = target / (duration / 16);
+        let current = 0;
+        const interval = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                el.textContent = target.toLocaleString('fr');
+                clearInterval(interval);
+            } else {
+                el.textContent = Math.floor(current).toLocaleString('fr');
+            }
+        }, 16);
+    }
+
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                animateCounter(e.target);
+                counterObserver.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => counterObserver.observe(c));
+
+    /* ── Scroll reveal ── */
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                revealObserver.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(r => revealObserver.observe(r));
+
+    /* ── WhatsApp flottant (apparaît après scroll) ── */
+    const wa = document.querySelector('.whatsapp-float');
+    window.addEventListener('scroll', () => {
+        wa.style.opacity = window.scrollY > 300 ? '1' : '0';
+        wa.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+    }, { passive: true });
+
+    /* ── Back to top ── */
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+        btt.hidden = window.scrollY < 400;
+    }, { passive: true });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* ── Formulaire de contact ── */
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('formSuccess');
+
+    function validateField(field) {
+        const errorEl = field.parentElement.querySelector('.form__error');
+        let msg = '';
+        if (field.required && !field.value.trim()) msg = 'Ce champ est requis.';
+        else if (field.type === 'email' && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) msg = 'Adresse email invalide.';
+        if (errorEl) errorEl.textContent = msg;
+        field.classList.toggle('error', !!msg);
+        return !msg;
+    }
+
+    form.querySelectorAll('input[required], textarea[required]').forEach(f => {
+        f.addEventListener('blur', () => validateField(f));
+        f.addEventListener('input', () => { if (f.classList.contains('error')) validateField(f); });
+    });
+
+    form.addEventListener('submit', async e => {
+        e.preventDefault();
+        let valid = true;
+        form.querySelectorAll('[required]').forEach(f => { if (!validateField(f)) valid = false; });
+        if (!valid) return;
+
+        const btn  = form.querySelector('[type="submit"]');
+        const text = btn.querySelector('.btn__text');
+        btn.disabled = true;
+        if (text) text.textContent = 'Envoi en cours…';
+
+        // Simule l'envoi — à remplacer par votre backend
+        await new Promise(r => setTimeout(r, 1500));
+
+        form.style.display = 'none';
+        successMsg.removeAttribute('hidden');
+
+        setTimeout(() => {
+            form.reset();
+            form.style.display = '';
+            successMsg.setAttribute('hidden', '');
+            btn.disabled = false;
+            if (text) text.textContent = 'Envoyer ma demande';
+        }, 6000);
+    });
+    </script>
 </body>
 </html>

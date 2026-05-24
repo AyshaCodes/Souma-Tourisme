@@ -3,509 +3,483 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galerie Souvenirs | Souma Tourisme</title>
-    <meta name="description" content="Revivez nos plus beaux voyages au Maroc à travers la galerie photo de Souma Tourisme. Marrakech, Fès, désert, côte atlantique…">
-    <meta name="author" content="Souma Tourisme">
-
+    <title>Galerie — Souma Tourisme</title>
+    <meta name="description" content="La galerie photo de Souma Tourisme. Revivez nos plus beaux voyages au Maroc : Marrakech, Fès, désert, côte atlantique et artisanat.">
+    <meta property="og:title" content="Galerie — Souma Tourisme">
+    <meta property="og:description" content="Plus de 40 photos de nos voyages au Maroc.">
+    <meta property="og:url" content="https://www.soumatourisme.com/galerie.html">
     <link rel="canonical" href="https://www.soumatourisme.com/galerie.html">
     <link rel="icon" type="image/png" href="images/favicon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* ── HERO GALERIE ── */
-        .hero-galerie {
-            position: relative;
-            height: 60vh;
-            min-height: 440px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--light);
-            overflow: hidden;
-        }
+    /* ── VARIABLES locales ── */
+    :root {
+        --topbar-h: 38px;
+        --header-h: 70px;
+    }
 
-        .hero-galerie__bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=1600');
-            background-size: cover;
-            background-position: center;
-            z-index: -2;
-            transform-origin: center;
-            animation: slowZoom 14s ease-out forwards;
-        }
+    /* ── TOPBAR ── */
+    .topbar {
+        background: var(--primary);
+        color: rgba(255,255,255,0.85);
+        font-size: 0.78rem;
+        text-align: center;
+        padding: 9px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        height: var(--topbar-h);
+    }
+    .topbar a { color: var(--gold); text-decoration: none; font-weight: 600; transition: opacity .2s; }
+    .topbar a:hover { opacity: .8; }
+    .topbar__sep { opacity: .3; }
+    @media (max-width: 600px) { .topbar { display: none; } }
 
-        @keyframes slowZoom {
-            from { transform: scale(1.08); }
-            to   { transform: scale(1); }
-        }
+    /* ── HEADER position ── */
+    .header { top: var(--topbar-h); }
+    @media (max-width: 600px) { .header { top: 0; } }
 
-        .hero-galerie__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                160deg,
-                rgba(26, 77, 46, 0.82) 0%,
-                rgba(26, 77, 46, 0.55) 45%,
-                rgba(100, 20, 20, 0.6) 100%
-            );
-            z-index: -1;
-        }
+    /* ── HERO ── */
+    .hero-galerie {
+        position: relative;
+        height: 62vh;
+        min-height: 420px;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        padding-top: calc(var(--topbar-h) + var(--header-h));
+    }
+    .hero-galerie__bg {
+        position: absolute;
+        inset: 0;
+        background-image: url('https://images.pexels.com/photos/34017228/pexels-photo-34017228.jpeg');
+        background-size: cover;
+        background-position: center 40%;
+        z-index: 0;
+        transform: scale(1.06);
+        animation: heroZoom 14s ease-out forwards;
+    }
+    @keyframes heroZoom { to { transform: scale(1); } }
 
-        .hero-galerie__content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            padding: 0 20px;
-        }
+    .hero-galerie__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(26,77,46,0.3) 0%,
+            rgba(18,18,20,0.75) 100%
+        );
+        z-index: 1;
+    }
 
-        .hero-galerie__tag {
-            display: inline-block;
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(8px);
-            padding: 7px 18px;
-            border-radius: 50px;
-            margin-bottom: 24px;
-            animation: fadeUp 0.8s ease-out both;
-        }
+    .hero-galerie__content {
+        position: relative;
+        z-index: 2;
+        padding-bottom: 52px;
+        width: 100%;
+    }
 
-        .hero-galerie__title {
-            font-family: var(--font-display);
-            font-size: clamp(2.4rem, 5vw, 4.2rem);
-            color: var(--light);
-            margin-bottom: 16px;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
-            animation: fadeUp 0.8s ease-out 0.15s both;
-            line-height: 1.15;
-        }
+    .hero-galerie__content .container {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+    }
 
-        .hero-galerie__title em {
-            font-style: italic;
-            color: rgba(255,255,255,0.82);
-        }
+    .hero-galerie__eyebrow {
+        display: block;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: rgba(255,255,255,0.45);
+        margin-bottom: 10px;
+    }
 
-        .hero-galerie__text {
-            font-size: 1rem;
-            opacity: 0.88;
-            line-height: 1.7;
-            animation: fadeUp 0.8s ease-out 0.3s both;
-        }
+    .hero-galerie__title {
+        font-family: var(--font-display);
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        color: var(--light);
+        line-height: 1.1;
+        font-weight: 400;
+        animation: fadeUp .9s ease-out both;
+    }
+    .hero-galerie__title em { font-style: italic; color: rgba(255,255,255,0.55); }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            padding: 16px 0;
-            font-size: 0.83rem;
-            color: var(--gray-light);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .breadcrumb a { text-decoration: none; color: var(--gray); transition: color 0.2s; }
-        .breadcrumb a:hover { color: var(--secondary); }
-        .breadcrumb i { font-size: 0.65rem; }
-        .breadcrumb span { color: var(--secondary); font-weight: 500; }
+    .hero-galerie__num {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        color: rgba(255,255,255,0.08);
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: -4px;
+        text-align: right;
+        animation: fadeUp .9s ease-out .15s both;
+    }
+    .hero-galerie__num small {
+        display: block;
+        font-family: var(--font-body);
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: rgba(255,255,255,0.28);
+        font-weight: 400;
+        margin-top: 4px;
+        letter-spacing: 2px;
+    }
 
-        /* ── BARRE FILTRES ── */
-        .filters-bar {
-            background: var(--light);
-            padding: 22px 0;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 70px;
-            z-index: 100;
-            transition: box-shadow 0.3s ease;
-        }
+    @keyframes fadeUp {
+        from { opacity:0; transform: translateY(22px); }
+        to   { opacity:1; transform: translateY(0); }
+    }
 
-        .filters-bar.shadowed {
-            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-        }
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+        padding: 14px 0;
+        font-size: 0.82rem;
+        color: var(--gray-light);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid var(--border);
+    }
+    .breadcrumb a { text-decoration: none; color: var(--gray); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--secondary); }
+    .breadcrumb i { font-size: 0.6rem; }
+    .breadcrumb span { color: var(--secondary); font-weight: 500; }
 
-        .filters-inner {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+    /* ── FILTRES ── */
+    .filters-wrap {
+        background: var(--light);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: calc(var(--topbar-h) + var(--header-h));
+        z-index: 100;
+        transition: box-shadow .3s;
+    }
+    @media (max-width: 600px) { .filters-wrap { top: var(--header-h); } }
+    .filters-wrap.shadowed { box-shadow: 0 6px 24px rgba(0,0,0,.06); }
 
-        .filter-label {
-            font-size: 0.78rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--gray-light);
-            margin-right: 4px;
-            white-space: nowrap;
-        }
+    .filters-inner {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 14px 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+    .filters-inner::-webkit-scrollbar { display: none; }
 
-        .filter-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 8px 18px;
-            border-radius: 50px;
-            border: 1.5px solid var(--border);
-            background: transparent;
-            font-family: var(--font-body);
-            font-size: 0.84rem;
-            font-weight: 500;
-            color: var(--gray);
-            cursor: pointer;
-            transition: var(--transition-fast);
-        }
+    .f-btn {
+        flex-shrink: 0;
+        padding: 8px 20px;
+        border-radius: 50px;
+        border: 1.5px solid var(--border);
+        background: transparent;
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--gray);
+        cursor: pointer;
+        transition: all .2s;
+        white-space: nowrap;
+    }
+    .f-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .f-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
 
-        .filter-btn i { font-size: 0.76rem; }
-        .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
-        .filter-btn.active {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: var(--light);
-        }
+    .f-count {
+        margin-left: auto;
+        flex-shrink: 0;
+        font-size: 0.78rem;
+        color: var(--gray-light);
+        padding-left: 14px;
+        white-space: nowrap;
+        border-left: 1px solid var(--border);
+    }
+    .f-count strong { color: var(--primary); font-weight: 600; }
 
-        /* compteur */
-        .filters-count {
-            margin-left: auto;
-            font-size: 0.82rem;
-            color: var(--gray-light);
-        }
+    /* ── GRILLE MASONRY ── */
+    .galerie-section {
+        padding: 28px 0 90px;
+        background: #f5f3ef;
+    }
 
-        .filters-count strong { color: var(--primary); }
+    .masonry {
+        columns: 4;
+        column-gap: 10px;
+    }
+    @media (max-width: 1100px) { .masonry { columns: 3; } }
+    @media (max-width: 700px)  { .masonry { columns: 2; } }
+    @media (max-width: 400px)  { .masonry { columns: 1; } }
 
-        /* ── GALERIE MASONRY ── */
-        .galerie-section {
-            padding: clamp(40px, 6vw, 80px) 0;
-            background: var(--light-gray);
-        }
+    .m-item {
+        break-inside: avoid;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: zoom-in;
+        position: relative;
+        background: var(--accent-dark);
+        /* Reveal animation */
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity .5s ease, transform .5s ease;
+    }
+    .m-item.loaded { opacity: 1; transform: translateY(0); }
+    .m-item.hidden { display: none; }
 
-        .masonry-grid {
-            columns: 4;
-            column-gap: 16px;
-        }
+    .m-item img {
+        width: 100%;
+        display: block;
+        transition: transform .6s cubic-bezier(.25,.46,.45,.94), filter .5s ease;
+        filter: brightness(.96) saturate(1.05);
+    }
+    .m-item:hover img {
+        transform: scale(1.06);
+        filter: brightness(1.04) saturate(1.15);
+    }
 
-        @media (max-width: 1100px) { .masonry-grid { columns: 3; } }
-        @media (max-width: 768px)  { .masonry-grid { columns: 2; } }
-        @media (max-width: 480px)  { .masonry-grid { columns: 1; } }
+    /* Voile hover */
+    .m-item__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(26,77,46,0);
+        transition: background .35s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .m-item:hover .m-item__overlay { background: rgba(26,77,46,0.22); }
 
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 16px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-            display: block;
-        }
+    .m-item__icon {
+        color: rgba(255,255,255,.92);
+        font-size: 1.3rem;
+        opacity: 0;
+        transform: scale(.7);
+        transition: opacity .3s, transform .3s;
+        pointer-events: none;
+    }
+    .m-item:hover .m-item__icon { opacity: 1; transform: scale(1); }
 
-        .masonry-item.hidden { display: none; }
+    /* Étiquette catégorie au survol */
+    .m-item__label {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        background: rgba(0,0,0,0.55);
+        color: rgba(255,255,255,0.9);
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        padding: 4px 10px;
+        border-radius: 50px;
+        opacity: 0;
+        transform: translateY(6px);
+        transition: opacity .3s, transform .3s;
+        backdrop-filter: blur(4px);
+        pointer-events: none;
+    }
+    .m-item:hover .m-item__label { opacity: 1; transform: translateY(0); }
 
-        .masonry-item img {
-            width: 100%;
-            display: block;
-            transition: transform 0.6s ease;
-        }
+    /* No results */
+    .no-results {
+        text-align: center;
+        padding: 80px 20px;
+        color: var(--gray-light);
+        display: none;
+    }
+    .no-results i { font-size: 2.4rem; margin-bottom: 12px; display: block; opacity: .2; }
+    .no-results p { font-size: .95rem; }
 
-        .masonry-item:hover img { transform: scale(1.05); }
+    /* ── LIGHTBOX ── */
+    .lb {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(8,8,10,.97);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .25s ease;
+    }
+    .lb.open { opacity: 1; pointer-events: auto; }
 
-        /* overlay au survol */
-        .masonry-item__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(26,77,46,0.75) 0%, transparent 55%);
-            opacity: 0;
-            transition: opacity 0.35s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 18px;
-        }
+    .lb__inner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
 
-        .masonry-item:hover .masonry-item__overlay { opacity: 1; }
+    .lb__img {
+        max-height: 88vh;
+        max-width: 88vw;
+        object-fit: contain;
+        border-radius: 4px;
+        box-shadow: 0 40px 100px rgba(0,0,0,.55);
+        display: block;
+        transition: opacity .18s ease, transform .18s ease;
+    }
+    .lb__img.switching { opacity: 0; transform: scale(.975); }
 
-        .masonry-item__caption {
-            color: var(--light);
-            font-size: 0.88rem;
-            font-weight: 500;
-            line-height: 1.4;
-        }
+    .lb__btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.06);
+        color: rgba(255,255,255,.65);
+        font-size: .95rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background .2s, color .2s;
+        backdrop-filter: blur(8px);
+    }
+    .lb__btn:hover { background: rgba(255,255,255,.14); color: #fff; }
+    .lb__btn:disabled { opacity: .15; cursor: default; pointer-events: none; }
+    .lb__prev { left: 24px; }
+    .lb__next { right: 24px; }
 
-        .masonry-item__location {
-            font-size: 0.75rem;
-            opacity: 0.8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+    .lb__close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.06);
+        color: rgba(255,255,255,.65);
+        font-size: .9rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background .2s, color .2s;
+        backdrop-filter: blur(8px);
+    }
+    .lb__close:hover { background: var(--secondary); border-color: var(--secondary); color: #fff; }
 
-        .masonry-item__zoom {
-            position: absolute;
-            top: 14px;
-            right: 14px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light);
-            font-size: 0.85rem;
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            transform: scale(0.8);
-        }
+    .lb__counter {
+        position: absolute;
+        bottom: 22px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: .68rem;
+        letter-spacing: 3px;
+        color: rgba(255,255,255,.22);
+        text-transform: uppercase;
+        white-space: nowrap;
+    }
 
-        .masonry-item:hover .masonry-item__zoom {
-            opacity: 1;
-            transform: scale(1);
-        }
+    /* Caption lightbox */
+    .lb__caption {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-style: italic;
+        color: rgba(255,255,255,0.5);
+        white-space: nowrap;
+        letter-spacing: 0.5px;
+    }
 
-        /* tag catégorie */
-        .masonry-item__tag {
-            position: absolute;
-            top: 14px;
-            left: 14px;
-            background: var(--secondary);
-            color: var(--light);
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 3px 10px;
-            border-radius: 50px;
-        }
+    /* ── CTA FINAL ── */
+    .galerie-cta {
+        background: var(--primary);
+        padding: 80px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .galerie-cta::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .galerie-cta__tag {
+        display: inline-block;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: rgba(255,255,255,0.45);
+        margin-bottom: 18px;
+    }
+    .galerie-cta h2 {
+        font-family: var(--font-display);
+        font-size: clamp(1.8rem, 3vw, 2.8rem);
+        color: #fff;
+        margin-bottom: 14px;
+        font-weight: 400;
+        position: relative;
+    }
+    .galerie-cta h2 em { color: rgba(255,255,255,.55); }
+    .galerie-cta p {
+        font-size: .95rem;
+        color: rgba(255,255,255,.55);
+        margin-bottom: 32px;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.7;
+        position: relative;
+    }
+    .galerie-cta__btns {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+    }
 
-        /* ── NO RESULTS ── */
-        .no-results {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--gray);
-            display: none;
-        }
+    @media (max-width: 600px) {
+        .lb__prev { left: 8px; }
+        .lb__next { right: 8px; }
+        .lb__btn  { width: 42px; height: 42px; }
+        .hero-galerie__num { display: none; }
+    }
 
-        .no-results i {
-            font-size: 3rem;
-            color: var(--accent-dark);
-            margin-bottom: 16px;
-            display: block;
-        }
-
-        /* ── LIGHTBOX ── */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background: rgba(10, 10, 12, 0.96);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .lightbox.open {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .lightbox__inner {
-            position: relative;
-            max-width: 1100px;
-            width: 100%;
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .lightbox__img-wrap {
-            position: relative;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lightbox__img {
-            max-height: 78vh;
-            max-width: 100%;
-            border-radius: var(--radius);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-            object-fit: contain;
-            transition: opacity 0.25s ease, transform 0.25s ease;
-        }
-
-        .lightbox__img.animating {
-            opacity: 0;
-            transform: scale(0.97);
-        }
-
-        .lightbox__caption {
-            margin-top: 18px;
-            text-align: center;
-            color: rgba(255,255,255,0.85);
-        }
-
-        .lightbox__caption strong {
-            display: block;
-            font-family: var(--font-display);
-            font-size: 1.2rem;
-            margin-bottom: 4px;
-        }
-
-        .lightbox__caption span {
-            font-size: 0.82rem;
-            opacity: 0.6;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Boutons navigation */
-        .lightbox__btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border: 1.5px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(8px);
-            color: var(--light);
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s ease, border-color 0.2s ease;
-            z-index: 2;
-        }
-
-        .lightbox__btn:hover {
-            background: rgba(255,255,255,0.18);
-            border-color: rgba(255,255,255,0.4);
-        }
-
-        .lightbox__prev { left: -64px; }
-        .lightbox__next { right: -64px; }
-
-        .lightbox__close {
-            position: absolute;
-            top: -16px;
-            right: -16px;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            border: 1.5px solid rgba(255,255,255,0.2);
-            background: rgba(255,255,255,0.08);
-            color: var(--light);
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s ease;
-            backdrop-filter: blur(8px);
-        }
-
-        .lightbox__close:hover { background: var(--secondary); border-color: var(--secondary); }
-
-        /* counter */
-        .lightbox__counter {
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.45);
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        /* ── CTA BAS DE PAGE ── */
-        .galerie-cta {
-            background: var(--primary);
-            padding: clamp(50px, 6vw, 80px) 0;
-            text-align: center;
-            color: var(--light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .galerie-cta::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .galerie-cta h2 {
-            font-family: var(--font-display);
-            font-size: clamp(1.8rem, 3vw, 2.8rem);
-            color: var(--light);
-            margin-bottom: 14px;
-        }
-
-        .galerie-cta h2 em { color: rgba(255,255,255,0.75); }
-
-        .galerie-cta p {
-            font-size: 1rem;
-            opacity: 0.82;
-            margin-bottom: 32px;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.65;
-        }
-
-        .galerie-cta__actions {
-            display: flex;
-            gap: 14px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            .lightbox__prev { left: 8px; }
-            .lightbox__next { right: 8px; }
-            .lightbox__close { top: 8px; right: 8px; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
     </style>
 </head>
 <body>
 
-    <!-- ========== HEADER ========== -->
+    <!-- TOPBAR -->
+    <div class="topbar" role="banner" aria-label="Informations de contact">
+        <span><i class="fas fa-phone-alt"></i> <a href="tel:+212650405798">+212 650-405798</a></span>
+        <span class="topbar__sep">|</span>
+        <span><i class="fas fa-envelope"></i> <a href="mailto:masoumare72@gmail.com">masoumare72@gmail.com</a></span>
+        <span class="topbar__sep">|</span>
+        <span><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</span>
+    </div>
+
+    <!-- HEADER -->
     <header class="header" id="header" role="banner">
         <div class="container header__inner">
-            <a href="index.html" class="logo" aria-label="Souma Tourisme — Retour à l'accueil">
-                <img src="images/image.png" alt="Souma Tourisme" class="logo-img">
+            <a href="index.html" class="logo" aria-label="Souma Tourisme">
+                <img src="images/logo.png" alt="Souma Tourisme" class="logo-img">
             </a>
             <nav class="nav" id="nav" aria-label="Navigation principale">
                 <ul class="nav__list" role="list">
@@ -526,23 +500,22 @@
         </div>
     </header>
 
-    <!-- ========== HERO ========== -->
-    <section class="hero-galerie" aria-label="Galerie de nos voyages">
+    <!-- HERO -->
+    <section class="hero-galerie" aria-label="Galerie photo">
         <div class="hero-galerie__bg" aria-hidden="true"></div>
         <div class="hero-galerie__overlay" aria-hidden="true"></div>
-        <div class="hero-galerie__content container">
-            <span class="hero-galerie__tag">Nos souvenirs &amp; instants de vie</span>
-            <h1 class="hero-galerie__title">
-                La galerie<br><em>Souma Tourisme</em>
-            </h1>
-            <p class="hero-galerie__text">
-                Plus de 40 photos pour revivre l'émotion de chaque voyage.
-                Marrakech, Fès, le désert, la côte… le Maroc dans toute sa beauté.
-            </p>
+        <div class="hero-galerie__content">
+            <div class="container">
+                <div>
+                    <span class="hero-galerie__eyebrow">Souma Tourisme</span>
+                    <h1 class="hero-galerie__title">Nos souvenirs<br><em>de voyage</em></h1>
+                </div>
+                <div class="hero-galerie__num" aria-hidden="true">+40<small>photos</small></div>
+            </div>
         </div>
     </section>
 
-    <!-- ========== BREADCRUMB ========== -->
+    <!-- Breadcrumb -->
     <nav aria-label="Fil d'Ariane">
         <div class="container">
             <ol class="breadcrumb" role="list">
@@ -553,297 +526,161 @@
         </div>
     </nav>
 
-    <!-- ========== FILTRES ========== -->
-    <div class="filters-bar" id="filtersBar">
-        <div class="container filters-inner">
-            <span class="filter-label">Catégorie :</span>
-            <button class="filter-btn active" data-filter="all">
-                <i class="fas fa-th"></i> Tout voir
-            </button>
-            <button class="filter-btn" data-filter="marrakech">
-                <i class="fas fa-sun"></i> Marrakech
-            </button>
-            <button class="filter-btn" data-filter="fes">
-                <i class="fas fa-mosque"></i> Fès &amp; Nord
-            </button>
-            <button class="filter-btn" data-filter="desert">
-                <i class="fas fa-wind"></i> Désert
-            </button>
-            <button class="filter-btn" data-filter="cote">
-                <i class="fas fa-water"></i> Côte
-            </button>
-            <button class="filter-btn" data-filter="gastronomie">
-                <i class="fas fa-utensils"></i> Gastronomie
-            </button>
-            <button class="filter-btn" data-filter="artisanat">
-                <i class="fas fa-paint-brush"></i> Artisanat
-            </button>
-            <span class="filters-count"><strong id="photoCount">42</strong> photos</span>
+    <!-- FILTRES -->
+    <div class="filters-wrap" id="filtersWrap">
+        <div class="container">
+            <div class="filters-inner" role="group" aria-label="Filtrer les photos">
+                <button class="f-btn active" data-filter="all">Tout</button>
+                <button class="f-btn" data-filter="marrakech">Marrakech</button>
+                <button class="f-btn" data-filter="fes">Fès &amp; Nord</button>
+                <button class="f-btn" data-filter="desert">Désert</button>
+                <button class="f-btn" data-filter="cote">Côte</button>
+                <button class="f-btn" data-filter="gastronomie">Gastronomie</button>
+                <button class="f-btn" data-filter="artisanat">Artisanat</button>
+                <span class="f-count"><strong id="photoCount">22</strong> photos</span>
+            </div>
         </div>
     </div>
 
-    <!-- ========== GALERIE ========== -->
+    <!-- GALERIE -->
     <section class="galerie-section" aria-labelledby="galerie-title">
         <div class="container">
-            <h2 id="galerie-title" class="sr-only">Galerie photos Souma Tourisme</h2>
+            <h2 id="galerie-title" class="sr-only">Galerie de photos</h2>
+            <div class="masonry" id="grid">
 
-            <div class="masonry-grid" id="masonryGrid">
-
-                <!-- ═══ MARRAKECH ═══ -->
-                <div class="masonry-item" data-cat="marrakech" data-caption="Place Jemaa el-Fna" data-location="Marrakech" tabindex="0" role="button" aria-label="Voir : Place Jemaa el-Fna, Marrakech">
-                    <img src="https://images.pexels.com/photos/3889855/pexels-photo-3889855.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Souk de Marrakech" loading="lazy">
-                    <span class="masonry-item__tag">Marrakech</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Marrakech</div>
-                        <div class="masonry-item__caption">Place Jemaa el-Fna</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
+                <!-- MARRAKECH -->
+                <div class="m-item" data-cat="marrakech" data-caption="Marrakech" tabindex="0" role="button" aria-label="Agrandir la photo : Marrakech">
+                    <img src="images/artistique.jpeg" alt="Marrakech" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Marrakech</span>
+                </div>
+                <div class="m-item" data-cat="marrakech" data-caption="Marrakech" tabindex="0" role="button" aria-label="Agrandir la photo">
+                    <img src="images/belle vue.jpeg" alt="Marrakech" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Marrakech</span>
+                </div>
+                <div class="m-item" data-cat="marrakech" data-caption="Marrakech" tabindex="0" role="button" aria-label="Agrandir la photo">
+                    <img src="https://images.pexels.com/photos/2349165/pexels-photo-2349165.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Marrakech" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Marrakech</span>
+                </div>
+                <div class="m-item" data-cat="marrakech" data-caption="Marrakech — détail" tabindex="0" role="button" aria-label="Agrandir la photo">
+                    <img src="https://images.pexels.com/photos/3889943/pexels-photo-3889943.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Marrakech" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Marrakech</span>
                 </div>
 
-                <div class="masonry-item" data-cat="marrakech" data-caption="Jardins Majorelle" data-location="Marrakech" tabindex="0" role="button" aria-label="Voir : Jardins Majorelle">
-                    <img src="https://images.pexels.com/photos/2349165/pexels-photo-2349165.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Jardins de Marrakech" loading="lazy">
-                    <span class="masonry-item__tag">Marrakech</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Marrakech</div>
-                        <div class="masonry-item__caption">Jardins Majorelle</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
+                <!-- DÉSERT -->
+                <div class="m-item" data-cat="desert" data-caption="Désert marocain" tabindex="0" role="button" aria-label="Agrandir la photo : Désert">
+                    <img src="https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Désert Maroc" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Désert</span>
+                </div>
+                <div class="m-item" data-cat="desert" data-caption="Dunes de sable" tabindex="0" role="button" aria-label="Agrandir la photo">
+                    <img src="https://images.pexels.com/photos/4577793/pexels-photo-4577793.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Dunes Merzouga" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Merzouga</span>
+                </div>
+                <div class="m-item" data-cat="desert" data-caption="Agafay — nuit sous tente" tabindex="0" role="button" aria-label="Agrandir la photo">
+                    <img src="https://images.pexels.com/photos/3889942/pexels-photo-3889942.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Agafay" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Agafay</span>
+                </div>
+                <div class="m-item" data-cat="desert" data-caption="Coucher de soleil désert" tabindex="0" role="button" aria-label="Agrandir la photo">
+                    <img src="https://images.pexels.com/photos/4226219/pexels-photo-4226219.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Désert coucher soleil" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Désert</span>
                 </div>
 
-                <div class="masonry-item" data-cat="artisanat" data-caption="Tapis berbères — Marrakech" data-location="Marrakech" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Artisanat marocain" loading="lazy">
-                    <span class="masonry-item__tag">Artisanat</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Marrakech</div>
-                        <div class="masonry-item__caption">Tapis berbères</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
+                <!-- CÔTE -->
+                <div class="m-item" data-cat="cote" data-caption="Côte Atlantique" tabindex="0" role="button" aria-label="Agrandir la photo : Côte">
+                    <img src="https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Essaouira" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Essaouira</span>
+                </div>
+                <div class="m-item" data-cat="cote" data-caption="Côte Atlantique" tabindex="0" role="button" aria-label="Agrandir la photo">
+                    <img src="https://images.pexels.com/photos/13736699/pexels-photo-13736699.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Côte Maroc" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Côte Atlantique</span>
+                </div>
+                <div class="m-item" data-cat="cote" data-caption="Littoral marocain" tabindex="0" role="button" aria-label="Agrandir la photo">
+                    <img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Littoral" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Littoral</span>
                 </div>
 
-                <!-- ═══ FÈS & NORD ═══ -->
-                <div class="masonry-item" data-cat="fes" data-caption="Tanneries Chouara" data-location="Fès" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/4553618/pexels-photo-4553618.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Ruelles de Fès" loading="lazy">
-                    <span class="masonry-item__tag">Fès</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Fès</div>
-                        <div class="masonry-item__caption">Tanneries Chouara</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
+                <!-- GASTRONOMIE -->
+                <div class="m-item" data-cat="gastronomie" data-caption="Gastronomie marocaine" tabindex="0" role="button" aria-label="Agrandir la photo : Gastronomie">
+                    <img src="https://images.pexels.com/photos/6210733/pexels-photo-6210733.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Cuisine marocaine" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Cuisine</span>
+                </div>
+                <div class="m-item" data-cat="gastronomie" data-caption="Saveurs du Maroc" tabindex="0" role="button" aria-label="Agrandir la photo">
+                    <img src="https://images.pexels.com/photos/3259629/pexels-photo-3259629.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Gastronomie" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Gastronomie</span>
+                </div>
+                <div class="m-item" data-cat="gastronomie" data-caption="Table marocaine" tabindex="0" role="button" aria-label="Agrandir la photo">
+                    <img src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Table marocaine" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Table marocaine</span>
                 </div>
 
-                <div class="masonry-item" data-cat="fes" data-caption="Médina de Fès — El Bali" data-location="Fès" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/2290771/pexels-photo-2290771.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Mosquée de Fès" loading="lazy">
-                    <span class="masonry-item__tag">Fès</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Fès</div>
-                        <div class="masonry-item__caption">Médina El Bali</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
+                <!-- ARTISANAT -->
+                <div class="m-item" data-cat="artisanat" data-caption="Artisanat marocain" tabindex="0" role="button" aria-label="Agrandir la photo : Artisanat">
+                    <img src="https://images.pexels.com/photos/2570063/pexels-photo-2570063.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Artisanat" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Artisanat</span>
                 </div>
-
-                <div class="masonry-item" data-cat="fes" data-caption="Ruelles bleues — Chefchaouen" data-location="Chefchaouen" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/3747035/pexels-photo-3747035.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Chefchaouen la bleue" loading="lazy">
-                    <span class="masonry-item__tag">Chefchaouen</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Chefchaouen</div>
-                        <div class="masonry-item__caption">Ruelles bleues</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
+                <div class="m-item" data-cat="artisanat" data-caption="Poterie &amp; Zellige" tabindex="0" role="button" aria-label="Agrandir la photo">
+                    <img src="https://images.pexels.com/photos/1571338/pexels-photo-1571338.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Zellige" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Zellige</span>
                 </div>
-
-                <div class="masonry-item" data-cat="artisanat" data-caption="Zellige — Fès" data-location="Fès" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/1571338/pexels-photo-1571338.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Artisanat zellige" loading="lazy">
-                    <span class="masonry-item__tag">Artisanat</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Fès</div>
-                        <div class="masonry-item__caption">Zellige — Atelier artisan</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <!-- ═══ DÉSERT ═══ -->
-                <div class="masonry-item" data-cat="desert" data-caption="Désert d'Agafay au coucher du soleil" data-location="Agafay" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Désert d'Agafay" loading="lazy">
-                    <span class="masonry-item__tag">Désert</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Agafay</div>
-                        <div class="masonry-item__caption">Coucher de soleil sur Agafay</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <div class="masonry-item" data-cat="desert" data-caption="Dunes de l'Erg Chebbi — Merzouga" data-location="Merzouga" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/4577793/pexels-photo-4577793.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Dunes Merzouga" loading="lazy">
-                    <span class="masonry-item__tag">Désert</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Merzouga</div>
-                        <div class="masonry-item__caption">Erg Chebbi — Sahara</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <div class="masonry-item" data-cat="desert" data-caption="Bivouac sous les étoiles" data-location="Agafay" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/3889942/pexels-photo-3889942.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bivouac désert" loading="lazy">
-                    <span class="masonry-item__tag">Désert</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Agafay</div>
-                        <div class="masonry-item__caption">Bivouac sous les étoiles</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <!-- ═══ CÔTE ═══ -->
-                <div class="masonry-item" data-cat="cote" data-caption="Remparts d'Essaouira" data-location="Essaouira" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/4388164/pexels-photo-4388164.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Essaouira" loading="lazy">
-                    <span class="masonry-item__tag">Côte</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Essaouira</div>
-                        <div class="masonry-item__caption">Remparts face à l'Atlantique</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <div class="masonry-item" data-cat="cote" data-caption="Côte Atlantique marocaine" data-location="Côte Atlantique" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/13736699/pexels-photo-13736699.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Côte marocaine" loading="lazy">
-                    <span class="masonry-item__tag">Côte</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Rabat</div>
-                        <div class="masonry-item__caption">Kasbah des Oudaïas</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <!-- ═══ GASTRONOMIE ═══ -->
-                <div class="masonry-item" data-cat="gastronomie" data-caption="Tajine traditionnel marocain" data-location="Marrakech" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/6210733/pexels-photo-6210733.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Tajine marocain" loading="lazy">
-                    <span class="masonry-item__tag">Gastronomie</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Marrakech</div>
-                        <div class="masonry-item__caption">Tajine traditionnel</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <div class="masonry-item" data-cat="gastronomie" data-caption="Cours de cuisine — Riad" data-location="Fès" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/3259629/pexels-photo-3259629.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cours de cuisine Maroc" loading="lazy">
-                    <span class="masonry-item__tag">Gastronomie</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Fès</div>
-                        <div class="masonry-item__caption">Cours de cuisine en riad</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <!-- ═══ PLUS DE MARRAKECH ═══ -->
-                <div class="masonry-item" data-cat="marrakech" data-caption="Palais de la Bahia" data-location="Marrakech" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/4677560/pexels-photo-4677560.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Palais de Marrakech" loading="lazy">
-                    <span class="masonry-item__tag">Marrakech</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Marrakech</div>
-                        <div class="masonry-item__caption">Palais de la Bahia</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <div class="masonry-item" data-cat="artisanat" data-caption="Poterie — Safi" data-location="Safi" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/2694325/pexels-photo-2694325.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Poterie marocaine" loading="lazy">
-                    <span class="masonry-item__tag">Artisanat</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Safi</div>
-                        <div class="masonry-item__caption">Poterie traditionnelle</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <div class="masonry-item" data-cat="desert" data-caption="Ksar d'Aït Benhaddou" data-location="Route des Kasbahs" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/4226219/pexels-photo-4226219.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Aït Benhaddou" loading="lazy">
-                    <span class="masonry-item__tag">Désert</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Route des Kasbahs</div>
-                        <div class="masonry-item__caption">Ksar d'Aït Benhaddou</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <div class="masonry-item" data-cat="gastronomie" data-caption="Marché aux épices" data-location="Marrakech" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Épices marocaines" loading="lazy">
-                    <span class="masonry-item__tag">Gastronomie</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Marrakech</div>
-                        <div class="masonry-item__caption">Marché aux épices</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <div class="masonry-item" data-cat="fes" data-caption="Medersa Bou Inania" data-location="Fès" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Architecture islamique Fès" loading="lazy">
-                    <span class="masonry-item__tag">Fès</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Fès</div>
-                        <div class="masonry-item__caption">Médersa Bou Inania</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <div class="masonry-item" data-cat="cote" data-caption="Coucher de soleil — Agadir" data-location="Agadir" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Coucher de soleil Agadir" loading="lazy">
-                    <span class="masonry-item__tag">Côte</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Agadir</div>
-                        <div class="masonry-item__caption">Coucher de soleil sur l'Atlantique</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
-                </div>
-
-                <div class="masonry-item" data-cat="marrakech" data-caption="Souk de Marrakech — couvertures colorées" data-location="Marrakech" tabindex="0" role="button">
-                    <img src="https://images.pexels.com/photos/3889942/pexels-photo-3889942.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Souk Marrakech" loading="lazy">
-                    <span class="masonry-item__tag">Marrakech</span>
-                    <div class="masonry-item__overlay">
-                        <div class="masonry-item__location"><i class="fas fa-map-marker-alt"></i> Marrakech</div>
-                        <div class="masonry-item__caption">Souk des teinturiers</div>
-                    </div>
-                    <div class="masonry-item__zoom"><i class="fas fa-expand"></i></div>
+                <div class="m-item" data-cat="artisanat" data-caption="Souk artisanal" tabindex="0" role="button" aria-label="Agrandir la photo">
+                    <img src="https://images.pexels.com/photos/2694325/pexels-photo-2694325.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Souk artisanal" loading="lazy">
+                    <div class="m-item__overlay"><i class="fas fa-expand m-item__icon" aria-hidden="true"></i></div>
+                    <span class="m-item__label">Souk</span>
                 </div>
 
             </div><!-- /masonry -->
 
-            <!-- No results -->
             <div class="no-results" id="noResults" aria-live="polite">
-                <i class="fas fa-camera"></i>
-                <p>Aucune photo dans cette catégorie pour l'instant.</p>
+                <i class="fas fa-camera" aria-hidden="true"></i>
+                <p>Aucune photo dans cette catégorie pour le moment.</p>
             </div>
-
         </div>
     </section>
 
-    <!-- ========== CTA BAS ========== -->
-    <section class="galerie-cta" aria-labelledby="gcta-title">
+    <!-- CTA FINAL -->
+    <section class="galerie-cta" aria-labelledby="gcta">
         <div class="container">
-            <h2 id="gcta-title">Ces images vous inspirent ?<br><em>Créons votre voyage ensemble.</em></h2>
-            <p>Chaque photo raconte un souvenir vécu par l'un de nos voyageurs. Le vôtre peut être le prochain.</p>
-            <div class="galerie-cta__actions">
+            <span class="galerie-cta__tag">Votre prochain souvenir</span>
+            <h2 id="gcta">Ces images vous inspirent ?<br><em>Planifions votre voyage.</em></h2>
+            <p>Chaque photo est un souvenir réel de nos voyageurs. Le vôtre peut être le prochain.</p>
+            <div class="galerie-cta__btns">
                 <a href="index.html#contact" class="btn btn-light">Demander un devis</a>
-                <a href="https://wa.me/212650405798?text=Bonjour%20Souma%20Tourisme%2C%20j%27ai%20vu%20votre%20galerie%20et%20je%20souhaite%20planifier%20un%20voyage"
+                <a href="https://wa.me/212650405798?text=Bonjour%2C%20j%27ai%20vu%20votre%20galerie%20et%20je%20voudrais%20planifier%20un%20voyage"
                    class="btn btn-ghost-light" target="_blank" rel="noopener">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- FOOTER -->
     <footer class="footer" role="contentinfo">
         <div class="container footer__inner">
             <div class="footer__col footer__col--brand">
                 <a href="index.html" aria-label="Souma Tourisme — Retour à l'accueil">
-                    <img src="images/logo-white.png" alt="Souma Tourisme" class="footer__logo">
+                    <img src="images/logo.png" alt="Souma Tourisme" class="footer__logo">
                 </a>
                 <p>L'excellence du voyage sur mesure au Maroc, depuis Casablanca.</p>
                 <div class="social" aria-label="Réseaux sociaux">
-                    <a href="https://www.instagram.com/soumatourisme" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/soumatourisme" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://wa.me/212650405798" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/soumatourisme" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com/soumatourisme" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="#" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="https://wa.me/212650405798" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="footer__col">
@@ -858,224 +695,194 @@
             <div class="footer__col">
                 <h4>Contact</h4>
                 <address>
-                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+212650405798">+212 650-405798</a></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:masoumare72@gmail.com">masoumare72@gmail.com</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> El Azhari 1, rue 65, esc. 1<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 220 Casablanca, Maroc</p>
+                    <p><i class="fas fa-phone-alt" aria-hidden="true"></i> <a href="tel:+212650405798">+212 650-405798</a></p>
+                    <p><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:masoumare72@gmail.com">masoumare72@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> El Azhari 1, rue 65, esc. 1 — Casablanca</p>
                 </address>
             </div>
             <div class="footer__col">
                 <h4>Liens utiles</h4>
                 <ul>
                     <li><a href="destinations.html">Destinations</a></li>
-                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="galerie.html" aria-current="page">Galerie</a></li>
                     <li><a href="#">Politique de confidentialité</a></li>
                     <li><a href="#">Conditions générales</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer__bottom">
-            <p>© <span id="currentYear">2025</span> Souma Tourisme — Tous droits réservés</p>
-            <p>Conçu avec <i class="fas fa-heart" style="color:var(--secondary);"></i> au Maroc</p>
+            <p>© <span id="yr"></span> Souma Tourisme — Tous droits réservés</p>
+            <p>Conçu avec <i class="fas fa-heart" aria-hidden="true" style="color:var(--secondary)"></i> au Maroc</p>
         </div>
     </footer>
 
     <!-- WhatsApp flottant -->
-    <a href="https://wa.me/212650405798?text=Bonjour%20Souma%20Tourisme%2C%20je%20souhaite%20un%20voyage%20sur%20mesure"
-       class="whatsapp-float" target="_blank" rel="noopener noreferrer"
-       aria-label="Nous contacter sur WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <span>Discuter</span>
+    <a href="https://wa.me/212650405798" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i><span>Discuter</span>
     </a>
 
-    <!-- Retour en haut -->
-    <button class="back-to-top" id="backToTop" aria-label="Retour en haut de page" hidden>
-        <i class="fas fa-chevron-up"></i>
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut" hidden>
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </button>
 
-    <!-- ========== LIGHTBOX ========== -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse photo">
-        <div class="lightbox__inner">
-            <button class="lightbox__close" id="lightboxClose" aria-label="Fermer">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="lightbox__img-wrap">
-                <button class="lightbox__btn lightbox__prev" id="lightboxPrev" aria-label="Photo précédente">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <img src="" alt="" class="lightbox__img" id="lightboxImg">
-                <button class="lightbox__btn lightbox__next" id="lightboxNext" aria-label="Photo suivante">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-            <div class="lightbox__caption" id="lightboxCaption">
-                <strong></strong>
-                <span></span>
-            </div>
-            <div class="lightbox__counter" id="lightboxCounter"></div>
+    <!-- LIGHTBOX -->
+    <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Visionneuse de photos">
+        <div class="lb__inner">
+            <button class="lb__close" id="lbClose" aria-label="Fermer"><i class="fas fa-times" aria-hidden="true"></i></button>
+            <button class="lb__btn lb__prev" id="lbPrev" aria-label="Photo précédente"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+            <img src="" alt="" class="lb__img" id="lbImg">
+            <button class="lb__btn lb__next" id="lbNext" aria-label="Photo suivante"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+            <div class="lb__caption" id="lbCaption"></div>
+            <div class="lb__counter" id="lbCtr"></div>
         </div>
     </div>
 
-    <script src="js/main.js"></script>
-    <script>
-    /* ══════════════════════════════════════════
-       GALERIE — filtres + lightbox
-    ══════════════════════════════════════════ */
+    <!-- SR-only utility -->
+    <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
 
-    // ── Filtre ombre sticky ──
-    const filtersBar = document.getElementById('filtersBar');
+    <script>
+    /* ── Année ── */
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    /* ── Header scroll ── */
+    const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
-        filtersBar.classList.toggle('shadowed', window.scrollY > 200);
+        header.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    // ── Filtres ──
-    const filterBtns  = document.querySelectorAll('.filter-btn');
-    const items       = Array.from(document.querySelectorAll('.masonry-item'));
-    const countEl     = document.getElementById('photoCount');
-    const noResults   = document.getElementById('noResults');
+    /* ── Burger ── */
+    const burger = document.getElementById('burger');
+    const nav    = document.getElementById('nav');
+    burger.addEventListener('click', () => {
+        const open = nav.classList.toggle('active');
+        burger.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+    });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        nav.classList.remove('active');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }));
 
-    function applyFilter(filter) {
-        let visible = 0;
-        items.forEach((item, i) => {
-            const cat   = item.dataset.cat;
-            const show  = filter === 'all' || cat === filter;
-            item.classList.toggle('hidden', !show);
-            if (show) {
-                visible++;
-                // stagger animation
-                item.style.animationDelay = `${(visible - 1) * 0.04}s`;
-                item.style.animation = 'none';
-                void item.offsetHeight;
-                item.style.animation = '';
-            }
-        });
-        if (countEl) countEl.textContent = visible;
-        if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
-        rebuildLightboxList();
-    }
+    /* ── Sticky shadow ── */
+    const fw = document.getElementById('filtersWrap');
+    window.addEventListener('scroll', () => fw.classList.toggle('shadowed', scrollY > 200), { passive: true });
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            applyFilter(btn.dataset.filter);
-        });
+    /* ── Items reveal au chargement ── */
+    const items = Array.from(document.querySelectorAll('.m-item'));
+    items.forEach((item, i) => {
+        setTimeout(() => item.classList.add('loaded'), i * 40);
     });
 
-    // ── Lightbox ──
-    let lightboxList  = [];
-    let currentIndex  = 0;
+    /* ── Filtres ── */
+    const btns  = document.querySelectorAll('.f-btn');
+    const cntEl = document.getElementById('photoCount');
+    const noRes = document.getElementById('noResults');
 
-    const lightbox    = document.getElementById('lightbox');
-    const lbImg       = document.getElementById('lightboxImg');
-    const lbCaption   = document.getElementById('lightboxCaption');
-    const lbCounter   = document.getElementById('lightboxCounter');
-    const lbClose     = document.getElementById('lightboxClose');
-    const lbPrev      = document.getElementById('lightboxPrev');
-    const lbNext      = document.getElementById('lightboxNext');
-
-    function rebuildLightboxList() {
-        lightboxList = items
-            .filter(item => !item.classList.contains('hidden'))
-            .map(item => ({
-                src:      item.querySelector('img').src,
-                alt:      item.querySelector('img').alt,
-                caption:  item.dataset.caption || '',
-                location: item.dataset.location || ''
-            }));
+    function applyFilter(f) {
+        let n = 0;
+        items.forEach(item => {
+            const show = f === 'all' || item.dataset.cat === f;
+            item.classList.toggle('hidden', !show);
+            if (show) n++;
+        });
+        cntEl.textContent = n;
+        noRes.style.display = n === 0 ? 'block' : 'none';
     }
 
-    function openLightbox(index) {
-        currentIndex = index;
-        updateLightboxContent(false);
-        lightbox.classList.add('open');
+    btns.forEach(b => b.addEventListener('click', () => {
+        btns.forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        applyFilter(b.dataset.filter);
+    }));
+
+    cntEl.textContent = items.length;
+
+    /* ── Lightbox ── */
+    const lb     = document.getElementById('lb');
+    const lbImg  = document.getElementById('lbImg');
+    const lbCtr  = document.getElementById('lbCtr');
+    const lbCap  = document.getElementById('lbCaption');
+    const lbC    = document.getElementById('lbClose');
+    const lbP    = document.getElementById('lbPrev');
+    const lbN    = document.getElementById('lbNext');
+    let   cur    = 0;
+
+    const vis = () => items.filter(i => !i.classList.contains('hidden'));
+
+    function lbOpen(i) {
+        cur = i;
+        const v = vis();
+        lbImg.src = v[cur].querySelector('img').src;
+        lbCap.textContent = v[cur].dataset.caption || '';
+        lbCtr.textContent = `${cur + 1} / ${v.length}`;
+        lbP.disabled = cur === 0;
+        lbN.disabled = cur === v.length - 1;
+        lb.classList.add('open');
         document.body.style.overflow = 'hidden';
-        lbClose.focus();
+        lbC.focus();
     }
 
-    function closeLightbox() {
-        lightbox.classList.remove('open');
+    function lbClose() {
+        lb.classList.remove('open');
         document.body.style.overflow = '';
     }
 
-    function updateLightboxContent(animate = true) {
-        const photo = lightboxList[currentIndex];
-        if (!photo) return;
-
-        if (animate) {
-            lbImg.classList.add('animating');
-            setTimeout(() => {
-                lbImg.src = photo.src;
-                lbImg.alt = photo.alt;
-                lbImg.classList.remove('animating');
-            }, 220);
-        } else {
-            lbImg.src = photo.src;
-            lbImg.alt = photo.alt;
-        }
-
-        lbCaption.querySelector('strong').textContent = photo.caption;
-        lbCaption.querySelector('span').textContent   = photo.location;
-        lbCounter.textContent = `${currentIndex + 1} / ${lightboxList.length}`;
-
-        lbPrev.disabled = currentIndex === 0;
-        lbNext.disabled = currentIndex === lightboxList.length - 1;
+    function lbGo(d) {
+        const v = vis();
+        const next = cur + d;
+        if (next < 0 || next >= v.length) return;
+        cur = next;
+        lbImg.classList.add('switching');
+        setTimeout(() => {
+            lbImg.src = v[cur].querySelector('img').src;
+            lbCap.textContent = v[cur].dataset.caption || '';
+            lbCtr.textContent = `${cur + 1} / ${v.length}`;
+            lbP.disabled = cur === 0;
+            lbN.disabled = cur === v.length - 1;
+            lbImg.classList.remove('switching');
+        }, 160);
     }
 
-    function goTo(index) {
-        if (index < 0 || index >= lightboxList.length) return;
-        currentIndex = index;
-        updateLightboxContent(true);
-    }
-
-    // Ouvrir depuis clic sur item
     items.forEach(item => {
-        item.addEventListener('click', () => {
-            rebuildLightboxList();
-            const visibleItems = items.filter(i => !i.classList.contains('hidden'));
-            const idx = visibleItems.indexOf(item);
-            openLightbox(idx);
-        });
-        // accessibilité clavier
+        item.addEventListener('click', () => lbOpen(vis().indexOf(item)));
         item.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                item.click();
-            }
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }
         });
     });
 
-    lbClose.addEventListener('click', closeLightbox);
-    lbPrev.addEventListener('click', () => goTo(currentIndex - 1));
-    lbNext.addEventListener('click', () => goTo(currentIndex + 1));
+    lbC.addEventListener('click', lbClose);
+    lbP.addEventListener('click', () => lbGo(-1));
+    lbN.addEventListener('click', () => lbGo(1));
+    lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
 
-    // Clic hors image = fermer
-    lightbox.addEventListener('click', e => {
-        if (e.target === lightbox) closeLightbox();
-    });
-
-    // Clavier : flèches + Echap
     document.addEventListener('keydown', e => {
-        if (!lightbox.classList.contains('open')) return;
-        if (e.key === 'Escape')      closeLightbox();
-        if (e.key === 'ArrowLeft')   goTo(currentIndex - 1);
-        if (e.key === 'ArrowRight')  goTo(currentIndex + 1);
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') lbClose();
+        if (e.key === 'ArrowLeft') lbGo(-1);
+        if (e.key === 'ArrowRight') lbGo(1);
     });
 
-    // Swipe mobile
-    let touchStartX = 0;
-    lightbox.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-    lightbox.addEventListener('touchend',   e => {
-        const diff = touchStartX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) goTo(currentIndex + (diff > 0 ? 1 : -1));
+    /* Swipe tactile */
+    let tx = 0;
+    lb.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', e => {
+        const d = tx - e.changedTouches[0].clientX;
+        if (Math.abs(d) > 45) lbGo(d > 0 ? 1 : -1);
     });
 
-    // Init
-    rebuildLightboxList();
-    if (countEl) countEl.textContent = lightboxList.length;
+    /* ── WhatsApp flottant ── */
+    const wa = document.querySelector('.whatsapp-float');
+    window.addEventListener('scroll', () => {
+        wa.style.opacity = window.scrollY > 300 ? '1' : '0';
+        wa.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none';
+    }, { passive: true });
 
-    // ── Année footer ──
-    const yr = document.getElementById('currentYear');
-    if (yr) yr.textContent = new Date().getFullYear();
+    /* ── Back to top ── */
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => { btt.hidden = window.scrollY < 400; }, { passive: true });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     </script>
 </body>
 </html>
