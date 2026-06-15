@@ -30,6 +30,39 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
+            /* ── TOPBAR (identique) ── */
+    .topbar {
+        background: var(--primary);
+        color: rgba(255,255,255,0.85);
+        font-size: 0.78rem;
+        text-align: center;
+        padding: 9px 20px;
+        letter-spacing: 0.3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        height: var(--topbar-h);
+    }
+    .topbar a {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 600;
+        transition: opacity 0.2s;
+    }
+    .topbar a:hover { opacity: 0.8; }
+    .topbar__sep { opacity: 0.3; }
+    @media (max-width: 768px) { .topbar { display: none; } }
+
+    /* ── HEADER décalé sous topbar (comme medical/religieux) ── */
+    .header {
+        top: var(--topbar-h);
+    }
+    @media (max-width: 768px) {
+        .header { top: 0; }
+    }
+
         /* ── HERO CULTUREL ── */
         .hero-culturel {
             position: relative;
